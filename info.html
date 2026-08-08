@@ -11,18 +11,18 @@ body{background:#0f2040;color:#fff;line-height:1.6;padding-top:100px}
 .container{max-width:720px;margin:0 auto;padding:0 16px}
 
 /* === BAGIAN ATAS — MENEMPEL DIAM === */
-.kepala{position:fixed;top:0;left:0;right:0;z-index:9999;background:#0f2040;padding:12px 15px 12px}
+.kepala{position:fixed;top:0;left:0;right:0;z-index:9999;background:#0f2040;padding:12px 15px 18px}
 .kepala .isi-kepala{max-width:720px;margin:0 auto;position:relative}
 
 /* === TOMBOL MENU === */
-.tombol-menu{position:absolute;left:0;top:4px;font-size:1.5em;color:#f8d77c;cursor:pointer;padding:2px 8px;line-height:1;border:1px solid #f8d77c50;border-radius:6px}
+.tombol-menu{position:absolute;left:0;top:4px;font-size:1.5em;color:#f8d77c;cursor:pointer;padding:2px 8px;line-height:1;border:1px solid #f8d77c50;border-radius:6px;width:38px;height:38px;display:flex;align-items:center;justify-content:center}
 
 /* === LOGO === */
-.logo{text-align:center;padding-left:15px}
-.logo h1{font-size:1.1em;color:#f8d77c;letter-spacing:1px;text-transform:uppercase;font-weight:normal;white-space:nowrap}
+.logo{text-align:center;padding-left:45px;padding-right:45px}
+.logo h1{font-size:1.1em;color:#f8d77c;letter-spacing:1px;text-transform:uppercase;font-weight:normal;white-space:nowrap;line-height:38px}
 
-/* === TULISAN TAGLINE === */
-.tagline{text-align:center;font-size:0.9em;color:#e0e0e0;margin:10px 0 8px;padding-left:0}
+/* === TULISAN TAGLINE — JARAK DIPERLEBAR === */
+.tagline{text-align:center;font-size:0.78em;color:#e0e0e0;margin:10px 0 10px;padding-left:0;line-height:1.4}
 
 /* === GARIS PUTIH === */
 .garis-bawah{width:65%;height:1px;background:#ffffff;margin:0 auto}
@@ -35,6 +35,10 @@ body{background:#0f2040;color:#fff;line-height:1.6;padding-top:100px}
 .konten .kotak p{margin-bottom:10px;font-size:0.98em;line-height:1.7}
 .konten .kotak a{color:#74ebd5;text-decoration:none;border-bottom:1px solid #74ebd550}
 .konten .kotak a:hover{color:#f8d77c;border-bottom-color:#f8d77c}
+
+/* === TOMBOL KEMBALI === */
+.tombol-kembali{display:inline-block;background:transparent;color:#f8d77c;border:1px solid #f8d77c70;border-radius:8px;padding:10px 25px;text-decoration:none;margin-top:10px;transition:all 0.2em}
+.tombol-kembali:hover{background:#f8d77c15;border-color:#f8d77c}
 
 /* === MENU SAMPING === */
 .menu-latar{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);z-index:99999;display:none}
@@ -83,9 +87,17 @@ body{background:#0f2040;color:#fff;line-height:1.6;padding-top:100px}
   <h2>ℹ️ INFORMASI TOKO</h2>
 
   <div class="kotak">
+   <h3>💰 KISARAN HARGA</h3>
+   <p><strong>Kategori Standar:</strong><br>
+   Rp 2.500 — Rp 3.500</p>
+   <p style="margin-top:12px"><strong>Kategori Premium:</strong><br>
+   Rp 4.000 — Rp 7.000</p>
+   <p style="margin-top:15px;font-style:italic;opacity:0.9;">Untuk rincian harga per varian dan keterangan lebih lanjut, silakan hubungi kami melalui WhatsApp yang tercantum di halaman utama.</p>
+  </div>
+
+  <div class="kotak">
    <h3>📍 ALAMAT TOKO</h3>
    <p>Jalan Batur Sari<br>
-   (Area Kuliner Batur Sari)<br>
    Denpasar Selatan, Bali<br>
    Kode Pos 80228</p>
    <p><a href="https://maps.app.goo.gl/kvJayiASrCyBQCES6?g_st=awb" target="_blank">👉 Buka di Peta Google Maps</a></p>
@@ -94,14 +106,10 @@ body{background:#0f2040;color:#fff;line-height:1.6;padding-top:100px}
   <div class="kotak">
    <h3>🕐 JAM BUKA</h3>
    <p>Setiap Hari<br>
-   Jam 09.00 Pagi — 22.00 Malam</p>
+   Jam 09.00 — 22.00 WITA</p>
   </div>
 
-  <div class="kotak">
-   <h3>💬 HUBUNGI KAMI</h3>
-   <p>Silakan hubungi melalui WhatsApp untuk pemesanan, konsultasi, dan informasi lainnya.</p>
-   <p><a href="https://wa.me/6289676100177" target="_blank">📞 +62 89 676 100 177</a></p>
-  </div>
+  <a href="index.html" class="tombol-kembali">🏠 Kembali ke Beranda</a>
 
  </div>
 </div>
