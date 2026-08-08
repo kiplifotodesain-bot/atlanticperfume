@@ -159,12 +159,12 @@ body{background:#0f2040;color:#fff;line-height:1.6;padding-top:110px}
    <input type="text" id="nama" placeholder="Tulis nama lengkap Anda...">
   </div>
   <div class="form-grup">
-   <label>2. Alamat Lengkap</label>
-   <input type="text" id="alamat" placeholder="Alamat tempat tinggal — boleh dikosongkan">
+   <label>2. Alamat / Opsional</label>
+   <input type="text" id="alamat" placeholder="Boleh dikosongkan">
   </div>
   <div class="form-grup">
-   <label>3. Rincian Pertanyaan / Pesanan <span style="color:#ffd700">*</span></label>
-   <textarea id="pesan" placeholder="Tuliskan kode produk, jumlah, atau pertanyaan yang ingin Anda tanyakan..."></textarea>
+   <label>3. Rincian Pesanan <span style="color:#ffd700">*</span></label>
+   <textarea id="pesan" placeholder="Tuliskan kode produk, jumlah, atau pertanyaan..."></textarea>
   </div>
   <button class="tombol-kirim" onclick="kirimPesan()">📲 KIRIM PESAN KE WHATSAPP</button>
  </div>
@@ -183,7 +183,7 @@ function kirimPesan(){
   return
  }
  if(!pesan){
-  alert('Kolom Rincian Pertanyaan wajib diisi. Silakan tulis pesan atau pertanyaan Anda.')
+  alert('Kolom Rincian Pesanan wajib diisi. Silakan tulis pesan atau pertanyaan Anda.')
   return
  }
 
