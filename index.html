@@ -28,7 +28,7 @@ body{background:#0f2040;color:#fff;line-height:1.6;padding-top:110px}
 .garis-bawah{width:65%;height:1px;background:#ffffff;margin:0 auto}
 
 /* === JUDUL HALAMAN === */
-.judul-halaman{text-align:center;font-size:1.25em;color:#f8d77c;margin:25px 0 15px;padding-bottom:8px;border-bottom:1px solid #ffffff30;display:flex;align-items:center;justify-content:center;gap:8px}
+.judul-halaman{text-align:center;font-size:1.25em;color:#f8d77c;margin:25px 0 15px;padding-bottom:8px;border-bottom:1px solid #ffffff30}
 
 /* === KATALOG PRODUK TERLARIS === */
 .produk-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0 40px}
@@ -38,14 +38,14 @@ body{background:#0f2040;color:#fff;line-height:1.6;padding-top:110px}
 .produk-nama{font-size:0.88em;margin-bottom:4px;color:#fff;line-height:1.3}
 .produk-desc{font-size:0.78em;color:#ccc;line-height:1.4}
 
-/* === FORMULIR PESAN — DIPERJELAS & SERAGAM === */
-.form-kotak{background:rgba(255,255,255,0.08);border-radius:12px;padding:25px 20px;margin-bottom:40px;border:1px solid #ffffff15}
+/* === TABEL PEMESANAN — DENGAN GARIS LINGKAR === */
+.form-kotak{background:rgba(255,255,255,0.08);border-radius:12px;padding:25px 20px;margin-bottom:40px;border:2px solid #f8d77c70}
 .form-grup{margin-bottom:18px}
 .form-grup label{display:block;color:#f8d77c;margin-bottom:8px;font-size:0.98em}
 .form-grup input,
-.form-grup textarea{width:100%;padding:12px 14px;background:rgba(255,255,255,0.1);border:1px solid #ffffff25;border-radius:8px;color:#fff;font-size:0.95em;outline:none;transition:border 0.2s}
+.form-grup textarea{width:100%;padding:12px 14px;background:rgba(255,255,255,0.1);border:1px solid #ffffff30;border-radius:8px;color:#fff;font-size:0.95em;outline:none;transition:border 0.2s}
 .form-grup input:focus,
-.form-grup textarea:focus{border-color:#f8d77c70}
+.form-grup textarea:focus{border-color:#f8d77c}
 .form-grup textarea{min-height:100px;resize:none}
 .form-grup input::placeholder,
 .form-grup textarea::placeholder{color:#9ca3af;opacity:0.8}
@@ -108,7 +108,6 @@ body{background:#0f2040;color:#fff;line-height:1.6;padding-top:110px}
  <h2 class="judul-halaman">🔥 VARIAN TERLARIS</h2>
  <div class="produk-grid">
 
-  <!-- KELOMPOK 1 — SEGAR -->
   <a href="kelompok1.html" class="produk-card">
    <div class="produk-kode">A 0101</div>
    <div class="produk-nama">Acqua Di Parma</div>
@@ -119,8 +118,6 @@ body{background:#0f2040;color:#fff;line-height:1.6;padding-top:110px}
    <div class="produk-nama">BVLGARI Pour Homme</div>
    <div class="produk-desc">Jeruk, kayu, herbal, bersih halus</div>
   </a>
-
-  <!-- KELOMPOK 2 — BUNGA -->
   <a href="kelompok2.html" class="produk-card">
    <div class="produk-kode">A 0305</div>
    <div class="produk-nama">Kenzo Flower</div>
@@ -131,8 +128,6 @@ body{background:#0f2040;color:#fff;line-height:1.6;padding-top:110px}
    <div class="produk-nama">Gucci Bloom</div>
    <div class="produk-desc">Melati, bunga putih, memikat</div>
   </a>
-
-  <!-- KELOMPOK 3 — KAYU -->
   <a href="kelompok3.html" class="produk-card">
    <div class="produk-kode">A 0501</div>
    <div class="produk-nama">Paco Rabanne 1 Million</div>
@@ -143,8 +138,6 @@ body{background:#0f2040;color:#fff;line-height:1.6;padding-top:110px}
    <div class="produk-nama">Chanel Bleu de Chanel</div>
    <div class="produk-desc">Kayu cendana, jeruk, berkelas</div>
   </a>
-
-  <!-- KELOMPOK 4 — MANIS -->
   <a href="kelompok4.html" class="produk-card">
    <div class="produk-kode">A 0404</div>
    <div class="produk-nama">Dior Hypnotic Poison</div>
@@ -158,20 +151,20 @@ body{background:#0f2040;color:#fff;line-height:1.6;padding-top:110px}
 
  </div>
 
- <!-- FORMULIR PESAN — DIPERJELAS & SERAGAM -->
- <h2 class="judul-halaman">📝 Pesan / Tanya Produk</h2>
+ <!-- TABEL PEMESANAN DENGAN GARIS LINGKAR -->
+ <h2 class="judul-halaman">📝 PEMESANAN PRODUK</h2>
  <div class="form-kotak">
   <div class="form-grup">
-   <label>Nama Kamu <span style="color:#ffd700">*</span>:</label>
-   <input type="text" id="nama" placeholder="Tulis namamu...">
+   <label>1. Nama Lengkap <span style="color:#ffd700">*</span></label>
+   <input type="text" id="nama" placeholder="Tulis nama lengkap Anda...">
   </div>
   <div class="form-grup">
-   <label>Kode Produk:</label>
-   <input type="text" id="kode" placeholder="Contoh: A 0101 — boleh dikosongkan">
+   <label>2. Alamat Lengkap</label>
+   <input type="text" id="alamat" placeholder="Alamat tempat tinggal — boleh dikosongkan">
   </div>
   <div class="form-grup">
-   <label>Pesan / Pertanyaan <span style="color:#ffd700">*</span>:</label>
-   <textarea id="pesan" placeholder="Tulis pesanmu di sini..."></textarea>
+   <label>3. Rincian Pertanyaan / Pesanan <span style="color:#ffd700">*</span></label>
+   <textarea id="pesan" placeholder="Tuliskan kode produk, jumlah, atau pertanyaan yang ingin Anda tanyakan..."></textarea>
   </div>
   <button class="tombol-kirim" onclick="kirimPesan()">📲 KIRIM PESAN KE WHATSAPP</button>
  </div>
@@ -179,25 +172,30 @@ body{background:#0f2040;color:#fff;line-height:1.6;padding-top:110px}
 </div>
 
 <script>
-// === KIRIM PESAN KE WHATSAPP ===
 function kirimPesan(){
  const nama = document.getElementById('nama').value.trim()
- const kode = document.getElementById('kode').value.trim()
+ const alamat = document.getElementById('alamat').value.trim()
  const pesan = document.getElementById('pesan').value.trim()
 
- if(!nama){alert('Silakan tulis namamu terlebih dahulu.');return}
- if(!pesan){alert('Silakan tulis pesan atau pertanyaan Anda.');return}
+ // === PERINGATAN WAJIB DIISI ===
+ if(!nama){
+  alert('Kolom Nama Lengkap wajib diisi. Silakan lengkapi terlebih dahulu.')
+  return
+ }
+ if(!pesan){
+  alert('Kolom Rincian Pertanyaan wajib diisi. Silakan tulis pesan atau pertanyaan Anda.')
+  return
+ }
 
- let teks = 'Halo Atlantic Perfume!%0A%0A'
+ // === SUSUN PESAN ===
+ let teks = 'Halo, saya ingin memesan produk berikut:%0A%0A'
  teks += 'Nama: ' + nama + '%0A'
- if(kode) teks += 'Kode Produk: ' + kode + '%0A'
- teks += 'Pesan: ' + pesan + '%0A'
- teks += '%0A—%0ASaya ingin menanyakan produk di atas.'
+ if(alamat) teks += 'Alamat: ' + alamat + '%0A'
+ teks += 'Pesanan/Pertanyaan:%0A' + pesan
 
  window.open('https://wa.me/6289676100177?text=' + encodeURIComponent(teks), '_blank')
 }
 
-// === FUNGSI MENU ===
 function bukaMenu(){
  document.getElementById('menuKotak').classList.add('buka')
  document.getElementById('menuLatar').classList.add('buka')
@@ -211,5 +209,4 @@ function tutupMenu(){
 </script>
 
 </body>
-  </html>
-  
+</html>
