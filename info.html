@@ -3,49 +3,39 @@
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>ATLANTIC PERFUME — Beranda</title>
+ <title>INFO TOKO | ATLANTIC PERFUME</title>
  <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Georgia',serif}
 html,body{height:100%}
-body{background:#0f2040;color:#fff;line-height:1.6;padding-top:115px}
+body{background:#0f2040;color:#fff;line-height:1.6;padding-top:110px}
 .container{max-width:720px;margin:0 auto;padding:0 16px}
 
-/* === BAGIAN ATAS — TETAP DIAM SAAT DIGULIR === */
-.kepala{position:fixed;top:0;left:0;right:0;z-index:9999;background:#0f2040;padding:15px 15px 12px}
+/* === BAGIAN ATAS === */
+.kepala{position:fixed;top:0;left:0;right:0;z-index:9999;background:#0f2040;padding:12px 15px 20px}
 .kepala .isi-kepala{max-width:720px;margin:0 auto;position:relative}
 
 /* === TOMBOL MENU === */
-.tombol-menu{position:absolute;left:0;top:6px;font-size:1.5em;color:#f8d77c;cursor:pointer;padding:2px 8px;line-height:1;border:1px solid #f8d77c50;border-radius:6px}
+.tombol-menu{position:absolute;left:0;top:4px;font-size:1.5em;color:#f8d77c;cursor:pointer;padding:2px 8px;line-height:1;border:1px solid #f8d77c50;border-radius:6px;width:38px;height:38px;display:flex;align-items:center;justify-content:center}
 
-/* === LOGO & JUDUL === */
-.logo{text-align:center;padding-left:15px}
-.logo h1{font-size:1.45em;color:#f8d77c;letter-spacing:2px;text-transform:uppercase;font-weight:normal;white-space:nowrap}
+/* === LOGO === */
+.logo{text-align:center;padding-left:45px;padding-right:45px}
+.logo h1{font-size:1.1em;color:#f8d77c;letter-spacing:1px;text-transform:uppercase;font-weight:normal;white-space:nowrap;line-height:38px}
 
-/* === KUTIPAN TAGLINE === */
-.tagline{text-align:center;font-size:0.95em;color:#e0e0e0;margin:12px 0 10px;padding-left:0}
+/* === TULISAN & GARIS === */
+.tagline{text-align:center;font-size:0.78em;color:#e0e0e0;margin:10px 0 10px;line-height:1.4}
+.garis-bawah{width:65%;height:1px;background:#ffffff;margin:0 auto}
 
-/* === GARIS BAWAH === */
-.garis-bawah{width:65%;height:2px;background:#f8d77c;margin:0 auto}
+/* === ISI KONTEN === */
+.konten{padding:10px 0 50px;text-align:center}
+.konten h2{color:#f8d77c;margin-bottom:20px;font-size:1.4em}
 
-/* === JUDUL HALAMAN === */
-.judul-halaman{text-align:center;font-size:1.25em;color:#f8d77c;margin:15px 0;padding-bottom:8px;border-bottom:1px solid #f8d77c40}
+.kotak{background:#ffffff0f;border-radius:10px;padding:20px;margin-bottom:15px;border:1px solid #ffffff1a}
+.kotak h3{color:#f8d77c;margin-bottom:12px;font-size:1.05em}
+.kotak p{margin-bottom:8px;font-size:0.95em;line-height:1.7}
+.kotak a{color:#74ebd5;text-decoration:none;border-bottom:1px solid #74ebd550}
 
-/* === KATALOG 8 KOTAK === */
-.produk-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0 40px}
-.produk-card{background:rgba(255,255,255,0.08);border-radius:10px;padding:15px 10px;text-align:center;transition:0.25s;cursor:pointer;text-decoration:none;color:inherit}
-.produk-card:hover{background:rgba(255,255,255,0.15);transform:translateY(-3px)}
-.produk-kode{font-weight:bold;color:#f8d77c;font-size:0.95em;margin-bottom:6px}
-.produk-nama{font-size:0.88em;margin-bottom:4px;color:#fff;line-height:1.3}
-.produk-desc{font-size:0.78em;color:#ccc;line-height:1.4}
-
-/* === FORMULIR PESAN === */
-.form-box{background:rgba(255,255,255,0.08);border-radius:12px;padding:20px;margin-bottom:40px;border:1px solid #f8d77c30}
-.form-box label{display:block;margin:10px 0 4px;color:#f8d77c;font-size:0.95em}
-.form-box input,.form-box textarea{width:100%;padding:10px;border:none;border-radius:6px;background:rgba(255,255,255,0.1);color:#fff;font-size:0.95em;border-bottom:1px solid #f8d77c50}
-.form-box input:focus,.form-box textarea:focus{outline:none;border-bottom-color:#f8d77c}
-.form-box button{margin-top:15px;padding:10px 25px;background:#666666;color:#e0e0e0;border:none;border-radius:6px;font-weight:normal;cursor:pointer;font-size:1em;width:100%;transition:all 0.2s}
-.form-box button:disabled{background:#444444;color:#777;cursor:not-allowed}
-.form-box button:not(:disabled):hover{background:#555555;color:#fff}
+/* === TOMBOL KEMBALI — DIPASTIKAN MUNCUL === */
+.tombol-kembali{display:block;width:80%;max-width:300px;margin:25px auto 0 auto;background:transparent;color:#f8d77c;border:1px solid #f8d77c;border-radius:8px;padding:12px 20px;text-decoration:none;font-size:0.95em;text-align:center}
 
 /* === MENU SAMPING === */
 .menu-latar{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);z-index:99999;display:none}
@@ -54,37 +44,29 @@ body{background:#0f2040;color:#fff;line-height:1.6;padding-top:115px}
 .menu-kotak.buka{transform:translateX(0)}
 .menu-tutup{text-align:right;color:#f8d77c;font-size:1.5em;cursor:pointer;margin-bottom:20px}
 .menu-judul{color:#f8d77c;font-size:1.1em;margin-bottom:15px;padding-bottom:10px;border-bottom:1px solid #f8d77c30}
-.menu-item{display:block;color:#fff;text-decoration:none;padding:10px 12px;margin-bottom:5px;border-radius:6px;transition:all 0.2s}
+.menu-item{display:block;color:#fff;text-decoration:none;padding:10px 12px;margin-bottom:5px;border-radius:6px}
 .menu-item:hover{background:#f8d77c15;color:#f8d77c}
 .menu-item.aktif{background:#f8d77c25;color:#f8d77c;font-weight:bold}
-
-/* === DI HP JADI 2 KOLOM === */
-@media(max-width:600px){
- .produk-grid{grid-template-columns:repeat(2,1fr)}
-}
  </style>
 </head>
 <body>
 
-<!-- LATAR BELAKANG MENU -->
 <div class="menu-latar" id="menuLatar" onclick="tutupMenu()"></div>
-
-<!-- KOTAK MENU DARI KIRI -->
 <div class="menu-kotak" id="menuKotak">
  <div class="menu-tutup" onclick="tutupMenu()">✕</div>
  <div class="menu-judul">DAFTAR VARIAN</div>
- <a href="index.html" class="menu-item aktif">🏠 BERANDA</a>
+ <a href="index.html" class="menu-item">🏠 BERANDA</a>
  <a href="kelompok1.html" class="menu-item">🍊 SEGAR — Sitrus</a>
  <a href="kelompok2.html" class="menu-item">🌸 BUNGA — Elegan</a>
  <a href="kelompok3.html" class="menu-item">🪵 KAYU — Mewah</a>
  <a href="kelompok4.html" class="menu-item">🍬 MANIS — Legenda</a>
  <a href="kelompok5.html" class="menu-item">🌶️ REMPAH — Kuat</a>
  <a href="kelompok6.html" class="menu-item">🌊 SEGAR — Laut</a>
- <a href="kelompok7.html" class="menu-item">🔥 VARIAN TERLARIS</a>
- <a href="info.html" class="menu-item">ℹ️ INFO TOKO</a>
+ <a href="kelompok7.html" class="menu-item">🔥 TERLARIS</a>
+ <a href="info.html" class="menu-item aktif">ℹ️ INFO TOKO</a>
 </div>
 
-<!-- BAGIAN ATAS — TETAP DIAM -->
+<!-- BAGIAN ATAS -->
 <div class="kepala">
  <div class="isi-kepala">
   <span class="tombol-menu" onclick="bukaMenu()">☰</span>
@@ -98,119 +80,37 @@ body{background:#0f2040;color:#fff;line-height:1.6;padding-top:115px}
 
 <!-- ISI HALAMAN -->
 <div class="container">
- <h2 class="judul-halaman">VARIAN TERLARIS</h2>
- <div class="produk-grid">
+ <div class="konten">
+  <h2>ℹ️ INFORMASI TOKO</h2>
 
-  <!-- KELOMPOK 1 — SEGAR -->
-  <a href="kelompok1.html" class="produk-card">
-   <div class="produk-kode">A 0101</div>
-   <div class="produk-nama">Acqua Di Parma</div>
-   <div class="produk-desc">Bergamot, jeruk, segar elegan</div>
-  </a>
-  <a href="kelompok1.html" class="produk-card">
-   <div class="produk-kode">A 0102</div>
-   <div class="produk-nama">BVLGARI Pour Homme</div>
-   <div class="produk-desc">Jeruk, kayu, herbal, bersih halus</div>
-  </a>
+  <div class="kotak">
+   <h3>💰 KISARAN HARGA</h3>
+   <p><strong>Kategori Standar:</strong><br>
+   Rp 2.500 — Rp 3.500</p>
+   <p style="margin-top:12px"><strong>Kategori Premium:</strong><br>
+   Rp 4.000 — Rp 7.000</p>
+   <p style="margin-top:15px;opacity:0.9;">Untuk rincian harga per varian dan informasi lengkap, silakan hubungi kami melalui WhatsApp yang tercantum di halaman utama.</p>
+  </div>
 
-  <!-- KELOMPOK 2 — BUNGA -->
-  <a href="kelompok2.html" class="produk-card">
-   <div class="produk-kode">A 0305</div>
-   <div class="produk-nama">Kenzo Flower</div>
-   <div class="produk-desc">Poppy, mawar, vanila, unik lembut</div>
-  </a>
-  <a href="kelompok2.html" class="produk-card">
-   <div class="produk-kode">B 0302</div>
-   <div class="produk-nama">Gucci Bloom</div>
-   <div class="produk-desc">Melati, bunga putih, memikat</div>
-  </a>
+  <div class="kotak">
+   <h3>📍 ALAMAT TOKO</h3>
+   <p>Jalan Batur Sari<br>
+   Denpasar Selatan, Bali — 80228</p>
+   <p style="margin-top:8px"><a href="https://maps.app.goo.gl/kvJayiASrCyBQCES6?g_st=awb" target="_blank">👉 Buka di Google Maps</a></p>
+  </div>
 
-  <!-- KELOMPOK 3 — KAYU -->
-  <a href="kelompok3.html" class="produk-card">
-   <div class="produk-kode">A 0501</div>
-   <div class="produk-nama">Paco Rabanne 1 Million</div>
-   <div class="produk-desc">Kayu manis, mewah berkilau</div>
-  </a>
-  <a href="kelompok3.html" class="produk-card">
-   <div class="produk-kode">A 0502</div>
-   <div class="produk-nama">Chanel Bleu de Chanel</div>
-   <div class="produk-desc">Kayu cendana, jeruk, berkelas</div>
-  </a>
+  <div class="kotak">
+   <h3>🕐 JAM BUKA</h3>
+   <p>Setiap Hari<br>
+   Jam 09.00 s.d. 22.00 WITA</p>
+  </div>
 
-  <!-- KELOMPOK 4 — MANIS -->
-  <a href="kelompok4.html" class="produk-card">
-   <div class="produk-kode">A 0404</div>
-   <div class="produk-nama">Dior Hypnotic Poison</div>
-   <div class="produk-desc">Vanila, almond, melati, memikat</div>
-  </a>
-  <a href="kelompok4.html" class="produk-card">
-   <div class="produk-kode">A 0405</div>
-   <div class="produk-nama">Guerlain Shalimar</div>
-   <div class="produk-desc">Vanila, jeruk, rempah, legenda</div>
-  </a>
+  <a href="index.html" class="tombol-kembali">🏠 Kembali ke Beranda</a>
 
  </div>
-
- <h2 class="judul-halaman">📝 Pesan / Tanya Produk</h2>
- <div class="form-box">
-  <form id="formPesan" onsubmit="kirimPesan(event)">
-   <label>Nama Anda <span style="color:#ff6b6b">*</span></label>
-   <input type="text" id="nama" required placeholder="Wajib diisi...">
-
-   <label style="color:#f8d77c">Alamat Tempat Tinggal</label>
-   <input type="text" id="alamat" placeholder="Boleh dikosongkan...">
-
-   <label>Produk atau Pertanyaan <span style="color:#ff6b6b">*</span></label>
-   <textarea id="pesan" rows="3" required placeholder="Wajib diisi... Tulis produk atau tanya seputar parfum"></textarea>
-
-   <button type="submit" id="tombolKirim" disabled>KIRIM PESAN</button>
-  </form>
- </div>
-
 </div>
 
 <script>
-// === VALIDASI FORMULIR — Kolom 1 & 3 Wajib Diisi ===
-const namaInput = document.getElementById('nama')
-const pesanInput = document.getElementById('pesan')
-const tombolKirim = document.getElementById('tombolKirim')
-
-function cekFormulir(){
- const namaKosong = namaInput.value.trim() === ''
- const pesanKosong = pesanInput.value.trim() === ''
- tombolKirim.disabled = namaKosong || pesanKosong
-}
-
-namaInput.addEventListener('input', cekFormulir)
-pesanInput.addEventListener('input', cekFormulir)
-
-// === KIRIM PESAN KE WHATSAPP ===
-function kirimPesan(e){
- e.preventDefault()
- const nama = namaInput.value.trim()
- const alamat = document.getElementById('alamat').value.trim()
- const pesan = pesanInput.value.trim()
-
- if(!nama){
-  alert('⚠️ Kolom "Nama Anda" WAJIB DIISI!')
-  namaInput.focus()
-  return
- }
- if(!pesan){
-  alert('⚠️ Kolom "Produk atau Pertanyaan" WAJIB DIISI!')
-  pesanInput.focus()
-  return
- }
-
- let teks = `Halo Atlantic Perfume!%0A%0ANama: ${nama}`
- if(alamat) teks += `%0AAlamat: ${alamat}`
- teks += `%0A%0APesan:%0A${pesan}`
- teks += `%0A%0A— Terima Kasih —`
-
- window.open(`https://wa.me/6289676100177?text=${teks}`,'_blank')
-}
-
-// === FUNGSI MENU ===
 function bukaMenu(){
  document.getElementById('menuKotak').classList.add('buka')
  document.getElementById('menuLatar').classList.add('buka')
@@ -224,5 +124,4 @@ function tutupMenu(){
 </script>
 
 </body>
- </html>
- 
+</html>
