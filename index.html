@@ -10,7 +10,7 @@ html,body{height:100%}
 body{background:#0f2040;color:#fff;line-height:1.6;padding-top:110px}
 .container{max-width:720px;margin:0 auto;padding:0 16px}
 
-/* === BAGIAN ATAS — TETAP DIAM SAAT DIGULIR === */
+/* === BAGIAN ATAS — TETAP DIAM === */
 .kepala{position:fixed;top:0;left:0;right:0;z-index:9999;background:#0f2040;padding:12px 15px 18px}
 .kepala .isi-kepala{max-width:720px;margin:0 auto;position:relative}
 
@@ -30,31 +30,31 @@ body{background:#0f2040;color:#fff;line-height:1.6;padding-top:110px}
 /* === JUDUL HALAMAN === */
 .judul-halaman{text-align:center;font-size:1.25em;color:#f8d77c;margin:25px 0 15px;padding-bottom:8px;border-bottom:1px solid #ffffff30;display:flex;align-items:center;justify-content:center;gap:8px}
 
-/* === KATALOG PRODUK TERLARIS === */
+/* === KATALOG PRODUK — LATAR DIPERGELAP, TULISAN DIPERKECIL === */
 .produk-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0 40px}
-.produk-card{background:rgba(255,255,255,0.08);border-radius:10px;padding:15px 10px;text-align:center;transition:0.25s;cursor:pointer;text-decoration:none;color:inherit;border:1px solid #ffffff15}
-.produk-card:hover{background:rgba(255,255,255,0.15);transform:translateY(-3px)}
-.produk-kode{font-weight:bold;color:#f8d77c;font-size:0.95em;margin-bottom:6px}
-.produk-nama{font-size:0.88em;margin-bottom:4px;color:#fff;line-height:1.3}
-.produk-desc{font-size:0.78em;color:#ccc;line-height:1.4}
+.produk-card{background:rgba(0,0,0,0.55);border-radius:10px;padding:12px 8px;text-align:center;transition:0.25s;cursor:pointer;text-decoration:none;color:inherit;border:1px solid #ffffff20}
+.produk-card:hover{background:rgba(0,0,0,0.7);transform:translateY(-2px)}
+.produk-kode{font-weight:bold;color:#f8d77c;font-size:0.88em;margin-bottom:4px}
+.produk-nama{font-size:0.80em;margin-bottom:3px;color:#fff;line-height:1.3}
+.produk-desc{font-size:0.72em;color:#ddd;line-height:1.3}
 
-/* === FORMULIR PESAN — DIPERJELAS & SERAGAM === */
-.form-kotak{background:rgba(255,255,255,0.08);border-radius:12px;padding:25px 20px;margin-bottom:40px;border:1px solid #ffffff15}
-.form-grup{margin-bottom:18px}
-.form-grup label{display:block;color:#f8d77c;margin-bottom:8px;font-size:0.98em}
+/* === FORMULIR PESAN — LATAR DIPERGELAP, TULISAN JELAS === */
+.form-kotak{background:rgba(0,0,0,0.55);border-radius:12px;padding:20px 16px;margin-bottom:40px;border:1px solid #ffffff20}
+.form-grup{margin-bottom:15px}
+.form-grup label{display:block;color:#f8d77c;margin-bottom:6px;font-size:0.94em}
 .form-grup input,
-.form-grup textarea{width:100%;padding:12px 14px;background:rgba(255,255,255,0.1);border:1px solid #ffffff25;border-radius:8px;color:#fff;font-size:0.95em;outline:none;transition:border 0.2s}
+.form-grup textarea{width:100%;padding:10px 12px;background:rgba(0,0,0,0.4);border:1px solid #ffffff30;border-radius:8px;color:#fff;font-size:0.92em;outline:none;transition:border 0.2s}
 .form-grup input:focus,
-.form-grup textarea:focus{border-color:#f8d77c70}
-.form-grup textarea{min-height:100px;resize:none}
+.form-grup textarea:focus{border-color:#f8d77c80}
+.form-grup textarea{min-height:90px;resize:none}
 .form-grup input::placeholder,
-.form-grup textarea::placeholder{color:#9ca3af;opacity:0.8}
+.form-grup textarea::placeholder{color:#a0a0a0;opacity:0.9}
 
-.tombol-kirim{width:100%;background:#25d366;color:#fff;border:none;padding:14px;border-radius:8px;font-size:1.05em;font-weight:bold;cursor:pointer;transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:8px}
+.tombol-kirim{width:100%;background:#25d366;color:#fff;border:none;padding:12px;border-radius:8px;font-size:1em;font-weight:bold;cursor:pointer;transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:6px}
 .tombol-kirim:hover{background:#1fb855}
 
 /* === MENU SAMPING === */
-.menu-latar{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);z-index:99999;display:none}
+.menu-latar{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.75);z-index:99999;display:none}
 .menu-latar.buka{display:block}
 .menu-kotak{position:fixed;top:0;left:0;width:260px;height:100%;background:#152238;z-index:100000;padding:20px;border-right:1px solid #f8d77c40;transform:translateX(-100%);transition:transform 0.3s ease}
 .menu-kotak.buka{transform:translateX(0)}
@@ -72,10 +72,7 @@ body{background:#0f2040;color:#fff;line-height:1.6;padding-top:110px}
 </head>
 <body>
 
-<!-- LATAR BELAKANG MENU -->
 <div class="menu-latar" id="menuLatar" onclick="tutupMenu()"></div>
-
-<!-- KOTAK MENU DARI KIRI -->
 <div class="menu-kotak" id="menuKotak">
  <div class="menu-tutup" onclick="tutupMenu()">✕</div>
  <div class="menu-judul">DAFTAR VARIAN</div>
@@ -90,7 +87,6 @@ body{background:#0f2040;color:#fff;line-height:1.6;padding-top:110px}
  <a href="info.html" class="menu-item">ℹ️ INFO TOKO</a>
 </div>
 
-<!-- BAGIAN ATAS — TETAP DIAM -->
 <div class="kepala">
  <div class="isi-kepala">
   <span class="tombol-menu" onclick="bukaMenu()">☰</span>
@@ -102,13 +98,11 @@ body{background:#0f2040;color:#fff;line-height:1.6;padding-top:110px}
  </div>
 </div>
 
-<!-- ISI HALAMAN -->
 <div class="container">
 
  <h2 class="judul-halaman">🔥 VARIAN TERLARIS</h2>
  <div class="produk-grid">
 
-  <!-- KELOMPOK 1 — SEGAR -->
   <a href="kelompok1.html" class="produk-card">
    <div class="produk-kode">A 0101</div>
    <div class="produk-nama">Acqua Di Parma</div>
@@ -119,8 +113,6 @@ body{background:#0f2040;color:#fff;line-height:1.6;padding-top:110px}
    <div class="produk-nama">BVLGARI Pour Homme</div>
    <div class="produk-desc">Jeruk, kayu, herbal, bersih halus</div>
   </a>
-
-  <!-- KELOMPOK 2 — BUNGA -->
   <a href="kelompok2.html" class="produk-card">
    <div class="produk-kode">A 0305</div>
    <div class="produk-nama">Kenzo Flower</div>
@@ -131,8 +123,6 @@ body{background:#0f2040;color:#fff;line-height:1.6;padding-top:110px}
    <div class="produk-nama">Gucci Bloom</div>
    <div class="produk-desc">Melati, bunga putih, memikat</div>
   </a>
-
-  <!-- KELOMPOK 3 — KAYU -->
   <a href="kelompok3.html" class="produk-card">
    <div class="produk-kode">A 0501</div>
    <div class="produk-nama">Paco Rabanne 1 Million</div>
@@ -143,8 +133,6 @@ body{background:#0f2040;color:#fff;line-height:1.6;padding-top:110px}
    <div class="produk-nama">Chanel Bleu de Chanel</div>
    <div class="produk-desc">Kayu cendana, jeruk, berkelas</div>
   </a>
-
-  <!-- KELOMPOK 4 — MANIS -->
   <a href="kelompok4.html" class="produk-card">
    <div class="produk-kode">A 0404</div>
    <div class="produk-nama">Dior Hypnotic Poison</div>
@@ -158,7 +146,6 @@ body{background:#0f2040;color:#fff;line-height:1.6;padding-top:110px}
 
  </div>
 
- <!-- FORMULIR PESAN — DIPERJELAS & SERAGAM -->
  <h2 class="judul-halaman">📝 Pesan / Tanya Produk</h2>
  <div class="form-kotak">
   <div class="form-grup">
@@ -179,7 +166,6 @@ body{background:#0f2040;color:#fff;line-height:1.6;padding-top:110px}
 </div>
 
 <script>
-// === KIRIM PESAN KE WHATSAPP ===
 function kirimPesan(){
  const nama = document.getElementById('nama').value.trim()
  const kode = document.getElementById('kode').value.trim()
@@ -197,7 +183,6 @@ function kirimPesan(){
  window.open('https://wa.me/6289676100177?text=' + encodeURIComponent(teks), '_blank')
 }
 
-// === FUNGSI MENU ===
 function bukaMenu(){
  document.getElementById('menuKotak').classList.add('buka')
  document.getElementById('menuLatar').classList.add('buka')
@@ -211,5 +196,5 @@ function tutupMenu(){
 </script>
 
 </body>
- </html>
- 
+                                                          </html>
+   
