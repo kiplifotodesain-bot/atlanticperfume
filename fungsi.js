@@ -36,7 +36,7 @@ function tutupForm(){
 function tambahKeKeranjang(nama, harga){
   keranjang.push({nama, harga});
   perbaruiJumlah();
-  alert(`✅ Ditambahkan:\n${nama}`);
+  alert(`✅ Anda menambahkan item:\n${nama}\n\nTekan Oke jika setuju.`);
 }
 
 // Hapus 1 Barang
@@ -126,5 +126,4 @@ function kirimKeWhatsApp(){
 
   const url = `https://wa.me/${NOMOR_WA}?text=${encodeURIComponent(pesan)}`;
   window.open(url, '_blank');
-    }
-    
+}
