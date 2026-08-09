@@ -1,5 +1,8 @@
-// === DATA PRODUK ATLANTIC PERFUME — 139 VARIAN ===
-// HARGA 10 ML — SATUAN RUPIAH
+// ==========================================
+//   📦 DATA PRODUK ATLANTIC PERFUME
+//   Total: 139 Varian | Harga 10 ml dalam Rupiah
+// ==========================================
+
 const dataProduk = {
  kelompok1: {
   judul: "🍊 SEGAR — Sitrus",
@@ -122,3 +125,4 @@ const dataProduk = {
   ]
  }
 };
+  
