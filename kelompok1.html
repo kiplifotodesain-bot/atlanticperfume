@@ -15,8 +15,9 @@
  .menu-tutup{text-align:right;padding:15px 20px;font-size:22px;cursor:pointer;color:#333}
  .menu-judul{padding:10px 20px;font-weight:bold;color:#0f2040;border-bottom:1px solid #eee}
  .menu-item{display:block;padding:12px 20px;color:#333;border-bottom:1px solid #f5f5f5}
- .menu-item:hover{background:#f0f4ff}
- .menu-item.aktif{background:#e6f0ff;color:#0f2040;font-weight:bold}
+ .menu-item:hover{background:#fff8e1}
+ /* ✅ WARNA KEEMASAN UNTUK MENU YANG SEDANG DIBUKA */
+ .menu-item.aktif{background:linear-gradient(90deg, #ffd700, #ffb300);color:#000;font-weight:bold}
 
  /* === TABEL === */
  table{width:100%;border-collapse:collapse;background:#ffffff08;border-radius:8px;overflow:hidden}
@@ -28,11 +29,12 @@
 </head>
 <body>
 
-<!-- ✅ KEPALA -->
+<!-- ✅ KEPALA + KERANJANG DIPERJELAS -->
 <div style="position:fixed;top:0;left:0;right:0;background:#0f2040;padding:14px 15px;z-index:998;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ffffff22">
- <span onclick="bukaMenu()" style="font-size:22px;cursor:pointer">☰</span>
+ <span onclick="bukaMenu()" style="font-size:24px;cursor:pointer;color:#ffd700">☰</span>
  <h1 style="font-size:18px">ATLANTIC PERFUME</h1>
- <span onclick="bukaKeranjang()" style="font-size:20px;cursor:pointer;position:relative">🛒<span id="jumlahItem" style="position:absolute;top:-8px;right:-8px;background:red;color:#fff;font-size:11px;font-weight:bold;min-width:18px;height:18px;display:flex;align-items:center;justify-content:center;border-radius:5px">0</span></span>
+ <!-- ✅ LOGO KERANJANG DIPERBESAR + WARNA EMAS + BAYANGAN AGAR JELAS -->
+ <span onclick="bukaKeranjang()" style="font-size:26px;cursor:pointer;position:relative;color:#ffd700;text-shadow:0 0 4px #000">🛒<span id="jumlahItem" style="position:absolute;top:-10px;right:-10px;background:linear-gradient(180deg,#ff4444,#cc0000);color:#fff;font-size:12px;font-weight:bold;min-width:20px;height:20px;display:flex;align-items:center;justify-content:center;border-radius:5px;border:1px solid #fff;box-shadow:0 0 3px #000">0</span></span>
 </div>
 
 <!-- ✅ MENU -->
@@ -51,7 +53,7 @@
  <a href="info.html" class="menu-item">ℹ️ INFO TOKO</a>
 </div>
 
-<!-- ✅ KERANJANG -->
+<!-- ✅ KERANJANG POPUP -->
 <div id="latarKeranjang" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:999;align-items:center;justify-content:center" onclick="if(event.target===this)tutupKeranjang()">
  <div style="background:#fff;color:#000;padding:20px;border-radius:10px;width:92%;max-width:500px;max-height:90vh;overflow-y:auto">
   <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ccc;padding-bottom:10px;margin-bottom:15px">
@@ -90,24 +92,12 @@
 <div style="max-width:720px;margin:0 auto;padding:20px 16px">
  <h2 id="namaKelompok" style="text-align:center;margin:10px 0 20px;font-size:20px"></h2>
  <table>
-  <thead>
-   <tr>
-    <th>Nama Parfum</th>
-    <th>Aroma</th>
-    <th>Harga</th>
-    <th></th>
-   </tr>
-  </thead>
-  <tbody id="isiTabel">
-   <tr><td colspan="4" style="text-align:center;padding:20px">⏳ Memuat...</td></tr>
-  </tbody>
+  <thead><tr><th>Kode</th><th>Nama Parfum</th><th>Aroma</th><th>Harga</th><th></th></tr></thead>
+  <tbody id="isiTabel"><tr><td colspan="5" style="text-align:center;padding:20px">⏳ Memuat...</td></tr></tbody>
  </table>
- <div style="margin-top:25px;text-align:center">
-  <a href="index.html" style="display:inline-block;padding:10px 22px;background:#ffffff15;color:#fff;border-radius:6px;border:1px solid #ffffff33">🏠 Kembali ke Beranda</a>
- </div>
+ <div style="margin-top:25px;text-align:center"><a href="index.html" style="display:inline-block;padding:10px 22px;background:#ffffff15;color:#fff;border-radius:6px;border:1px solid #ffffff33">🏠 Kembali ke Beranda</a></div>
 </div>
 
-<!-- ⚠️ URUTAN: data DULU → lalu fungsi → lalu tampilkan -->
 <script src="data-1.js"></script>
 <script src="data-2.js"></script>
 <script src="data-3.js"></script>
@@ -116,29 +106,25 @@
 <script src="data-6.js"></script>
 <script src="data-7.js"></script>
 <script src="fungsi.js"></script>
- 
 <script>
-// ✅ MENYESUAIKAN NAMA DATA: dataProduk.kelompok1
 if(typeof dataProduk !== 'undefined' && dataProduk.kelompok1){
   const k = dataProduk.kelompok1;
   document.getElementById('namaKelompok').textContent = k.judul;
   let html = '';
   k.produk.forEach(p => {
-    // Ambil angka harga untuk keranjang (contoh: "Rp 70.000" → 70000)
-    const hargaAngka = parseInt(p.harga.replace(/\D+/g,''));
+    const hargaAngka = parseInt((p.harga||'0').replace(/[^0-9]/g,''));
     html += `<tr>
+      <td>${p.kode||'-'}</td>
       <td>${p.nama}</td>
       <td>${p.aroma}</td>
       <td>${p.harga}</td>
-      <td><button class="btn-beli" onclick="tambahKeKeranjang('${p.nama.replace(/'/g,"\\'")}', ${hargaAngka})">+</button></td>
+      <td><button class="btn-beli" onclick="tambahKeKeranjang('${(p.nama||'').replace(/'/g,"\\'")}', ${hargaAngka})">+</button></td>
     </tr>`;
   });
   document.getElementById('isiTabel').innerHTML = html;
 }else{
-  document.getElementById('isiTabel').innerHTML = `<tr><td colspan="4" style="color:red;text-align:center;padding:20px">❌ Data tidak ditemukan!</td></tr>`;
+  document.getElementById('isiTabel').innerHTML = `<tr><td colspan="5" style="color:red;text-align:center;padding:20px">❌ Data tidak ditemukan!</td></tr>`;
 }
 </script>
-
 </body>
-    </html>
-                                                                                 
+</html>
