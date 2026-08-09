@@ -18,7 +18,7 @@ a{text-decoration:none}
 .menu-item.aktif{background:linear-gradient(90deg, #0a1630, #142850);color:#fff;font-weight:bold;border-left:4px solid #ffd700}
 table{width:100%;border-collapse:collapse;background:#ffffff08;border-radius:8px;overflow:hidden;table-layout:auto}
 th{padding:10px 6px;text-align:left;background:#ffffff15;border-bottom:2px solid #ffffff33;font-size:15px}
-td{padding:10px 6px;border-bottom:1px solid #ffffff15;font-size:15px;word-wrap:break-word;white-space:normal}
+td{padding:10px 6px;border-bottom:1px solid #ffffff15;font-size:14px;word-wrap:break-word;white-space:normal}
 tr:hover{background:#ffffff10}
 .btn-beli{background:#00aa55;color:#fff;border:none;padding:6px 8px;border-radius:4px;cursor:pointer;font-size:15px}
 .nav-halaman{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding:10px 0}
@@ -81,39 +81,56 @@ tr:hover{background:#ffffff10}
 <div style="max-width:720px;margin:0 auto;padding:20px 12px">
  <h2 id="namaKelompok" style="text-align:center;margin:10px 0 20px;font-size:20px"></h2>
  <table>
-  <thead><tr><th>Kode</th><th>Nama Parfum</th><th>Aroma</th><th>Harga</th><th></th></tr></thead>
+  <thead><tr><th>Kode</th><th>Nama Parfum</th><th>Aroma</th><th>Harga 20ml</th><th></th></tr></thead>
   <tbody id="isiTabel"><tr><td colspan="5" style="text-align:center;padding:20px">⏳ Memuat...</td></tr></tbody>
  </table>
 
  <!-- TOMBOL PANAH HALAMAN -->
  <div class="nav-halaman">
   <button class="btn-nav" id="btnSebelumnya" onclick="halamanSebelumnya()">←</button>
-  <span class="info-halaman" id="infoHalaman">Halaman 1 dari 2</span>
+  <span class="info-halaman" id="infoHalaman">Halaman 1 dari 4</span>
   <button class="btn-nav" id="btnSelanjutnya" onclick="halamanSelanjutnya()">→</button>
  </div>
 
- <!-- ✅ TOMBOL KEMBALI KE BERANDA — KOTAK KECIL DI BAWAH -->
+ <!-- ✅ TOMBOL KEMBALI KE BERANDA -->
  <div style="text-align:center;margin-top:14px;">
   <a href="index.html" style="display:inline-block;padding:6px 14px;background:#ffffff15;color:#ffd700;border:1px solid #ffd700;border-radius:6px;font-size:14px;text-decoration:none;font-weight:500">🏠 Kembali ke Beranda</a>
  </div>
 </div>
 
 <script>
-// === DATA PRODUK KELOMPOK 1 — SEGAR SITRUS ===
+// === DATA PRODUK KELOMPOK 1 — SEGAR SITRUS | HARGA = 20ml ===
 const dataProduk = {
   kelompok1: {
     judul: "🍊 SEGAR — Sitrus",
     halaman: [
       [
-        {kode:"ST001", nama:"Citrus Fresh", aroma:"Jeruk Segar & Cerah", harga:"Rp 220.000"},
-        {kode:"ST002", nama:"Lemon Zest", aroma:"Lemon Terang & Bersih", harga:"Rp 210.000"},
-        {kode:"ST003", nama:"Sweet Orange", aroma:"Jeruk Manis & Lembut", harga:"Rp 215.000"},
-        {kode:"ST004", nama:"Bergamot", aroma:"Jeruk Padang Elegan", harga:"Rp 235.000"}
+        {kode:"A0101", nama:"Dior Homme Sport", aroma:"Jeruk segar, lemon, berenergi", harga:"Rp 185.000"},
+        {kode:"A0102", nama:"Paco Rabanne XS", aroma:"Jeruk manis, bunga segar, ringan", harga:"Rp 145.000"},
+        {kode:"A0103", nama:"Wild Eagle", aroma:"Jeruk nipis, rempah ringan, tegas", harga:"Rp 85.000"},
+        {kode:"A0104", nama:"Acqua Di Gio", aroma:"Laut segar, jeruk, melati, bersih", harga:"Rp 195.000"},
+        {kode:"A0105", nama:"Lacoste White", aroma:"Jeruk mandarin, daun mawar, halus", harga:"Rp 125.000"}
       ],
       [
-        {kode:"ST005", nama:"Grapefruit", aroma:"Jeruk Bali Penuh Semangat", harga:"Rp 225.000"},
-        {kode:"ST006", nama:"Lime Cool", aroma:"Jeruk Nipis Dingin Segar", harga:"Rp 218.000"},
-        {kode:"ST007", nama:"Mandarin", aroma:"Jeruk Keprok Manis", harga:"Rp 230.000"}
+        {kode:"A0201", nama:"CK One", aroma:"Jeruk campuran, teh, segar bersih", harga:"Rp 95.000"},
+        {kode:"A0202", nama:"Issey Miyake L'Eau", aroma:"Bunga teratai, jeruk, air segar", harga:"Rp 140.000"},
+        {kode:"A0203", nama:"Bvlgari Aqua", aroma:"Jeruk, teh hijau, batu laut, sejuk", harga:"Rp 165.000"},
+        {kode:"A0204", nama:"Versace Yellow Diamond", aroma:"Jeruk putih, melati, mawar, cerah", harga:"Rp 155.000"},
+        {kode:"A0205", nama:"Hugo Boss Reversed", aroma:"Apel segar, jeruk, kayu ringan", harga:"Rp 130.000"}
+      ],
+      [
+        {kode:"B0101", nama:"Ferrari Bright", aroma:"Jeruk cerah, lemon, berenergi", harga:"Rp 115.000"},
+        {kode:"B0102", nama:"Jaguar Classic", aroma:"Jeruk mandarin, herbal, segar", harga:"Rp 80.000"},
+        {kode:"B0103", nama:"Porsche Ultra", aroma:"Jeruk nipis, air, segar modern", harga:"Rp 110.000"},
+        {kode:"B0104", nama:"Bentley For Men", aroma:"Jeruk, kayu, herbal, berkelas", harga:"Rp 145.000"},
+        {kode:"B0105", nama:"Mercedes Benz", aroma:"Jeruk, rempah ringan, elegan", harga:"Rp 135.000"}
+      ],
+      [
+        {kode:"B0201", nama:"Armaf Club", aroma:"Jeruk, kayu, melati, segar", harga:"Rp 90.000"},
+        {kode:"B0202", nama:"Afnan Turathi", aroma:"Jeruk, herbal, segar murni", harga:"Rp 75.000"},
+        {kode:"B0203", nama:"Lattafa Najdia", aroma:"Jeruk, buah, segar memikat", harga:"Rp 85.000"},
+        {kode:"B0204", nama:"Asdaaf Vitality", aroma:"Jeruk segar, mint, berenergi", harga:"Rp 78.000"},
+        {kode:"B0205", nama:"Ajmal Raindrops", aroma:"Jeruk, air, bunga, sejuk lembut", harga:"Rp 82.000"}
       ]
     ]
   }
@@ -160,4 +177,5 @@ muatHalaman();
 </script>
 <script src="fungsi.js"></script>
 </body>
-</html>
+  </html>
+   
