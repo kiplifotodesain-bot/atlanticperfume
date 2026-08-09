@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="id">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>🔥 TERLARIS | ATLANTIC PERFUME</title>
+ <style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Georgia,serif}
+html,body{width:100%;overflow-x:hidden}
+body{background:#0f2040;color:#fff;line-height:1.5;padding-top:80px}
+a{text-decoration:none}
+.menu-latar{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999}
+.menu-kotak{position:fixed;top:0;right:-300px;width:280px;height:100%;background:#fff;z-index:1000;transition:right .3s}
+.menu-tutup{text-align:right;padding:15px 20px;font-size:22px;cursor:pointer;color:#333}
+.menu-judul{padding:10px 20px;font-weight:bold;color:#0f2040;border-bottom:1px solid #eee}
+.menu-item{display:block;padding:12px 20px;color:#333;border-bottom:1px solid #f5f5f5}
+.menu-item:hover{background:#e6edff}
+.menu-item.aktif{background:linear-gradient(90deg, #0a1630, #142850);color:#fff;font-weight:bold;border-left:4px solid #ffd700}
+table{width:100%;border-collapse:collapse;background:#ffffff08;border-radius:8px;overflow:hidden;table-layout:auto}
+th{padding:10px 6px;text-align:left;background:#ffffff15;border-bottom:2px solid #ffffff33;font-size:15px}
+td{padding:10px 6px;border-bottom:1px solid #ffffff15;font-size:14px;word-wrap:break-word;white-space:normal}
+tr:hover{background:#ffffff10}
+.btn-beli{background:#00aa55;color:#fff;border:none;padding:6px 8px;border-radius:4px;cursor:pointer;font-size:15px}
+.nav-halaman{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding:10px 0}
+.btn-nav{width:80px;padding:10px 0;background:#ffffff15;color:#fff;border-radius:6px;border:1px solid #ffffff33;cursor:pointer;font-size:18px;font-weight:bold;text-align:center}
+.btn-nav:disabled{opacity:0.3;cursor:not-allowed}
+.info-halaman{font-size:15px;color:#ffd700;font-weight:bold}
+ </style>
+</head>
+<body>
+<div style="position:fixed;top:0;left:0;right:0;background:#0f2040;padding:14px 15px;z-index:998;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ffffff22">
+ <span onclick="bukaMenu()" style="font-size:24px;cursor:pointer;color:#ffd700">☰</span>
+ <h1 style="font-size:18px">ATLANTIC PERFUME</h1>
+ <span onclick="bukaKeranjang()" style="font-size:26px;cursor:pointer;position:relative;color:#ffd700;text-shadow:0 0 4px #000">🛒<span id="jumlahItem" style="position:absolute;top:-10px;right:-10px;background:linear-gradient(180deg,#ff4444,#cc0000);color:#fff;font-size:12px;font-weight:bold;min-width:20px;height:20px;display:flex;align-items:center;justify-content:center;border-radius:5px;border:1px solid #fff;box-shadow:0 0 3px #000">0</span></span>
+</div>
+<div class="menu-latar" id="menuLatar" onclick="tutupMenu()"></div>
+<div class="menu-kotak" id="menuKotak">
+ <div class="menu-tutup" onclick="tutupMenu()">✕</div>
+ <div class="menu-judul">📋 DAFTAR VARIAN</div>
+ <a href="index.html" class="menu-item">🏠 BERANDA</a>
+ <a href="kelompok1.html" class="menu-item">🍊 SEGAR — Sitrus</a>
+ <a href="kelompok2.html" class="menu-item">🌸 BUNGA — Elegan</a>
+ <a href="kelompok3.html" class="menu-item">🪵 KAYU — Mewah</a>
+ <a href="kelompok4.html" class="menu-item">🍬 MANIS — Legenda</a>
+ <a href="kelompok5.html" class="menu-item">🌶️ REMPAH — Kuat</a>
+ <a href="kelompok6.html" class="menu-item">🌊 SEGAR — Laut</a>
+ <a href="kelompok7.html" class="menu-item aktif">🔥 TERLARIS</a>
+ <a href="info.html" class="menu-item">ℹ️ INFO TOKO</a>
+</div>
+<div id="latarKeranjang" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:999;align-items:center;justify-content:center" onclick="if(event.target===this)tutupKeranjang()">
+ <div style="background:#fff;color:#000;padding:20px;border-radius:10px;width:92%;max-width:500px;max-height:90vh;overflow-y:auto">
+  <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ccc;padding-bottom:10px;margin-bottom:15px">
+   <h3>🛒 Keranjang Pesanan</h3><span onclick="tutupKeranjang()" style="cursor:pointer;font-size:20px">✕</span>
+  </div>
+  <div id="isiKeranjang"></div>
+  <div id="totalKeranjang" style="font-weight:bold;font-size:18px;margin:15px 0;color:#0f2040"></div>
+  <div id="tombolKeranjang" style="display:none;gap:10px;flex-wrap:wrap">
+   <button onclick="kosongkanKeranjang()" style="padding:10px 14px;background:#d32f2f;color:#fff;border:none;border-radius:6px;cursor:pointer">🗑️ Kosongkan</button>
+   <button onclick="bukaFormPesanan()" style="padding:10px 14px;background:#0f2040;color:#fff;border:none;border-radius:6px;cursor:pointer">📝 Isi Data Pesanan</button>
+  </div>
+ </div>
+</div>
+<div id="latarForm" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:999;align-items:center;justify-content:center" onclick="if(event.target===this)tutupForm()">
+ <div style="background:#fff;color:#000;padding:20px;border-radius:10px;width:92%;max-width:500px;max-height:90vh;overflow-y:auto">
+  <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ccc;padding-bottom:10px;margin-bottom:15px">
+   <h3>📝 Data Pemesan</h3><span onclick="tutupForm()" style="cursor:pointer;font-size:20px">✕</span>
+  </div>
+  <div id="ringkasPesanan" style="background:#f5f5f5;padding:12px;border-radius:6px;margin-bottom:15px;white-space:pre-wrap"></div>
+  <label style="display:block;margin:10px 0 5px;font-weight:bold">Nama Pemesan *</label>
+  <input type="text" id="namaPemesan" style="width:100%;padding:10px;border:1px solid #ccc;border-radius:6px;margin-bottom:10px" placeholder="Tulis nama lengkap...">
+  <label style="display:block;margin:10px 0 5px;font-weight:bold">Alamat Lengkap *</label>
+  <textarea id="alamatPemesan" rows="3" style="width:100%;padding:10px;border:1px solid #ccc;border-radius:6px;margin-bottom:10px" placeholder="Alamat lengkap pengiriman..."></textarea>
+  <label style="display:block;margin:10px 0 5px;font-weight:bold">Catatan</label>
+  <textarea id="catatanPemesan" rows="2" style="width:100%;padding:10px;border:1px solid #ccc;border-radius:6px;margin-bottom:15px" placeholder="Catatan tambahan..."></textarea>
+  <div style="display:flex;gap:10px;flex-wrap:wrap">
+   <button onclick="tutupForm()" style="padding:10px 16px;background:#e0e0e0;border:none;border-radius:6px;cursor:pointer">← Kembali</button>
+   <button onclick="kirimKeWhatsApp()" style="padding:10px 16px;background:#25c261;color:#fff;border:none;border-radius:6px;cursor:pointer;font-weight:bold">✅ KIRIM KE WHATSAPP</button>
+  </div>
+ </div>
+</div>
+<div style="max-width:720px;margin:0 auto;padding:20px 12px">
+ <h2 id="namaKelompok" style="text-align:center;margin:10px 0 20px;font-size:20px"></h2>
+ <table>
+  <thead><tr><th>Kode</th><th>Nama Parfum</th><th>Aroma</th><th>Harga 20ml</th><th></th></tr></thead>
+  <tbody id="isiTabel"><tr><td colspan="5" style="text-align:center;padding:20px">⏳ Memuat...</td></tr></tbody>
+ </table>
+
+ <!-- TOMBOL PANAH HALAMAN -->
+ <div class="nav-halaman">
+  <button class="btn-nav" id="btnSebelumnya" onclick="halamanSebelumnya()">←</button>
+  <span class="info-halaman" id="infoHalaman">Halaman 1 dari 4</span>
+  <button class="btn-nav" id="btnSelanjutnya" onclick="halamanSelanjutnya()">→</button>
+ </div>
+
+ <!-- ✅ TOMBOL KEMBALI KE BERANDA -->
+ <div style="text-align:center;margin-top:14px;">
+  <a href="index.html" style="display:inline-block;padding:6px 14px;background:#ffffff15;color:#ffd700;border:1px solid #ffd700;border-radius:6px;font-size:14px;text-decoration:none;font-weight:500">🏠 Kembali ke Beranda</a>
+ </div>
+</div>
+
+<script>
+// === DATA PRODUK KELOMPOK 7 — TERLARIS | HARGA = 20ml ===
+const dataProduk = {
+  kelompok7: {
+    judul: "🔥 TERLARIS",
+    halaman: [
+      [
+        {kode:"LV334", nama:"La Vie Est Belle", aroma:"Bunga, manis, elegan — paling dicintai", harga:"Rp 248.400"},
+        {kode:"LV463", nama:"Gucci Bloom", aroma:"Bunga murni, segar, mewah alami", harga:"Rp 220.800"},
+        {kode:"LV070", nama:"SENSE Chance", aroma:"Jeruk, bunga, ceria, penuh semangat", harga:"Rp 192.600"},
+        {kode:"LV215", nama:"Coco Noir", aroma:"Kayu, bunga, misterius, berkelas", harga:"Rp 234.000"},
+        {kode:"LV589", nama:"Alien Goddess", aroma:"Bunga, vanila, hangat, mempesona", harga:"Rp 214.200"}
+      ],
+      [
+        {kode:"MV101", nama:"Sauvage", aroma:"Jeruk, kayu, tegas, maskulin perkasa", harga:"Rp 205.200"},
+        {kode:"MV202", nama:"Bleu de Chanel", aroma:"Jeruk, kayu, elegan, abadi", harga:"Rp 217.800"},
+        {kode:"MV303", nama:"Acqua Di Gio", aroma:"Air segar, jeruk, tenang, berwibawa", harga:"Rp 198.000"},
+        {kode:"MV404", nama:"1 Million", aroma:"Kayu manis, emas, mewah, berani", harga:"Rp 201.600"},
+        {kode:"MV505", nama:"Le Male", aroma:"Lavender, mint, ikonik, penuh pesona", harga:"Rp 189.000"}
+      ],
+      [
+        {kode:"EV001", nama:"Light Blue", aroma:"Jeruk segar, bunga, cerah, menyegarkan", harga:"Rp 176.400"},
+        {kode:"EV002", nama:"J'adore", aroma:"Bunga emas, mewah, lembut bersinar", harga:"Rp 225.000"},
+        {kode:"EV003", nama:"Chanel No. 5", aroma:"Aldehid, mawar, legenda, abadi", harga:"Rp 255.000"},
+        {kode:"EV004", nama:"Miss Dior", aroma:"Bunga, manis, romantis, menawan", harga:"Rp 208.800"},
+        {kode:"EV005", nama:"Beautiful", aroma:"Mawar, melati, romantis, abadi", harga:"Rp 195.000"}
+      ],
+      [
+        {kode:"ZV001", nama:"Versace Eros", aroma:"Mint, apel, vanila, penuh gairah", harga:"Rp 185.400"},
+        {kode:"ZV002", nama:"Lacoste White", aroma:"Bersih, segar, lembut, elegan murni", harga:"Rp 117.600"},
+        {kode:"ZV003", nama:"Hugo Boss Bottled", aroma:"Apel, kayu manis, klasik, andalan", harga:"Rp 148.500"},
+        {kode:"ZV004", nama:"Davidoff Cool Water", aroma:"Air dingin, segar, tajam, ikonik", harga:"Rp 112.500"},
+        {kode:"ZV005", nama:"Nautica Voyage", aroma:"Laut, segar, lembut, sangat diminati", harga:"Rp 95.000"}
+      ]
+    ]
+  }
+};
+
+let halamanSekarang = 0;
+let dataHalaman = [];
+
+function muatHalaman(){
+  const k = dataProduk.kelompok7;
+  dataHalaman = k.halaman;
+  document.getElementById('namaKelompok').textContent = k.judul;
+  tampilHalaman();
+}
+
+function tampilHalaman(){
+  const totalHalaman = dataHalaman.length;
+  const produk = dataHalaman[halamanSekarang];
+  let html = '';
+  produk.forEach(p => {
+    const hargaAngka = parseInt((p.harga||'0').replace(/[^0-9]/g,''));
+    html += `<tr>
+      <td>${p.kode||'-'}</td>
+      <td>${p.nama}</td>
+      <td>${p.aroma}</td>
+      <td>${p.harga}</td>
+      <td><button class="btn-beli" onclick="tambahKeKeranjang('${(p.nama||'').replace(/'/g,"\\'")}', ${hargaAngka})">+</button></td>
+    </tr>`;
+  });
+  document.getElementById('isiTabel').innerHTML = html;
+  document.getElementById('infoHalaman').textContent = `Halaman ${halamanSekarang+1} dari ${totalHalaman}`;
+  document.getElementById('btnSebelumnya').disabled = halamanSekarang <= 0;
+  document.getElementById('btnSelanjutnya').disabled = halamanSekarang >= totalHalaman.length-1;
+}
+
+function halamanSebelumnya(){
+  if(halamanSekarang > 0){ halamanSekarang--; tampilHalaman(); window.scrollTo({top:0,behavior:'smooth'}); }
+}
+function halamanSelanjutnya(){
+  if(halamanSekarang < dataHalaman.length-1){ halamanSekarang++; tampilHalaman(); window.scrollTo({top:0,behavior:'smooth'}); }
+}
+
+muatHalaman();
+</script>
+<script src="fungsi.js"></script>
+</body>
+    </html>
+  
