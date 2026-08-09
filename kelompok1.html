@@ -3,40 +3,28 @@
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>🍊 SEGAR — Sitrus | ATLANTIC PERFUME</title>
+ <title>ATLANTIC PERFUME | SEGAR — Sitrus</title>
  <style>
  *{margin:0;padding:0;box-sizing:border-box;font-family:Georgia,serif}
- body{background:#0f2040;color:#fff;line-height:1.6;padding-top:80px}
+ body{background:#0f2040;color:#fff;line-height:1.6}
  a{text-decoration:none}
 
- /* === MENU === */
+ /* === MENU SAMPING — SUDAH DIPERBAIKI === */
  .menu-latar{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999}
- .menu-kotak{position:fixed;top:0;right:-300px;width:280px;height:100%;background:#fff;z-index:1000;transition:right .3s}
+ .menu-kotak{position:fixed;top:0;right:-300px;width:280px;height:100%;background:#fff;z-index:1000;transition:right 0.3s ease;overflow-y:auto}
  .menu-tutup{text-align:right;padding:15px 20px;font-size:22px;cursor:pointer;color:#333}
- .menu-judul{padding:10px 20px;font-weight:bold;color:#0f2040;border-bottom:1px solid #eee}
+ .menu-judul{padding:10px 20px;font-weight:bold;font-size:16px;color:#0f2040;border-bottom:1px solid #eee}
  .menu-item{display:block;padding:12px 20px;color:#333;border-bottom:1px solid #f5f5f5}
  .menu-item:hover{background:#f0f4ff}
  .menu-item.aktif{background:#e6f0ff;color:#0f2040;font-weight:bold}
-
- /* === TABEL === */
- table{width:100%;border-collapse:collapse;background:#ffffff08;border-radius:8px;overflow:hidden}
- th{padding:12px 8px;text-align:left;background:#ffffff15;border-bottom:2px solid #ffffff33}
- td{padding:12px 8px;border-bottom:1px solid #ffffff15}
- tr:hover{background:#ffffff10}
- .btn-beli{background:#00aa55;color:#fff;border:none;padding:6px 10px;border-radius:4px;cursor:pointer}
  </style>
 </head>
 <body>
 
-<!-- ✅ KEPALA -->
-<div style="position:fixed;top:0;left:0;right:0;background:#0f2040;padding:14px 15px;z-index:998;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ffffff22">
- <span onclick="bukaMenu()" style="font-size:22px;cursor:pointer">☰</span>
- <h1 style="font-size:18px">ATLANTIC PERFUME</h1>
- <span>🛒</span>
-</div>
-
-<!-- ✅ MENU -->
+<!-- ✅ MENU LATAR BELAKANG -->
 <div class="menu-latar" id="menuLatar" onclick="tutupMenu()"></div>
+
+<!-- ✅ MENU SAMPING -->
 <div class="menu-kotak" id="menuKotak">
  <div class="menu-tutup" onclick="tutupMenu()">✕</div>
  <div class="menu-judul">📋 DAFTAR VARIAN</div>
@@ -51,51 +39,75 @@
  <a href="info.html" class="menu-item">ℹ️ INFO TOKO</a>
 </div>
 
-<!-- ✅ DAFTAR PRODUK -->
-<div style="max-width:720px;margin:0 auto;padding:20px 16px">
- <h2 id="namaKelompok" style="text-align:center;margin:10px 0 20px;font-size:20px"></h2>
- <table>
+<!-- ✅ KEPALA / HEADER -->
+<div style="position:fixed;top:0;left:0;right:0;background:#0f2040;color:#fff;padding:14px 15px;z-index:998;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ffffff22">
+ <span onclick="bukaMenu()" style="font-size:22px;cursor:pointer">☰</span>
+ <h1 style="font-size:18px;margin:0">ATLANTIC PERFUME</h1>
+ <span onclick="bukaKeranjang()" style="font-size:20px;cursor:pointer;position:relative">🛒<span id="jumlahItem" style="position:absolute;top:-8px;right:-8px;background:red;color:#fff;font-size:11px;font-weight:bold;min-width:18px;height:18px;display:flex;align-items:center;justify-content:center;border-radius:5px">0</span></span>
+</div>
+
+<div style="margin-top:80px"></div>
+<div style="text-align:center;padding:18px 20px;max-width:720px;margin:0 auto">
+ <p style="font-style:italic">Wewangian adalah bagian dari jiwa yang terbang melayang, menyapa dunia sebelum raga itu tiba.</p>
+</div>
+
+<!-- ✅ KERANJANG -->
+<div id="latarKeranjang" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:999;align-items:center;justify-content:center" onclick="if(event.target===this)tutupKeranjang()">
+ <div style="background:#fff;color:#000;padding:20px;border-radius:10px;width:92%;max-width:500px;max-height:90vh;overflow-y:auto">
+  <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ccc;padding-bottom:10px;margin-bottom:15px">
+   <h3>🛒 Keranjang Pesanan</h3><span onclick="tutupKeranjang()" style="cursor:pointer;font-size:20px">✕</span>
+  </div>
+  <div id="isiKeranjang"></div>
+  <div id="totalKeranjang" style="font-weight:bold;font-size:18px;margin:15px 0;color:#0f2040"></div>
+  <div id="tombolKeranjang" style="display:none;gap:10px;flex-wrap:wrap">
+   <button onclick="kosongkanKeranjang()" style="padding:10px 14px;background:#d32f2f;color:#fff;border:none;border-radius:6px;cursor:pointer">🗑️ Kosongkan</button>
+   <button onclick="bukaFormPesanan()" style="padding:10px 14px;background:#0f2040;color:#fff;border:none;border-radius:6px;cursor:pointer">📝 Isi Data Pesanan</button>
+  </div>
+ </div>
+</div>
+
+<!-- ✅ FORM PESANAN -->
+<div id="latarForm" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:999;align-items:center;justify-content:center" onclick="if(event.target===this)tutupForm()">
+ <div style="background:#fff;color:#000;padding:20px;border-radius:10px;width:92%;max-width:500px;max-height:90vh;overflow-y:auto">
+  <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ccc;padding-bottom:10px;margin-bottom:15px">
+   <h3>📝 Data Pemesan</h3><span onclick="tutupForm()" style="cursor:pointer;font-size:20px">✕</span>
+  </div>
+  <div id="ringkasPesanan" style="background:#f5f5f5;padding:12px;border-radius:6px;margin-bottom:15px;white-space:pre-wrap"></div>
+  <label style="display:block;margin:10px 0 5px;font-weight:bold">Nama Pemesan *</label>
+  <input type="text" id="namaPemesan" style="width:100%;padding:10px;border:1px solid #ccc;border-radius:6px;margin-bottom:10px" placeholder="Tulis nama lengkap...">
+  <label style="display:block;margin:10px 0 5px;font-weight:bold">Alamat Lengkap *</label>
+  <textarea id="alamatPemesan" rows="3" style="width:100%;padding:10px;border:1px solid #ccc;border-radius:6px;margin-bottom:10px" placeholder="Alamat lengkap pengiriman..."></textarea>
+  <label style="display:block;margin:10px 0 5px;font-weight:bold">Catatan</label>
+  <textarea id="catatanPemesan" rows="2" style="width:100%;padding:10px;border:1px solid #ccc;border-radius:6px;margin-bottom:15px" placeholder="Catatan tambahan..."></textarea>
+  <div style="display:flex;gap:10px;flex-wrap:wrap">
+   <button onclick="tutupForm()" style="padding:10px 16px;background:#e0e0e0;border:none;border-radius:6px;cursor:pointer">← Kembali</button>
+   <button onclick="kirimKeWhatsApp()" style="padding:10px 16px;background:#25c261;color:#fff;border:none;border-radius:6px;cursor:pointer;font-weight:bold">✅ KIRIM KE WHATSAPP</button>
+  </div>
+ </div>
+</div>
+
+<!-- ✅ TABEL PRODUK -->
+<div style="max-width:720px;margin:0 auto;padding:0 16px 30px">
+ <h2 class="judul-halaman" style="text-align:center;margin:15px 0 20px;font-size:20px"></h2>
+ <table style="width:100%;border-collapse:collapse;background:#ffffff08;border-radius:8px;overflow:hidden">
   <thead>
-   <tr>
-    <th>Nama Parfum</th>
-    <th>Aroma</th>
-    <th>Harga</th>
-    <th></th>
+   <tr style="background:#ffffff15;border-bottom:2px solid #ffffff33">
+    <th style="padding:12px 10px;text-align:left;width:38%">Nama Parfum</th>
+    <th style="padding:12px 10px;text-align:left;width:32%">Aroma</th>
+    <th style="padding:12px 10px;text-align:center;width:20%">Harga</th>
+    <th style="padding:12px 10px;text-align:center;width:10%">+</th>
    </tr>
   </thead>
-  <tbody id="isiTabel">
-   <tr><td colspan="4" style="text-align:center;padding:20px">⏳ Memuat...</td></tr>
-  </tbody>
+  <tbody id="daftarProduk"></tbody>
  </table>
  <div style="margin-top:25px;text-align:center">
   <a href="index.html" style="display:inline-block;padding:10px 22px;background:#ffffff15;color:#fff;border-radius:6px;border:1px solid #ffffff33">🏠 Kembali ke Beranda</a>
  </div>
 </div>
 
-<!-- ⚠️ URUTAN WAJIB: data → fungsi → kode halaman -->
 <script src="data-produk.js"></script>
-<script>
-function bukaMenu(){document.getElementById('menuKotak').style.right='0';document.getElementById('menuLatar').style.display='block'}
-function tutupMenu(){document.getElementById('menuKotak').style.right='-300px';document.getElementById('menuLatar').style.display='none'}
-
-// TAMPILKAN DATA KE HALAMAN
-if(typeof data !== 'undefined'){
-  const k = data.kelompok1;
-  document.getElementById('namaKelompok').textContent = k.nama;
-  let html = '';
-  k.produk.forEach(p => {
-    html += `<tr>
-      <td>${p.nama}</td>
-      <td>${p.desk}</td>
-      <td>Rp ${p.harga.toLocaleString('id-ID')}</td>
-      <td><button class="btn-beli">+</button></td>
-    </tr>`;
-  });
-  document.getElementById('isiTabel').innerHTML = html;
-}else{
-  document.getElementById('isiTabel').innerHTML = `<tr><td colspan="4" style="color:red;text-align:center">❌ File data-produk.js tidak ditemukan!</td></tr>`;
-}
-</script>
-
+<script src="fungsi.js"></script>
+<script>isiHalaman("kelompok1");</script>
 </body>
-</html>
+    </html>
+ 
