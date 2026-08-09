@@ -130,4 +130,3 @@ function kirimKeWhatsApp(){
   const url = `https://wa.me/${NOMOR_ADMIN_KASIR}?text=${encodeURIComponent(pesan)}`;
   window.open(url, '_blank');
 }
-  
