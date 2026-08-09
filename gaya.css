@@ -1,0 +1,83 @@
+* {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Georgia', serif;}
+html, body {height: 100%;}
+body {background: #0f2040; color: #fff; line-height: 1.6; padding-top: 110px;}
+.container {max-width: 720px; margin: 0 auto; padding: 0 16px;}
+
+/* === BAGIAN ATAS === */
+.kepala {position: fixed; top: 0; left: 0; right: 0; z-index: 9999; background: #0f2040; padding: 12px 15px 18px;}
+.isi-kepala {max-width: 720px; margin: 0 auto; position: relative;}
+
+.tombol-menu {position: absolute; left: 0; top: 4px; font-size: 1.5em; color: #f8d77c; cursor: pointer; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; border: 1px solid #f8d77c50; border-radius: 6px;}
+.tombol-keranjang {position: absolute; right: 0; top: 4px; color: #9ca3af; cursor: pointer; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; border: 1px solid #9ca3af50; border-radius: 6px; font-size: 1.2em;}
+.tombol-keranjang span {background: #9ca3af; color: #0f2040; border-radius: 50%; padding: 0 4px; margin-left: 2px; font-size: 0.7em; min-width: 18px; height: 18px; display: inline-flex; align-items: center; justify-content: center; font-weight: bold; line-height: 1;}
+
+.logo {text-align: center; padding-left: 45px; padding-right: 45px;}
+.logo h1 {font-size: 1.1em; color: #f8d77c; letter-spacing: 1px; text-transform: uppercase; font-weight: normal; line-height: 38px; white-space: nowrap;}
+.tagline {text-align: center; font-size: 0.78em; color: #e0e0e0; margin: 10px 0; line-height: 1.4;}
+.garis-bawah {width: 65%; height: 1px; background: #fff; margin: 0 auto;}
+
+/* === JUDUL HALAMAN & TABEL === */
+.judul-halaman {text-align: center; font-size: 1.25em; color: #f8d77c; margin: 15px 0; padding-bottom: 8px; border-bottom: 1px solid #ffffff30;}
+table {width: 100%; border-collapse: separate; border-spacing: 0; margin: 15px 0 40px; background: #ffffff08; border-radius: 8px; overflow: hidden;}
+th {background: #f8d77c20; color: #f8d77c; padding: 9px 10px; text-align: left; font-size: 0.9em;}
+td {padding: 10px; border-bottom: 1px solid #ffffff0a; font-size: 0.92em; line-height: 1.5;}
+.nama-produk {font-weight: normal;}
+.kode-produk {color: #f8d77c; font-size: 0.85em; opacity: 0.9; margin-top: 2px; display: inline-block;}
+
+tbody tr {transition: all 0.25s ease; border-left: 3px solid transparent; cursor: default;}
+tbody tr:hover {background: #f8d77c12; border-left: 3px solid #f8d77c; box-shadow: inset 0 0 0 1px #f8d77c30;}
+
+.tombol-tambah {background: transparent; color: #fff; border: 1px solid #ffffff30; border-radius: 6px; cursor: pointer; font-size: 18px; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; transition: all 0.2s;}
+.tombol-tambah:hover {background: #ffffff15; border-color: #ffffff50; transform: scale(1.05);}
+.tombol-tambah:active {transform: scale(0.95);}
+
+.tombol-beranda {display: block; max-width: 360px; margin: 30px auto 50px; text-align: center; background: transparent; color: #f8d77c; border: 2px solid #f8d77c; border-radius: 8px; padding: 12px 20px; text-decoration: none; font-size: 1em; transition: all 0.2s;}
+.tombol-beranda:hover {background: #f8d77c15;}
+
+/* === MENU SAMPING === */
+.menu-latar {position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); z-index: 99999; display: none;}
+.menu-latar.buka {display: block;}
+.menu-kotak {position: fixed; top: 0; left: 0; width: 260px; height: 100%; background: #152238; z-index: 100000; padding: 20px; border-right: 1px solid #f8d77c40; transform: translateX(-100%); transition: transform 0.3s ease;}
+.menu-kotak.buka {transform: translateX(0);}
+.menu-tutup {text-align: right; color: #f8d77c; font-size: 1.5em; cursor: pointer; margin-bottom: 20px;}
+.menu-judul {color: #f8d77c; font-size: 1.1em; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #f8d77c30;}
+.menu-item {display: block; color: #fff; text-decoration: none; padding: 10px 12px; margin-bottom: 5px; border-radius: 6px; transition: all 0.2s;}
+.menu-item:hover {background: #f8d77c15; color: #f8d77c;}
+.menu-item.aktif {background: #f8d77c25; color: #f8d77c; font-weight: bold;}
+
+/* === KERANJANG === */
+.latar-keranjang {position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); z-index: 100000; display: none; align-items: center; justify-content: center; padding: 20px;}
+.latar-keranjang.buka {display: flex;}
+.kotak-keranjang {background: #152238; border: 1px solid #f8d77c40; border-radius: 12px; padding: 20px; max-width: 420px; width: 100%; max-height: 85vh; overflow-y: auto;}
+.keranjang-judul {color: #f8d77c; font-size: 1.2em; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #f8d77c30; display: flex; justify-content: space-between; align-items: center;}
+.keranjang-tutup {font-size: 1.3em; cursor: pointer;}
+.keranjang-kosong {text-align: center; color: #888; padding: 20px;}
+.keranjang-item {display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #ffffff10;}
+.keranjang-nama {flex: 1;}
+.keranjang-hapus {color: #ff6b6b; cursor: pointer; padding: 2px 6px; transition: all 0.15s;}
+.keranjang-hapus:hover {color: #ff4040; text-decoration: underline;}
+.keranjang-total {padding: 10px 0; margin-top: 5px; border-top: 1px solid #ffffff20; font-weight: bold; color: #f8d77c; text-align: right; font-size: 1.05em;}
+.keranjang-aksi {margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap;}
+.tombol-kirim {background: #25d366; color: #fff; border: none; padding: 10px 18px; border-radius: 6px; cursor: pointer; font-weight: bold; flex: 1; transition: all 0.15s ease;}
+.tombol-kirim:hover {background: #1fb855;}
+.tombol-kosongkan {background: #ff6b6b; color: #fff; border: none; padding: 10px 18px; border-radius: 6px; cursor: pointer; transition: all 0.15s ease;}
+.tombol-kosongkan:hover {background: #ff5252;}
+
+/* === FORM PESANAN === */
+.latar-form {position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.85); z-index: 100001; display: none; align-items: center; justify-content: center; padding: 20px;}
+.latar-form.buka {display: flex;}
+.kotak-form {background: #152238; border: 1px solid #f8d77c40; border-radius: 12px; padding: 20px; max-width: 420px; width: 100%; max-height: 90vh; overflow-y: auto;}
+.form-judul {color: #f8d77c; font-size: 1.2em; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #f8d77c30; display: flex; justify-content: space-between; align-items: center;}
+.form-tutup {font-size: 1.3em; cursor: pointer;}
+.form-label {display: block; margin: 12px 0 5px; color: #ddd; font-size: 0.95em;}
+.form-input {width: 100%; padding: 10px 12px; background: #ffffff0d; border: 1px solid #ffffff25; border-radius: 6px; color: #fff; font-size: 0.95em;}
+.form-input:focus {outline: none; border-color: #f8d77c70; background: #ffffff12;}
+.form-ringkas {background: #ffffff0a; padding: 12px; border-radius: 6px; margin: 10px 0;}
+.form-ringkas p {margin: 4px 0; font-size: 0.92em;}
+.form-total {color: #f8d77c; font-weight: bold; font-size: 1.05em; margin-top: 8px; padding-top: 8px; border-top: 1px solid #ffffff20;}
+.form-tombol-bawah {display: flex; gap: 10px; margin-top: 18px;}
+.tombol-kembali {background: #555; color: #fff; border: none; padding: 10px 16px; border-radius: 6px; cursor: pointer; transition: all 0.15s;}
+.tombol-kembali:hover {background: #444;}
+.tombol-kirim-wa {background: #25d366; color: #fff; border: none; padding: 10px 16px; border-radius: 6px; cursor: pointer; font-weight: bold; flex: 1; transition: all 0.15s;}
+.tombol-kirim-wa:hover {background: #1fb855;}
+  
