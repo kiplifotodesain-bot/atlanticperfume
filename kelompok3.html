@@ -91,21 +91,32 @@ tr:hover{background:#ffffff10}
  </div>
 </div>
 
-<script src="data-3.js"></script>
-<script src="fungsi.js"></script>
 <script>
+// === DATA PRODUK LANGSUNG DI SINI — TIDAK PERLU FILE TERPISAH! ===
+const dataProduk = {
+  kelompok3: {
+    judul: "🪵 KAYU — Mewah",
+    halaman: [
+      [
+        {kode:"KY001", nama:"Oud Royal", aroma:"Kayu Gaharu Mewah & Lembut", harga:"Rp 280.000"},
+        {kode:"KY002", nama:"Sandalwood", aroma:"Cendana Putih Yang Hangat", harga:"Rp 245.000"},
+        {kode:"KY003", nama:"Cedar Wood", aroma:"Kayu Cemara Segar & Bersih", harga:"Rp 230.000"},
+        {kode:"KY004", nama:"Amber Wood", aroma:"Kayu dengan Nuansa Emas", harga:"Rp 265.000"}
+      ],
+      [
+        {kode:"KY005", nama:"Vetiver", aroma:"Akar Wangi Khas & Menenangkan", harga:"Rp 255.000"},
+        {kode:"KY006", nama:"Patchouli", aroma:"Kayu Kuno Yang Hangat", harga:"Rp 260.000"},
+        {kode:"KY007", nama:"Ebony Wood", aroma:"Kayu Hitam Yang Elegan", harga:"Rp 290.000"},
+        {kode:"KY008", nama:"Gaharu Emas", aroma:"Kayu Gaharu Pilihan Terbaik", harga:"Rp 310.000"}
+      ]
+    ]
+  }
+};
+
 let halamanSekarang = 0;
 let dataHalaman = [];
 
 function muatHalaman(){
-  if(typeof dataProduk === 'undefined'){
-    document.getElementById('isiTabel').innerHTML = `<tr><td colspan="5" style="color:red;text-align:center;padding:20px">❌ File data belum terbaca!</td></tr>`;
-    return;
-  }
-  if(!dataProduk.kelompok3 || !dataProduk.kelompok3.halaman){
-    document.getElementById('isiTabel').innerHTML = `<tr><td colspan="5" style="color:red;text-align:center;padding:20px">❌ Data kelompok3 tidak ditemukan!</td></tr>`;
-    return;
-  }
   const k = dataProduk.kelompok3;
   dataHalaman = k.halaman;
   document.getElementById('namaKelompok').textContent = k.judul;
@@ -141,6 +152,6 @@ function halamanSelanjutnya(){
 
 muatHalaman();
 </script>
+<script src="fungsi.js"></script>
 </body>
-                           </html>
- 
+</html>
