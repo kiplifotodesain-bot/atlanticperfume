@@ -84,8 +84,6 @@ tr:hover{background:#ffffff10}
   <thead><tr><th>Kode</th><th>Nama Parfum</th><th>Aroma</th><th>Harga</th><th></th></tr></thead>
   <tbody id="isiTabel"><tr><td colspan="5" style="text-align:center;padding:20px">⏳ Memuat...</td></tr></tbody>
  </table>
-
- <!-- TOMBOL DENGAN SIMBOL PANAH — UKURAN SAMA SEMPURNA -->
  <div class="nav-halaman">
   <button class="btn-nav" id="btnSebelumnya" onclick="halamanSebelumnya()">←</button>
   <span class="info-halaman" id="infoHalaman">Halaman 1 dari 2</span>
@@ -127,7 +125,7 @@ function tampilHalaman(){
   document.getElementById('isiTabel').innerHTML = html;
   document.getElementById('infoHalaman').textContent = `Halaman ${halamanSekarang+1} dari ${totalHalaman}`;
   document.getElementById('btnSebelumnya').disabled = halamanSekarang <= 0;
-  document.getElementById('btnSelanjutnya').disabled = halamanSekarang >= totalHalaman-1;
+  document.getElementById('btnSelanjutnya').disabled = halamanSekarang >= totalHalaman.length-1;
 }
 
 function halamanSebelumnya(){
