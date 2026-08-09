@@ -4,94 +4,12 @@
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>ATLANTIC PERFUME | KAYU — Mewah</title>
- <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Georgia',serif}
-html,body{height:100%}
-body{background:#0f2040;color:#fff;line-height:1.6;padding-top:110px}
-.container{max-width:720px;margin:0 auto;padding:0 16px}
-
-.kepala{position:fixed;top:0;left:0;right:0;z-index:9999;background:#0f2040;padding:12px 15px 18px}
-.kepala .isi-kepala{max-width:720px;margin:0 auto;position:relative}
-
-.tombol-menu{position:absolute;left:0;top:4px;font-size:1.5em;color:#f8d77c;cursor:pointer;padding:2px 8px;line-height:1;border:1px solid #f8d77c50;border-radius:6px;width:38px;height:38px;display:flex;align-items:center;justify-content:center}
-.tombol-keranjang{position:absolute;right:0;top:4px;color:#9ca3af;cursor:pointer;padding:2px 6px;line-height:1;border:1px solid #9ca3af50;border-radius:6px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-size:1.2em}
-.tombol-keranjang span{background:#9ca3af;color:#0f2040;border-radius:50%;padding:0 4px;margin-left:2px;font-size:0.7em;min-width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;line-height:1;font-weight:bold}
-
-.logo{text-align:center;padding-left:45px;padding-right:45px}
-.logo h1{font-size:1.1em;color:#f8d77c;letter-spacing:1px;text-transform:uppercase;font-weight:normal;white-space:nowrap;line-height:38px}
-.tagline{text-align:center;font-size:0.78em;color:#e0e0e0;margin:10px 0 10px;line-height:1.4}
-.garis-bawah{width:65%;height:1px;background:#ffffff;margin:0 auto}
-
-.judul-halaman{text-align:center;font-size:1.25em;color:#f8d77c;margin:15px 0;padding-bottom:8px;border-bottom:1px solid #ffffff30}
-table{width:100%;border-collapse:separate;border-spacing:0;margin:15px 0 40px;background:#ffffff08;border-radius:8px;overflow:hidden}
-th{background:#f8d77c20;color:#f8d77c;padding:9px 10px;text-align:left;font-size:0.9em}
-td{padding:10px;border-bottom:1px solid #ffffff0a;font-size:0.92em;line-height:1.5}
-.nama-produk{font-weight:normal}
-.kode-produk{color:#f8d77c;font-size:0.85em;opacity:0.9;margin-top:2px;display:inline-block}
-
-tbody tr{transition:all 0.25s ease;border-left:3px solid transparent;cursor:default}
-tbody tr:hover{background:#f8d77c12;border-left:3px solid #f8d77c;box-shadow:inset 0 0 0 1px #f8d77c30}
-
-.tombol-tambah{background:transparent;color:#ffffff;border:1px solid #ffffff30;border-radius:6px;cursor:pointer;font-size:18px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
-.tombol-tambah:hover{background:#ffffff15;border-color:#ffffff50;transform:scale(1.05)}
-.tombol-tambah:active{transform:scale(0.95)}
-
-.tombol-beranda{display:block;max-width:360px;margin:30px auto 50px;text-align:center;background:transparent;color:#f8d77c;border:2px solid #f8d77c;border-radius:8px;padding:12px 20px;text-decoration:none;font-size:1em;transition:all 0.2s}
-.tombol-beranda:hover{background:#f8d77c15}
-
-.latar-keranjang{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.8);z-index:100000;display:none;align-items:center;justify-content:center;padding:20px}
-.latar-keranjang.buka{display:flex}
-.kotak-keranjang{background:#152238;border:1px solid #f8d77c40;border-radius:12px;padding:20px;max-width:420px;width:100%;max-height:85vh;overflow-y:auto}
-.keranjang-judul{color:#f8d77c;font-size:1.2em;margin-bottom:15px;padding-bottom:10px;border-bottom:1px solid #f8d77c30;display:flex;justify-content:space-between;align-items:center}
-.keranjang-tutup{font-size:1.3em;cursor:pointer}
-.keranjang-kosong{text-align:center;color:#888;padding:20px}
-.keranjang-item{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #ffffff10}
-.keranjang-nama{flex:1}
-.keranjang-hapus{color:#ff6b6b;cursor:pointer;padding:2px 6px;transition:all 0.15s}
-.keranjang-hapus:hover{color:#ff4040;text-decoration:underline}
-.keranjang-total{padding:10px 0;margin-top:5px;border-top:1px solid #ffffff20;font-weight:bold;color:#f8d77c;text-align:right;font-size:1.05em}
-.keranjang-aksi{margin-top:15px;display:flex;gap:10px;flex-wrap:wrap}
-
-.tombol-kirim{background:#25d366;color:#fff;border:none;padding:10px 18px;border-radius:6px;cursor:pointer;font-weight:bold;flex:1;transition:all 0.15s ease}
-.tombol-kirim:hover{background:#1fb855}
-.tombol-kirim:active{background:#199e49;transform:scale(0.97);box-shadow:inset 0 2px 4px rgba(0,0,0,0.2)}
-
-.tombol-kosongkan{background:#ff6b6b;color:#fff;border:none;padding:10px 18px;border-radius:6px;cursor:pointer;transition:all 0.15s ease}
-.tombol-kosongkan:hover{background:#ff5252}
-.tombol-kosongkan:active{background:#e04848;transform:scale(0.97);box-shadow:inset 0 2px 4px rgba(0,0,0,0.2)}
-
-.latar-form{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);z-index:100001;display:none;align-items:center;justify-content:center;padding:20px}
-.latar-form.buka{display:flex}
-.kotak-form{background:#152238;border:1px solid #f8d77c40;border-radius:12px;padding:20px;max-width:420px;width:100%;max-height:90vh;overflow-y:auto}
-.form-judul{color:#f8d77c;font-size:1.2em;margin-bottom:15px;padding-bottom:10px;border-bottom:1px solid #f8d77c30;display:flex;justify-content:space-between;align-items:center}
-.form-tutup{font-size:1.3em;cursor:pointer}
-.form-label{display:block;margin:12px 0 5px;color:#ddd;font-size:0.95em}
-.form-input{width:100%;padding:10px 12px;background:#ffffff0d;border:1px solid #ffffff25;border-radius:6px;color:#fff;font-size:0.95em}
-.form-input:focus{outline:none;border-color:#f8d77c70;background:#ffffff12}
-.form-ringkas{background:#ffffff0a;padding:12px;border-radius:6px;margin:10px 0}
-.form-ringkas p{margin:4px 0;font-size:0.92em}
-.form-total{color:#f8d77c;font-weight:bold;font-size:1.05em;margin-top:8px;padding-top:8px;border-top:1px solid #ffffff20}
-.form-tombol-bawah{display:flex;gap:10px;margin-top:18px}
-.tombol-kembali{background:#555;color:#fff;border:none;padding:10px 16px;border-radius:6px;cursor:pointer;transition:all 0.15s}
-.tombol-kembali:hover{background:#444}
-.tombol-kirim-wa{background:#25d366;color:#fff;border:none;padding:10px 16px;border-radius:6px;cursor:pointer;font-weight:bold;flex:1;transition:all 0.15s}
-.tombol-kirim-wa:hover{background:#1fb855}
-
-.menu-latar{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);z-index:99999;display:none}
-.menu-latar.buka{display:block}
-.menu-kotak{position:fixed;top:0;left:0;width:260px;height:100%;background:#152238;z-index:100000;padding:20px;border-right:1px solid #f8d77c40;transform:translateX(-100%);transition:transform 0.3s ease}
-.menu-kotak.buka{transform:translateX(0)}
-.menu-tutup{text-align:right;color:#f8d77c;font-size:1.5em;cursor:pointer;margin-bottom:20px}
-.menu-judul{color:#f8d77c;font-size:1.1em;margin-bottom:15px;padding-bottom:10px;border-bottom:1px solid #f8d77c30}
-.menu-item{display:block;color:#fff;text-decoration:none;padding:10px 12px;margin-bottom:5px;border-radius:6px;transition:all 0.2s}
-.menu-item:hover{background:#f8d77c15;color:#f8d77c}
-.menu-item.aktif{background:#f8d77c25;color:#f8d77c;font-weight:bold}
- </style>
+ <link rel="stylesheet" href="gaya.css">
 </head>
 <body>
 
+<!-- === MENU & KERANJANG === -->
 <div class="menu-latar" id="menuLatar" onclick="tutupMenu()"></div>
-
 <div class="menu-kotak" id="menuKotak">
  <div class="menu-tutup" onclick="tutupMenu()">✕</div>
  <div class="menu-judul">DAFTAR VARIAN</div>
@@ -108,13 +26,8 @@ tbody tr:hover{background:#f8d77c12;border-left:3px solid #f8d77c;box-shadow:ins
 
 <div class="latar-keranjang" id="latarKeranjang" onclick="if(event.target===this) tutupKeranjang()">
  <div class="kotak-keranjang">
-  <div class="keranjang-judul">
-   <span>🛒 Keranjang Pesanan</span>
-   <span class="keranjang-tutup" onclick="tutupKeranjang()">✕</span>
-  </div>
-  <div id="isiKeranjang" class="keranjang-daftar">
-   <div class="keranjang-kosong">Keranjang masih kosong</div>
-  </div>
+  <div class="keranjang-judul"><span>🛒 Keranjang Pesanan</span><span class="keranjang-tutup" onclick="tutupKeranjang()">✕</span></div>
+  <div id="isiKeranjang" class="keranjang-daftar"><div class="keranjang-kosong">Keranjang masih kosong</div></div>
   <div id="totalKeranjang" style="display:none" class="keranjang-total">Total: Rp 0</div>
   <div class="keranjang-aksi" id="tombolKeranjang" style="display:none">
    <button class="tombol-kosongkan" onclick="kosongkanKeranjang()">Kosongkan</button>
@@ -125,16 +38,13 @@ tbody tr:hover{background:#f8d77c12;border-left:3px solid #f8d77c;box-shadow:ins
 
 <div class="latar-form" id="latarForm" onclick="if(event.target===this) tutupForm()">
  <div class="kotak-form">
-  <div class="form-judul">
-   <span>📝 DATA PEMESANAN</span>
-   <span class="form-tutup" onclick="tutupForm()">✕</span>
-  </div>
+  <div class="form-judul"><span>📝 DATA PEMESANAN</span><span class="form-tutup" onclick="tutupForm()">✕</span></div>
   <div class="form-ringkas" id="ringkasPesanan"></div>
   <label class="form-label">Nama Pemesan *</label>
-  <input type="text" id="namaPemesan" class="form-input" placeholder="Tulis nama lengkap kamu...">
+  <input type="text" id="namaPemesan" class="form-input" placeholder="Tulis nama lengkap...">
   <label class="form-label">Alamat Lengkap *</label>
-  <textarea id="alamatPemesan" class="form-input" rows="3" placeholder="Jalan, RT/RW, Desa/Kec, Kota, Kode Pos..."></textarea>
-  <label class="form-label">Keterangan Tambahan (Opsional)</label>
+  <textarea id="alamatPemesan" class="form-input" rows="3" placeholder="Jalan, RT/RW, Desa/Kec, Kota..."></textarea>
+  <label class="form-label">Keterangan Tambahan</label>
   <textarea id="keteranganPemesan" class="form-input" rows="2" placeholder="Catatan tambahan..."></textarea>
   <div class="form-tombol-bawah">
    <button class="tombol-kembali" onclick="tutupForm(); bukaKeranjang()">← Kembali</button>
@@ -146,23 +56,22 @@ tbody tr:hover{background:#f8d77c12;border-left:3px solid #f8d77c;box-shadow:ins
 <div class="kepala">
  <div class="isi-kepala">
   <span class="tombol-menu" onclick="bukaMenu()">☰</span>
-  <div class="logo">
-   <h1>ATLANTIC PERFUME</h1>
-  </div>
+  <div class="logo"><h1>ATLANTIC PERFUME</h1></div>
   <span class="tombol-keranjang" onclick="bukaKeranjang()">🛒<span id="jumlahKeranjang">0</span></span>
   <p class="tagline">Temukan Wangi yang Mencerminkan Dirimu</p>
   <div class="garis-bawah"></div>
  </div>
 </div>
 
+<!-- ==============================================
+     ✅ HANYA BAGIAN INI YANG DIUBAH SETIAP HALAMAN
+     ============================================== -->
 <div class="container">
  <h2 class="judul-halaman">🪵 KAYU — MEWAH</h2>
  <table>
-  <thead>
-   <tr><th>Nama Parfum</th><th>Karakter Aroma</th><th>Tambah</th></tr>
-  </thead>
+  <thead><tr><th>Nama Parfum</th><th>Karakter Aroma</th><th>Tambah</th></tr></thead>
   <tbody>
-      <tr>
+   <tr>
     <td><div class="nama-produk">Paco Rabanne 1 Million</div><div class="kode-produk">A 0501</div></td>
     <td>Kayu manis, emas, mewah berkilau</td>
     <td><button class="tombol-tambah" onclick="tambahKeranjang('A 0501','Paco Rabanne 1 Million')">🛒</button></td>
@@ -172,282 +81,12 @@ tbody tr:hover{background:#f8d77c12;border-left:3px solid #f8d77c;box-shadow:ins
     <td>Kayu cendana, jeruk, rempah, berkelas abadi</td>
     <td><button class="tombol-tambah" onclick="tambahKeranjang('A 0502','Chanel Bleu de Chanel')">🛒</button></td>
    </tr>
-   <tr>
-    <td><div class="nama-produk">Dior Sauvage</div><div class="kode-produk">A 0503</div></td>
-    <td>Kayu, jeruk, rempah, liar berwibawa</td>
-    <td><button class="tombol-tambah" onclick="tambahKeranjang('A 0503','Dior Sauvage')">🛒</button></td>
-   </tr>
-   <tr>
-    <td><div class="nama-produk">Armani Code</div><div class="kode-produk">A 0504</div></td>
-    <td>Kayu, tembakau, jeruk, misterius elegan</td>
-    <td><button class="tombol-tambah" onclick="tambahKeranjang('A 0504','Armani Code')">🛒</button></td>
-   </tr>
-   <tr>
-    <td><div class="nama-produk">Versace Oud Noir</div><div class="kode-produk">A 0505</div></td>
-    <td>Kayu gaharu, rempah, buah, mewah agung</td>
-    <td><button class="tombol-tambah" onclick="tambahKeranjang('A 0505','Versace Oud Noir')">🛒</button></td>
-   </tr>
-   <tr>
-    <td><div class="nama-produk">Tom Ford Oud Wood</div><div class="kode-produk">A 0601</div></td>
-    <td>Kayu gaharu, cendana, kemenyan, hangat mewah</td>
-    <td><button class="tombol-tambah" onclick="tambahKeranjang('A 0601','Tom Ford Oud Wood')">🛒</button></td>
-   </tr>
-   <tr>
-    <td><div class="nama-produk">YSL Y Eau de Parfum</div><div class="kode-produk">A 0602</div></td>
-    <td>Kayu, jeruk, apel, tegas berenergi</td>
-    <td><button class="tombol-tambah" onclick="tambahKeranjang('A 0602','YSL Y Eau de Parfum')">🛒</button></td>
-   </tr>
-   <tr>
-    <td><div class="nama-produk">Givenchy Gentleman</div><div class="kode-produk">A 0603</div></td>
-    <td>Kayu, vanila, jeruk, sopan berkarisma</td>
-    <td><button class="tombol-tambah" onclick="tambahKeranjang('A 0603','Givenchy Gentleman')">🛒</button></td>
-   </tr>
-   <tr>
-    <td><div class="nama-produk">Bvlgari Man Wood Essence</div><div class="kode-produk">A 0604</div></td>
-    <td>Kayu cendana, jeruk, alami murni</td>
-    <td><button class="tombol-tambah" onclick="tambahKeranjang('A 0604','Bvlgari Man Wood Essence')">🛒</button></td>
-   </tr>
-   <tr>
-    <td><div class="nama-produk">Hugo Boss Boss Bottled Oud</div><div class="kode-produk">A 0605</div></td>
-    <td>Kayu gaharu, apel, kayu, sukses mewah</td>
-    <td><button class="tombol-tambah" onclick="tambahKeranjang('A 0605','Hugo Boss Boss Bottled Oud')">🛒</button></td>
-   </tr>
-   <tr>
-    <td><div class="nama-produk">Tom Ford Black Orchid</div><div class="kode-produk">B 0501</div></td>
-    <td>Anggrek, kayu, buah, pekat misterius</td>
-    <td><button class="tombol-tambah" onclick="tambahKeranjang('B 0501','Tom Ford Black Orchid')">🛒</button></td>
-   </tr>
-   <tr>
-    <td><div class="nama-produk">Estée Lauder Wood Sage</div><div class="kode-produk">B 0502</div></td>
-    <td>Kayu, herbal, lembut alami menenangkan</td>
-    <td><button class="tombol-tambah" onclick="tambahKeranjang('B 0502','Estée Lauder Wood Sage')">🛒</button></td>
-   </tr>
-   <tr>
-    <td><div class="nama-produk">Chanel Coco Noir</div><div class="kode-produk">B 0503</div></td>
-    <td>Kayu, mawar, jeruk, malam anggun mewah</td>
-    <td><button class="tombol-tambah" onclick="tambahKeranjang('B 0503','Chanel Coco Noir')">🛒</button></td>
-   </tr>
-   <tr>
-    <td><div class="nama-produk">Dior Bois d'Argent</div><div class="kode-produk">B 0504</div></td>
-    <td>Kayu, mawar, putih, bersih elegan abadi</td>
-    <td><button class="tombol-tambah" onclick="tambahKeranjang('B 0504','Dior Bois d\'Argent')">🛒</button></td>
-   </tr>
-   <tr>
-    <td><div class="nama-produk">Guerlain Samsara</div><div class="kode-produk">B 0505</div></td>
-    <td>Kayu cendana, melati, putih, abadi tenang</td>
-    <td><button class="tombol-tambah" onclick="tambahKeranjang('B 0505','Guerlain Samsara')">🛒</button></td>
-   </tr>
-   <tr>
-    <td><div class="nama-produk">Prada Candy Oud</div><div class="kode-produk">B 0601</div></td>
-    <td>Kayu gaharu, karamel, manis mewah unik</td>
-    <td><button class="tombol-tambah" onclick="tambahKeranjang('B 0601','Prada Candy Oud')">🛒</button></td>
-   </tr>
-   <tr>
-    <td><div class="nama-produk">Armani Privé Bois</div><div class="kode-produk">B 0602</div></td>
-    <td>Kayu, jeruk, murni berkelas tenang</td>
-    <td><button class="tombol-tambah" onclick="tambahKeranjang('B 0602','Armani Privé Bois')">🛒</button></td>
-   </tr>
-   <tr>
-    <td><div class="nama-produk">YSL Opium</div><div class="kode-produk">B 0603</div></td>
-    <td>Kayu, rempah, buah, pekat memikat</td>
-    <td><button class="tombol-tambah" onclick="tambahKeranjang('B 0603','YSL Opium')">🛒</button></td>
-   </tr>
-   <tr>
-    <td><div class="nama-produk">Elie Saab Royal Cedar</div><div class="kode-produk">B 0604</div></td>
-    <td>Kayu cedar, melati, madu, mewah agung</td>
-    <td><button class="tombol-tambah" onclick="tambahKeranjang('B 0604','Elie Saab Royal Cedar')">🛒</button></td>
-   </tr>
-   <tr>
-    <td><div class="nama-produk">Versace Crystal Noir</div><div class="kode-produk">B 0605</div></td>
-    <td>Kayu, kelapa, rempah, eksotis mempesona</td>
-    <td><button class="tombol-tambah" onclick="tambahKeranjang('B 0605','Versace Crystal Noir')">🛒</button></td>
-   </tr>
+   <!-- Tambah produk lain disini saja -->
   </tbody>
  </table>
-
  <a href="index.html" class="tombol-beranda">🏠 Kembali ke Beranda</a>
 </div>
 
-<script>
-const daftarHarga = {
- 'A 0301': 125000,
- 'A 0302': 135000,
- 'A 0303': 115000,
- 'A 0304': 140000,
- 'A 0305': 110000,
- 'A 0401': 128000,
- 'A 0402': 118000,
- 'A 0403': 122000,
- 'A 0404': 130000,
- 'A 0405': 145000,
- 'B 0301': 150000,
- 'B 0302': 138000,
- 'B 0303': 126000,
- 'B 0304': 112000,
- 'B 0305': 132000,
- 'B 0401': 116000,
- 'B 0402': 124000,
- 'B 0403': 136000,
- 'B 0404': 142000,
- 'B 0405': 114000,
- 'A 0501': 145000,
- 'A 0502': 138000,
- 'A 0503': 132000,
- 'A 0504': 136000,
- 'A 0505': 148000,
- 'A 0601': 152000,
- 'A 0602': 129000,
- 'A 0603': 125000,
- 'A 0604': 130000,
- 'A 0605': 142000,
- 'B 0501': 146000,
- 'B 0502': 123000,
- 'B 0503': 139000,
- 'B 0504': 134000,
- 'B 0505': 128000,
- 'B 0601': 135000,
- 'B 0602': 140000,
- 'B 0603': 144000,
- 'B 0604': 137000,
- 'B 0605': 131000
-};
- 
-let keranjang = JSON.parse(localStorage.getItem('keranjangAtlantic') || '[]')
-
-function hitungTotal(){
- let total = 0;
- keranjang.forEach(item => {
-  total += daftarHarga[item.kode] || 0;
- });
- return total;
-}
-
-function formatRupiah(angka){
- return 'Rp ' + angka.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-}
-
-function perbaruiJumlah(){
- const el = document.getElementById('jumlahKeranjang');
- if(el) el.textContent = keranjang.length;
-}
-
-function tambahKeranjang(kode,nama){
- keranjang.push({kode,nama})
- simpanKeranjang()
- perbaruiJumlah()
- alert('✅ Ditambahkan:\n' + kode + ' — ' + nama)
-}
-
-function hapusItem(index){
- keranjang.splice(index,1)
- simpanKeranjang()
- tampilkanKeranjang()
- perbaruiJumlah()
-}
-
-function kosongkanKeranjang(){
- if(confirm('Kosongkan semua pesanan?')){
-  keranjang = []
-  simpanKeranjang()
-  tampilkanKeranjang()
-  perbaruiJumlah()
- }
-}
-
-function simpanKeranjang(){
- localStorage.setItem('keranjangAtlantic', JSON.stringify(keranjang))
-}
-
-function bukaKeranjang(){
- tampilkanKeranjang()
- document.getElementById('latarKeranjang').classList.add('buka')
- document.body.style.overflow='hidden'
-}
-
-function tutupKeranjang(){
- document.getElementById('latarKeranjang').classList.remove('buka')
- document.body.style.overflow=''
-}
-
-function tampilkanKeranjang(){
- const el = document.getElementById('isiKeranjang')
- const tombol = document.getElementById('tombolKeranjang')
- const blokTotal = document.getElementById('totalKeranjang')
- if(keranjang.length === 0){
-  el.innerHTML = '<div class="keranjang-kosong">Keranjang masih kosong</div>'
-  tombol.style.display = 'none'
-  blokTotal.style.display = 'none'
-  return
- }
- tombol.style.display = 'flex'
- blokTotal.style.display = 'block'
- blokTotal.textContent = 'Total: ' + formatRupiah(hitungTotal())
- el.innerHTML = keranjang.map((item,i)=>`
-  <div class="keranjang-item">
-   <div class="keranjang-nama"><strong>${item.kode}</strong><br>${item.nama}</div>
-   <div style="text-align:right">
-    <div>${formatRupiah(daftarHarga[item.kode]||0)}</div>
-    <span class="keranjang-hapus" onclick="hapusItem(${i})">hapus</span>
-   </div>
-  </div>
- `).join('')
-}
-
-function bukaFormPesanan(){
- if(keranjang.length === 0) return
- tutupKeranjang()
- const ringkas = document.getElementById('ringkasPesanan')
- let isi = '<p style="font-weight:bold;color:#f8d777;margin-bottom:8px;">📋 RINGKASAN PESANAN:</p>'
- keranjang.forEach((item,i)=>{
-  isi += `<p>${i+1}. ${item.kode} — ${item.nama}<span style="float:right">${formatRupiah(daftarHarga[item.kode]||0)}</span></p>`
- })
- isi += `<p class="form-total">TOTAL BAYAR: <span style="float:right">${formatRupiah(hitungTotal())}</span></p>`
- ringkas.innerHTML = isi
- document.getElementById('latarForm').classList.add('buka')
- document.body.style.overflow='hidden'
-}
-
-function tutupForm(){
- document.getElementById('latarForm').classList.remove('buka')
- document.body.style.overflow=''
-}
-
-function kirimPesananWA(){
- const nama = document.getElementById('namaPemesan').value.trim()
- const alamat = document.getElementById('alamatPemesan').value.trim()
- const keterangan = document.getElementById('keteranganPemesan').value.trim()
-
- if(!nama){ alert('⚠️ Silakan isi Nama Pemesan!'); return }
- if(!alamat){ alert('⚠️ Silakan isi Alamat Lengkap!'); return }
-
- let teks = 'Halo Atlantic Perfume!%0A%0A📋 DATA PEMESANAN:%0A%0A'
- teks += `👤 Nama Pemesan: ${nama}%0A`
- teks += `📍 Alamat Lengkap: ${alamat}%0A`
- if(keterangan) teks += `📝 Keterangan: ${keterangan}%0A`
- teks += '%0A🛒 DAFTAR BARANG:%0A%0A'
- keranjang.forEach((item,i)=>{
-  teks += `${i+1}. ${item.kode} — ${item.nama} = ${formatRupiah(daftarHarga[item.kode]||0)}%0A`
- })
- teks += `%0A💰 TOTAL PEMBAYARAN: ${formatRupiah(hitungTotal())}%0A`
- teks += '%0A—%0ASaya ingin memesan produk di atas. Terima kasih!'
-
- window.open(`https://wa.me/6289676100177?text=${teks}`,'_blank')
-}
-
-function bukaMenu(){
- document.getElementById('menuKotak').classList.add('buka')
- document.getElementById('menuLatar').classList.add('buka')
- document.body.style.overflow='hidden'
-}
-
-function tutupMenu(){
- document.getElementById('menuKotak').classList.remove('buka')
- document.getElementById('menuLatar').classList.remove('buka')
- document.body.style.overflow=''
-}
-
-perbaruiJumlah()
-</script>
-
+<script src="fungsi.js"></script>
 </body>
 </html>
