@@ -3,13 +3,11 @@
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>🍊 SEGAR — Sitrus | ATLANTIC PERFUME</title>
+ <title>🌸 BUNGA — Elegan | ATLANTIC PERFUME</title>
  <style>
  *{margin:0;padding:0;box-sizing:border-box;font-family:Georgia,serif}
  body{background:#0f2040;color:#fff;line-height:1.6;padding-top:80px}
  a{text-decoration:none}
-
- /* === MENU — LATAR DILEMBUTKAN === */
  .menu-latar{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:999}
  .menu-kotak{position:fixed;top:0;right:-300px;width:280px;height:100%;background:#f0f4f8;z-index:1000;transition:right .3s;box-shadow:-4px 0 15px rgba(0,0,0,0.15)}
  .menu-tutup{text-align:right;padding:15px 20px;font-size:22px;cursor:pointer;color:#2c3e50}
@@ -17,8 +15,6 @@
  .menu-item{display:block;padding:12px 20px;color:#2c3e50;border-bottom:1px solid #e4eaf2;transition:background .2s}
  .menu-item:hover{background:#dce9f5;color:#0f2040}
  .menu-item.aktif{background:#bdd7ee;color:#0f2040;font-weight:bold;border-left:4px solid #2a6090}
-
- /* === TABEL === */
  table{width:100%;border-collapse:collapse;background:#ffffff08;border-radius:8px;overflow:hidden}
  th{padding:12px 8px;text-align:left;background:#ffffff15;border-bottom:2px solid #ffffff33}
  td{padding:12px 8px;border-bottom:1px solid #ffffff15}
@@ -28,7 +24,6 @@
 </head>
 <body>
 
-<!-- ✅ KEPALA — ICON KERANJANG DIPERJELAS -->
 <div style="position:fixed;top:0;left:0;right:0;background:#0f2040;padding:14px 15px;z-index:998;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ffffff22">
  <span onclick="bukaMenu()" style="font-size:24px;cursor:pointer">☰</span>
  <h1 style="font-size:18px">ATLANTIC PERFUME</h1>
@@ -37,14 +32,13 @@
  </span>
 </div>
 
-<!-- ✅ MENU -->
 <div class="menu-latar" id="menuLatar" onclick="tutupMenu()"></div>
 <div class="menu-kotak" id="menuKotak">
  <div class="menu-tutup" onclick="tutupMenu()">✕</div>
  <div class="menu-judul">📋 DAFTAR VARIAN</div>
  <a href="index.html" class="menu-item">🏠 BERANDA</a>
- <a href="kelompok1.html" class="menu-item aktif">🍊 SEGAR — Sitrus</a>
- <a href="kelompok2.html" class="menu-item">🌸 BUNGA — Elegan</a>
+ <a href="kelompok1.html" class="menu-item">🍊 SEGAR — Sitrus</a>
+ <a href="kelompok2.html" class="menu-item aktif">🌸 BUNGA — Elegan</a>
  <a href="kelompok3.html" class="menu-item">🪵 KAYU — Mewah</a>
  <a href="kelompok4.html" class="menu-item">🍬 MANIS — Legenda</a>
  <a href="kelompok5.html" class="menu-item">🌶️ REMPAH — Kuat</a>
@@ -53,7 +47,6 @@
  <a href="info.html" class="menu-item">ℹ️ INFO TOKO</a>
 </div>
 
-<!-- ✅ KERANJANG -->
 <div id="latarKeranjang" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:999;align-items:center;justify-content:center" onclick="if(event.target===this)tutupKeranjang()">
  <div style="background:#fff;color:#000;padding:20px;border-radius:10px;width:92%;max-width:500px;max-height:90vh;overflow-y:auto">
   <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ccc;padding-bottom:10px;margin-bottom:15px">
@@ -68,7 +61,6 @@
  </div>
 </div>
 
-<!-- ✅ FORM PESANAN -->
 <div id="latarForm" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:999;align-items:center;justify-content:center" onclick="if(event.target===this)tutupForm()">
  <div style="background:#fff;color:#000;padding:20px;border-radius:10px;width:92%;max-width:500px;max-height:90vh;overflow-y:auto">
   <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ccc;padding-bottom:10px;margin-bottom:15px">
@@ -88,7 +80,6 @@
  </div>
 </div>
 
-<!-- ✅ DAFTAR PRODUK -->
 <div style="max-width:720px;margin:0 auto;padding:20px 16px">
  <h2 id="namaKelompok" style="text-align:center;margin:10px 0 20px;font-size:20px"></h2>
  <table>
@@ -112,8 +103,8 @@
 <script src="data-produk.js"></script>
 <script src="fungsi.js"></script>
 <script>
-if(typeof dataProduk !== 'undefined' && dataProduk.kelompok1){
-  const k = dataProduk.kelompok1;
+if(typeof dataProduk !== 'undefined' && dataProduk.kelompok2){
+  const k = dataProduk.kelompok2;
   document.getElementById('namaKelompok').textContent = k.judul;
   let html = '';
   k.produk.forEach(p => {
@@ -132,4 +123,5 @@ if(typeof dataProduk !== 'undefined' && dataProduk.kelompok1){
 </script>
 
 </body>
-</html>
+    </html>
+ 
