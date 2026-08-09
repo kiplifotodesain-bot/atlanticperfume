@@ -18,7 +18,7 @@ a{text-decoration:none}
 .menu-item.aktif{background:linear-gradient(90deg, #0a1630, #142850);color:#fff;font-weight:bold;border-left:4px solid #ffd700}
 table{width:100%;border-collapse:collapse;background:#ffffff08;border-radius:8px;overflow:hidden;table-layout:auto}
 th{padding:10px 6px;text-align:left;background:#ffffff15;border-bottom:2px solid #ffffff33;font-size:15px}
-td{padding:10px 6px;border-bottom:1px solid #ffffff15;font-size:15px;word-wrap:break-word;white-space:normal}
+td{padding:10px 6px;border-bottom:1px solid #ffffff15;font-size:14px;word-wrap:break-word;white-space:normal}
 tr:hover{background:#ffffff10}
 .btn-beli{background:#00aa55;color:#fff;border:none;padding:6px 8px;border-radius:4px;cursor:pointer;font-size:15px}
 .nav-halaman{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding:10px 0}
@@ -81,33 +81,56 @@ tr:hover{background:#ffffff10}
 <div style="max-width:720px;margin:0 auto;padding:20px 12px">
  <h2 id="namaKelompok" style="text-align:center;margin:10px 0 20px;font-size:20px"></h2>
  <table>
-  <thead><tr><th>Kode</th><th>Nama Parfum</th><th>Aroma</th><th>Harga</th><th></th></tr></thead>
+  <thead><tr><th>Kode</th><th>Nama Parfum</th><th>Aroma</th><th>Harga 20ml</th><th></th></tr></thead>
   <tbody id="isiTabel"><tr><td colspan="5" style="text-align:center;padding:20px">⏳ Memuat...</td></tr></tbody>
  </table>
+
+ <!-- TOMBOL PANAH HALAMAN -->
  <div class="nav-halaman">
   <button class="btn-nav" id="btnSebelumnya" onclick="halamanSebelumnya()">←</button>
-  <span class="info-halaman" id="infoHalaman">Halaman 1 dari 2</span>
+  <span class="info-halaman" id="infoHalaman">Halaman 1 dari 4</span>
   <button class="btn-nav" id="btnSelanjutnya" onclick="halamanSelanjutnya()">→</button>
+ </div>
+
+ <!-- ✅ TOMBOL KEMBALI KE BERANDA -->
+ <div style="text-align:center;margin-top:14px;">
+  <a href="index.html" style="display:inline-block;padding:6px 14px;background:#ffffff15;color:#ffd700;border:1px solid #ffd700;border-radius:6px;font-size:14px;text-decoration:none;font-weight:500">🏠 Kembali ke Beranda</a>
  </div>
 </div>
 
 <script>
-// === DATA PRODUK LANGSUNG DI SINI — TIDAK PERLU FILE TERPISAH! ===
+// === DATA PRODUK KELOMPOK 3 — KAYU MEWAH | HARGA = 20ml ===
 const dataProduk = {
   kelompok3: {
     judul: "🪵 KAYU — Mewah",
     halaman: [
       [
-        {kode:"KY001", nama:"Oud Royal", aroma:"Kayu Gaharu Mewah & Lembut", harga:"Rp 280.000"},
-        {kode:"KY002", nama:"Sandalwood", aroma:"Cendana Putih Yang Hangat", harga:"Rp 245.000"},
-        {kode:"KY003", nama:"Cedar Wood", aroma:"Kayu Cemara Segar & Bersih", harga:"Rp 230.000"},
-        {kode:"KY004", nama:"Amber Wood", aroma:"Kayu dengan Nuansa Emas", harga:"Rp 265.000"}
+        {kode:"A0501", nama:"Dior Sauvage", aroma:"Kayu cedar, jeruk, rempah, tegas", harga:"Rp 195.000"},
+        {kode:"A0502", nama:"Paco Rabanne 1 Million", aroma:"Kayu manis, emas, kulit, mewah", harga:"Rp 185.000"},
+        {kode:"A0503", nama:"Chanel Bleu", aroma:"Kayu cendana, jeruk, rempah, berkelas", harga:"Rp 215.000"},
+        {kode:"A0504", nama:"Armani Code", aroma:"Kulit, tembakau, kayu, misterius", harga:"Rp 175.000"},
+        {kode:"A0505", nama:"Hugo Boss Bottled", aroma:"Apel, kayu manis, cendana, hangat", harga:"Rp 135.000"}
       ],
       [
-        {kode:"KY005", nama:"Vetiver", aroma:"Akar Wangi Khas & Menenangkan", harga:"Rp 255.000"},
-        {kode:"KY006", nama:"Patchouli", aroma:"Kayu Kuno Yang Hangat", harga:"Rp 260.000"},
-        {kode:"KY007", nama:"Ebony Wood", aroma:"Kayu Hitam Yang Elegan", harga:"Rp 290.000"},
-        {kode:"KY008", nama:"Gaharu Emas", aroma:"Kayu Gaharu Pilihan Terbaik", harga:"Rp 310.000"}
+        {kode:"A0601", nama:"YSL Kouros", aroma:"Kembang bumbu, kayu, wangi bangsawan", harga:"Rp 165.000"},
+        {kode:"A0602", nama:"Bvlgari Man", aroma:"Kayu agar, akar, rempah, kuat", harga:"Rp 155.000"},
+        {kode:"A0603", nama:"Versace Eros", aroma:"Mint, apel, kayu, penuh gairah", harga:"Rp 145.000"},
+        {kode:"A0604", nama:"Tom Ford Oud Wood", aroma:"Oud, kayu cendana, kemenyan, mendalam", harga:"Rp 245.000"},
+        {kode:"A0605", nama:"Dunhill Icon", aroma:"Jeruk, kayu, tembakau, elegan", harga:"Rp 140.000"}
+      ],
+      [
+        {kode:"B0501", nama:"Aramis Dark Leather", aroma:"Kayu, kulit, tembakau, tegas", harga:"Rp 115.000"},
+        {kode:"B0502", nama:"Dunhill London", aroma:"Kayu cendana, jeruk, rempah, halus", harga:"Rp 125.000"},
+        {kode:"B0503", nama:"Bentley Intense", aroma:"Kayu agar, kulit, ambar, mewah", harga:"Rp 145.000"},
+        {kode:"B0504", nama:"Rolls Royce", aroma:"Kayu tua, rempah, ambar, berwibawa", harga:"Rp 195.000"},
+        {kode:"B0505", nama:"Jaguar Prestige", aroma:"Kayu cendana, melati, hangat elegan", harga:"Rp 110.000"}
+      ],
+      [
+        {kode:"B0601", nama:"Lattafa Oud Mood", aroma:"Oud, rempah, damar, hangat mendalam", harga:"Rp 95.000"},
+        {kode:"B0602", nama:"Armaf Legasi", aroma:"Kayu agar, vanila, ambar, mewah", harga:"Rp 105.000"},
+        {kode:"B0603", nama:"Asdaaf Oud", aroma:"Kayu murni, kemenyan, lembut pekat", harga:"Rp 85.000"},
+        {kode:"B0604", nama:"Ajmal Oudh", aroma:"Oud halus, rempah, tenang mendalam", harga:"Rp 90.000"},
+        {kode:"B0605", nama:"Arabian Oud", aroma:"Kayu murni, mawar, lembut wangi", harga:"Rp 88.000"}
       ]
     ]
   }
@@ -140,7 +163,7 @@ function tampilHalaman(){
   document.getElementById('isiTabel').innerHTML = html;
   document.getElementById('infoHalaman').textContent = `Halaman ${halamanSekarang+1} dari ${totalHalaman}`;
   document.getElementById('btnSebelumnya').disabled = halamanSekarang <= 0;
-  document.getElementById('btnSelanjutnya').disabled = halamanSekarang >= totalHalaman-1;
+  document.getElementById('btnSelanjutnya').disabled = halamanSekarang >= totalHalaman.length-1;
 }
 
 function halamanSebelumnya(){
@@ -154,4 +177,5 @@ muatHalaman();
 </script>
 <script src="fungsi.js"></script>
 </body>
-</html>
+ </html>
+ 
