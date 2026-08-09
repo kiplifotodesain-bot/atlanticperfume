@@ -5,27 +5,57 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>ATLANTIC PERFUME — Temukan Wangi yang Mencerminkan Dirimu</title>
  <style>
- *{margin:0;padding:0;box-sizing:border-box;font-family:Georgia,serif}
- body{background:#0f2040;color:#fff;line-height:1.6}
- a{text-decoration:none}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Georgia',serif}
+html,body{height:100%}
+body{background:#0f2040;color:#fff;line-height:1.6;padding-top:110px}
+.container{max-width:720px;margin:0 auto;padding:0 16px}
 
- /* === MENU SAMPING === */
- .menu-latar{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999}
- .menu-kotak{position:fixed;top:0;right:-300px;width:280px;height:100%;background:#fff;z-index:1000;transition:right 0.3s ease;overflow-y:auto}
- .menu-tutup{text-align:right;padding:15px 20px;font-size:22px;cursor:pointer;color:#333}
- .menu-judul{padding:10px 20px;font-weight:bold;font-size:16px;color:#0f2040;border-bottom:1px solid #eee}
- .menu-item{display:block;padding:12px 20px;color:#333;border-bottom:1px solid #f5f5f5}
- .menu-item:hover{background:#f0f4ff}
- .menu-item.aktif{background:#e6f0ff;color:#0f2040;font-weight:bold}
+/* === BAGIAN ATAS — MENEMPEL DIAM === */
+.kepala{position:fixed;top:0;left:0;right:0;z-index:9999;background:#0f2040;padding:12px 15px 18px}
+.kepala .isi-kepala{max-width:720px;margin:0 auto;position:relative}
+
+/* === TOMBOL MENU === */
+.tombol-menu{position:absolute;left:0;top:4px;font-size:1.5em;color:#f8d77c;cursor:pointer;padding:2px 8px;line-height:1;border:1px solid #f8d77c50;border-radius:6px;width:38px;height:38px;display:flex;align-items:center;justify-content:center}
+
+/* === LOGO === */
+.logo{text-align:center;padding-left:45px;padding-right:45px}
+.logo h1{font-size:1.1em;color:#f8d77c;letter-spacing:1px;text-transform:uppercase;font-weight:normal;white-space:nowrap;line-height:38px}
+
+/* === TULISAN KUTIPAN — JARAK DIPERLEBAR === */
+.tagline{text-align:center;font-size:0.78em;color:#e0e0e0;margin:10px 0 10px;padding-left:0;line-height:1.4}
+
+/* === GARIS PUTIH === */
+.garis-bawah{width:65%;height:1px;background:#ffffff;margin:0 auto}
+
+/* === ISI BERANDA === */
+.beranda-isi{padding:25px 0 50px;text-align:center}
+.beranda-isi h2{color:#f8d77c;margin-bottom:15px;font-size:1.3em}
+.beranda-isi .kotak-wa{background:#ffffff0f;border-radius:10px;padding:20px 18px;margin:15px 0;border:1px solid #ffffff1a}
+.beranda-isi .kotak-wa p{margin-bottom:10px;font-size:0.95em;line-height:1.7}
+.tombol-wa{display:inline-block;background:#25d366;color:#fff;border-radius:8px;padding:11px 25px;text-decoration:none;font-weight:bold;margin-top:8px}
+.tombol-wa:hover{background:#1fb855}
+
+/* === MENU SAMPING === */
+.menu-latar{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);z-index:99999;display:none}
+.menu-latar.buka{display:block}
+.menu-kotak{position:fixed;top:0;left:0;width:260px;height:100%;background:#152238;z-index:100000;padding:20px;border-right:1px solid #f8d77c40;transform:translateX(-100%);transition:transform 0.3s ease}
+.menu-kotak.buka{transform:translateX(0)}
+.menu-tutup{text-align:right;color:#f8d77c;font-size:1.5em;cursor:pointer;margin-bottom:20px}
+.menu-judul{color:#f8d77c;font-size:1.1em;margin-bottom:15px;padding-bottom:10px;border-bottom:1px solid #f8d77c30}
+.menu-item{display:block;color:#fff;text-decoration:none;padding:10px 12px;margin-bottom:5px;border-radius:6px;transition:all 0.2s}
+.menu-item:hover{background:#f8d77c15;color:#f8d77c}
+.menu-item.aktif{background:#f8d77c25;color:#f8d77c;font-weight:bold}
  </style>
 </head>
 <body>
 
+<!-- LATAR BELAKANG MENU -->
 <div class="menu-latar" id="menuLatar" onclick="tutupMenu()"></div>
 
+<!-- KOTAK MENU DARI KIRI -->
 <div class="menu-kotak" id="menuKotak">
  <div class="menu-tutup" onclick="tutupMenu()">✕</div>
- <div class="menu-judul">📋 DAFTAR VARIAN</div>
+ <div class="menu-judul">DAFTAR VARIAN</div>
  <a href="index.html" class="menu-item aktif">🏠 BERANDA</a>
  <a href="kelompok1.html" class="menu-item">🍊 SEGAR — Sitrus</a>
  <a href="kelompok2.html" class="menu-item">🌸 BUNGA — Elegan</a>
@@ -37,48 +67,46 @@
  <a href="info.html" class="menu-item">ℹ️ INFO TOKO</a>
 </div>
 
-<div style="position:fixed;top:0;left:0;right:0;background:#0f2040;color:#fff;padding:14px 15px;z-index:998;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ffffff22">
- <span onclick="bukaMenu()" style="font-size:22px;cursor:pointer">☰</span>
- <h1 style="font-size:18px;margin:0">ATLANTIC PERFUME</h1>
- <span style="width:40px"></span>
+<!-- BAGIAN ATAS — TANPA IKON KERANJANG -->
+<div class="kepala">
+ <div class="isi-kepala">
+  <span class="tombol-menu" onclick="bukaMenu()">☰</span>
+  <div class="logo">
+   <h1>ATLANTIC PERFUME</h1>
+  </div>
+  <p class="tagline">Temukan Wangi yang Mencerminkan Dirimu</p>
+  <div class="garis-bawah"></div>
+ </div>
 </div>
 
-<div style="margin-top:90px"></div>
+<!-- ISI BERANDA -->
+<div class="container">
+ <div class="beranda-isi">
+  <h2>Selamat Datang di Atlantic Perfume</h2>
+  
+  <div class="kotak-wa">
+   <p>Silakan pilih kelompok aroma dari tombol menu di pojok kiri atas.</p>
+   <p>📲 Pesan langsung melalui WhatsApp:</p>
+   <a href="https://wa.me/6289676100177" target="_blank" class="tombol-wa">💬 +62 896-7610-0177</a>
+  </div>
 
-<div style="text-align:center;padding:10px 20px 5px">
- <h2 style="font-size:24px;margin:0">Selamat Datang!</h2>
-</div>
-
-<div style="text-align:center;padding:5px 20px 20px;max-width:720px;margin:0 auto">
- <p style="font-style:italic;font-size:17px;line-height:1.8">
- Wewangian adalah bagian dari jiwa yang terbang melayang, menyapa dunia sebelum raga itu tiba.
- </p>
-</div>
-
-<div style="max-width:720px;margin:0 auto;padding:0 16px 40px">
- <h2 style="text-align:center;margin:0 0 25px;font-size:20px">PILIH VARIAN AROMA</h2>
- 
- <div style="display:grid;gap:12px">
-  <a href="kelompok1.html" style="padding:15px 20px;background:#ffffff0a;border-radius:8px;color:#fff;font-size:16px;border:1px solid #ffffff15">🍊 SEGAR — Sitrus</a>
-  <a href="kelompok2.html" style="padding:15px 20px;background:#ffffff0a;border-radius:8px;color:#fff;font-size:16px;border:1px solid #ffffff15">🌸 BUNGA — Elegan</a>
-  <a href="kelompok3.html" style="padding:15px 20px;background:#ffffff0a;border-radius:8px;color:#fff;font-size:16px;border:1px solid #ffffff15">🪵 KAYU — Mewah</a>
-  <a href="kelompok4.html" style="padding:15px 20px;background:#ffffff0a;border-radius:8px;color:#fff;font-size:16px;border:1px solid #ffffff15">🍬 MANIS — Legenda</a>
-  <a href="kelompok5.html" style="padding:15px 20px;background:#ffffff0a;border-radius:8px;color:#fff;font-size:16px;border:1px solid #ffffff15">🌶️ REMPAH — Kuat</a>
-  <a href="kelompok6.html" style="padding:15px 20px;background:#ffffff0a;border-radius:8px;color:#fff;font-size:16px;border:1px solid #ffffff15">🌊 SEGAR — Laut</a>
-  <a href="kelompok7.html" style="padding:15px 20px;background:#ffffff0a;border-radius:8px;color:#fff;font-size:16px;border:1px solid #ffffff15">🔥 TERLARIS</a>
-  <a href="info.html" style="padding:15px 20px;background:#ffffff0a;border-radius:8px;color:#fff;font-size:16px;border:1px solid #ffffff15">ℹ️ INFO TOKO</a>
+  <p style="margin-top:15px;opacity:0.9;font-size:0.9em;">Kisaran harga: Standar Rp 2.500–3.500 | Premium Rp 4.000–7.000<br>Silakan hubungi kami untuk rincian harga per varian.</p>
  </div>
 </div>
 
 <script>
-function bukaMenu() {
-  document.getElementById('menuKotak').style.right = '0';
-  document.getElementById('menuLatar').style.display = 'block';
+// === FUNGSI MENU ===
+function bukaMenu(){
+ document.getElementById('menuKotak').classList.add('buka')
+ document.getElementById('menuLatar').classList.add('buka')
+ document.body.style.overflow='hidden'
 }
-function tutupMenu() {
-  document.getElementById('menuKotak').style.right = '-300px';
-  document.getElementById('menuLatar').style.display = 'none';
+function tutupMenu(){
+ document.getElementById('menuKotak').classList.remove('buka')
+ document.getElementById('menuLatar').classList.remove('buka')
+ document.body.style.overflow=''
 }
 </script>
+
 </body>
 </html>
