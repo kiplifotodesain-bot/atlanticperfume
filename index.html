@@ -4,14 +4,28 @@
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>ATLANTIC PERFUME — Temukan Wangi yang Mencerminkan Dirimu</title>
- <link rel="stylesheet" href="gaya.css">
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box;font-family:Georgia,serif}
+ body{background:#0f2040;color:#fff;line-height:1.6}
+ a{text-decoration:none}
+
+ /* === MENU SAMPING === */
+ .menu-latar{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999}
+ .menu-kotak{position:fixed;top:0;right:-300px;width:280px;height:100%;background:#fff;z-index:1000;transition:right 0.3s ease;overflow-y:auto}
+ .menu-tutup{text-align:right;padding:15px 20px;font-size:22px;cursor:pointer;color:#333}
+ .menu-judul{padding:10px 20px;font-weight:bold;font-size:16px;color:#0f2040;border-bottom:1px solid #eee}
+ .menu-item{display:block;padding:12px 20px;color:#333;border-bottom:1px solid #f5f5f5}
+ .menu-item:hover{background:#f0f4ff}
+ .menu-item.aktif{background:#e6f0ff;color:#0f2040;font-weight:bold}
+ </style>
 </head>
 <body>
 
 <div class="menu-latar" id="menuLatar" onclick="tutupMenu()"></div>
+
 <div class="menu-kotak" id="menuKotak">
  <div class="menu-tutup" onclick="tutupMenu()">✕</div>
- <div class="menu-judul">DAFTAR VARIAN</div>
+ <div class="menu-judul">📋 DAFTAR VARIAN</div>
  <a href="index.html" class="menu-item aktif">🏠 BERANDA</a>
  <a href="kelompok1.html" class="menu-item">🍊 SEGAR — Sitrus</a>
  <a href="kelompok2.html" class="menu-item">🌸 BUNGA — Elegan</a>
@@ -23,66 +37,48 @@
  <a href="info.html" class="menu-item">ℹ️ INFO TOKO</a>
 </div>
 
-<div class="latar-keranjang" id="latarKeranjang" onclick="if(event.target===this) tutupKeranjang()">
- <div class="kotak-keranjang">
-  <div class="keranjang-judul"><span>🛒 Keranjang Pesanan</span><span class="keranjang-tutup" onclick="tutupKeranjang()">✕</span></div>
-  <div id="isiKeranjang" class="keranjang-daftar"><div class="keranjang-kosong">Keranjang masih kosong</div></div>
-  <div id="totalKeranjang" style="display:none" class="keranjang-total">Total: Rp 0</div>
-  <div class="keranjang-aksi" id="tombolKeranjang" style="display:none">
-   <button class="tombol-kosongkan" onclick="kosongkanKeranjang()">Kosongkan</button>
-   <button class="tombol-kirim" onclick="bukaFormPesanan()">📝 ISI DATA PESANAN</button>
-  </div>
+<div style="position:fixed;top:0;left:0;right:0;background:#0f2040;color:#fff;padding:14px 15px;z-index:998;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ffffff22">
+ <span onclick="bukaMenu()" style="font-size:22px;cursor:pointer">☰</span>
+ <h1 style="font-size:18px;margin:0">ATLANTIC PERFUME</h1>
+ <span style="width:40px"></span>
+</div>
+
+<div style="margin-top:90px"></div>
+
+<div style="text-align:center;padding:10px 20px 5px">
+ <h2 style="font-size:24px;margin:0">Selamat Datang!</h2>
+</div>
+
+<div style="text-align:center;padding:5px 20px 20px;max-width:720px;margin:0 auto">
+ <p style="font-style:italic;font-size:17px;line-height:1.8">
+ Wewangian adalah bagian dari jiwa yang terbang melayang, menyapa dunia sebelum raga itu tiba.
+ </p>
+</div>
+
+<div style="max-width:720px;margin:0 auto;padding:0 16px 40px">
+ <h2 style="text-align:center;margin:0 0 25px;font-size:20px">PILIH VARIAN AROMA</h2>
+ 
+ <div style="display:grid;gap:12px">
+  <a href="kelompok1.html" style="padding:15px 20px;background:#ffffff0a;border-radius:8px;color:#fff;font-size:16px;border:1px solid #ffffff15">🍊 SEGAR — Sitrus</a>
+  <a href="kelompok2.html" style="padding:15px 20px;background:#ffffff0a;border-radius:8px;color:#fff;font-size:16px;border:1px solid #ffffff15">🌸 BUNGA — Elegan</a>
+  <a href="kelompok3.html" style="padding:15px 20px;background:#ffffff0a;border-radius:8px;color:#fff;font-size:16px;border:1px solid #ffffff15">🪵 KAYU — Mewah</a>
+  <a href="kelompok4.html" style="padding:15px 20px;background:#ffffff0a;border-radius:8px;color:#fff;font-size:16px;border:1px solid #ffffff15">🍬 MANIS — Legenda</a>
+  <a href="kelompok5.html" style="padding:15px 20px;background:#ffffff0a;border-radius:8px;color:#fff;font-size:16px;border:1px solid #ffffff15">🌶️ REMPAH — Kuat</a>
+  <a href="kelompok6.html" style="padding:15px 20px;background:#ffffff0a;border-radius:8px;color:#fff;font-size:16px;border:1px solid #ffffff15">🌊 SEGAR — Laut</a>
+  <a href="kelompok7.html" style="padding:15px 20px;background:#ffffff0a;border-radius:8px;color:#fff;font-size:16px;border:1px solid #ffffff15">🔥 TERLARIS</a>
+  <a href="info.html" style="padding:15px 20px;background:#ffffff0a;border-radius:8px;color:#fff;font-size:16px;border:1px solid #ffffff15">ℹ️ INFO TOKO</a>
  </div>
 </div>
 
-<div class="latar-form" id="latarForm" onclick="if(event.target===this) tutupForm()">
- <div class="kotak-form">
-  <div class="form-judul"><span>📝 DATA PEMESANAN</span><span class="form-tutup" onclick="tutupForm()">✕</span></div>
-  <div class="form-ringkas" id="ringkasPesanan"></div>
-  <label class="form-label">Nama Pemesan *</label>
-  <input type="text" id="namaPemesan" class="form-input" placeholder="Tulis nama lengkap...">
-  <label class="form-label">Alamat Lengkap *</label>
-  <textarea id="alamatPemesan" class="form-input" rows="3" placeholder="Jalan, RT/RW, Desa/Kec, Kota..."></textarea>
-  <label class="form-label">Keterangan Tambahan</label>
-  <textarea id="keteranganPemesan" class="form-input" rows="2" placeholder="Catatan tambahan..."></textarea>
-  <div class="form-tombol-bawah">
-   <button class="tombol-kembali" onclick="tutupForm(); bukaKeranjang()">← Kembali</button>
-   <button class="tombol-kirim-wa" onclick="kirimPesananWA()">✅ KIRIM KE WHATSAPP</button>
-  </div>
- </div>
-</div>
-
-<div class="kepala">
- <div class="isi-kepala">
-  <span class="tombol-menu" onclick="bukaMenu()">☰</span>
-  <div class="logo"><h1>ATLANTIC PERFUME</h1></div>
-  <span class="tombol-keranjang" onclick="bukaKeranjang()">🛒<span id="jumlahKeranjang">0</span></span>
-  <p class="tagline">Temukan Wangi yang Mencerminkan Dirimu</p>
-  <div class="garis-bawah"></div>
- </div>
-</div>
-
-<div class="container">
- <h2 class="judul-halaman">🏠 SELAMAT DATANG</h2>
-
- <div style="text-align:center; padding:25px 10px; line-height:1.8; background:#ffffff08; border-radius:8px; margin-bottom:30px;">
-  <p style="font-size:1.05em; color:#f8d77c; margin-bottom:15px;">Pilih Kategori Wangi</p>
-  <p style="color:#ddd;">Klik tombol menu ☰ di pojok kiri atas<br>atau pilih kategori di bawah untuk melihat produk</p>
- </div>
-
- <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:40px;">
-  <a href="kelompok1.html" style="display:block; padding:14px 16px; background:#ffffff08; color:#fff; text-decoration:none; border-radius:8px; border:1px solid #ffffff15; transition:all 0.25s;">🍊 &nbsp;SEGAR — Aroma Sitrus yang Menyegarkan</a>
-  <a href="kelompok2.html" style="display:block; padding:14px 16px; background:#ffffff08; color:#fff; text-decoration:none; border-radius:8px; border:1px solid #ffffff15; transition:all 0.25s;">🌸 &nbsp;BUNGA — Wangi Elegan dan Lembut</a>
-  <a href="kelompok3.html" style="display:block; padding:14px 16px; background:#ffffff08; color:#fff; text-decoration:none; border-radius:8px; border:1px solid #ffffff15; transition:all 0.25s;">🪵 &nbsp;KAYU — Kesan Mewah dan Berkelas</a>
-  <a href="kelompok4.html" style="display:block; padding:14px 16px; background:#ffffff08; color:#fff; text-decoration:none; border-radius:8px; border:1px solid #ffffff15; transition:all 0.25s;">🍬 &nbsp;MANIS — Aroma Manis Legendaris</a>
-  <a href="kelompok5.html" style="display:block; padding:14px 16px; background:#ffffff08; color:#fff; text-decoration:none; border-radius:8px; border:1px solid #ffffff15; transition:all 0.25s;">🌶️ &nbsp;REMPAH — Karakter Kuat dan Tegas</a>
-  <a href="kelompok6.html" style="display:block; padding:14px 16px; background:#ffffff08; color:#fff; text-decoration:none; border-radius:8px; border:1px solid #ffffff15; transition:all 0.25s;">🌊 &nbsp;SEGAR — Laut yang Menenangkan</a>
-  <a href="kelompok7.html" style="display:block; padding:14px 16px; background:#ffffff08; color:#fff; text-decoration:none; border-radius:8px; border:1px solid #ffffff15; transition:all 0.25s;">🔥 &nbsp;TERLARIS — Pilihan Terbaik</a>
-  <a href="info.html" style="display:block; padding:14px 16px; background:#f8d77c15; color:#f8d77c; text-decoration:none; border-radius:8px; border:1px solid #f8d77c40; margin-top:8px; text-align:center; font-weight:bold;">ℹ️ INFORMASI TOKO</a>
- </div>
-</div>
-
-<script src="fungsi.js"></script>
+<script>
+function bukaMenu() {
+  document.getElementById('menuKotak').style.right = '0';
+  document.getElementById('menuLatar').style.display = 'block';
+}
+function tutupMenu() {
+  document.getElementById('menuKotak').style.right = '-300px';
+  document.getElementById('menuLatar').style.display = 'none';
+}
+</script>
 </body>
-   </html>
-   
+</html>
