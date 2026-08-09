@@ -18,9 +18,13 @@ a{text-decoration:none}
 .menu-item.aktif{background:linear-gradient(90deg, #0a1630, #142850);color:#fff;font-weight:bold;border-left:4px solid #ffd700}
 table{width:100%;border-collapse:collapse;background:#ffffff08;border-radius:8px;overflow:hidden;table-layout:auto}
 th{padding:10px 6px;text-align:left;background:#ffffff15;border-bottom:2px solid #ffffff33;font-size:15px}
-td{padding:10px 6px;border-bottom:1px solid #ffffff15;font-size:15px;word-wrap:break-word;white-space:normal}
+td{padding:10px 6px;border-bottom:1px solid #ffffff15;font-size:14px;word-wrap:break-word;white-space:normal}
 tr:hover{background:#ffffff10}
 .btn-beli{background:#00aa55;color:#fff;border:none;padding:6px 8px;border-radius:4px;cursor:pointer;font-size:15px}
+.nav-halaman{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding:10px 0}
+.btn-nav{width:80px;padding:10px 0;background:#ffffff15;color:#fff;border-radius:6px;border:1px solid #ffffff33;cursor:pointer;font-size:18px;font-weight:bold;text-align:center}
+.btn-nav:disabled{opacity:0.3;cursor:not-allowed}
+.info-halaman{font-size:15px;color:#ffd700;font-weight:bold}
  </style>
 </head>
 <body>
@@ -77,25 +81,76 @@ tr:hover{background:#ffffff10}
 <div style="max-width:720px;margin:0 auto;padding:20px 12px">
  <h2 id="namaKelompok" style="text-align:center;margin:10px 0 20px;font-size:20px"></h2>
  <table>
-  <thead><tr><th>Kode</th><th>Nama Parfum</th><th>Aroma</th><th>Harga</th><th></th></tr></thead>
+  <thead><tr><th>Kode</th><th>Nama Parfum</th><th>Aroma</th><th>Harga 20ml</th><th></th></tr></thead>
   <tbody id="isiTabel"><tr><td colspan="5" style="text-align:center;padding:20px">⏳ Memuat...</td></tr></tbody>
  </table>
- <div style="margin-top:25px;text-align:center"><a href="index.html" style="display:inline-block;padding:10px 22px;background:#ffffff15;color:#fff;border-radius:6px;border:1px solid #ffffff33">🏠 Kembali ke Beranda</a></div>
+
+ <!-- TOMBOL PANAH HALAMAN -->
+ <div class="nav-halaman">
+  <button class="btn-nav" id="btnSebelumnya" onclick="halamanSebelumnya()">←</button>
+  <span class="info-halaman" id="infoHalaman">Halaman 1 dari 4</span>
+  <button class="btn-nav" id="btnSelanjutnya" onclick="halamanSelanjutnya()">→</button>
+ </div>
+
+ <!-- ✅ TOMBOL KEMBALI KE BERANDA -->
+ <div style="text-align:center;margin-top:14px;">
+  <a href="index.html" style="display:inline-block;padding:6px 14px;background:#ffffff15;color:#ffd700;border:1px solid #ffd700;border-radius:6px;font-size:14px;text-decoration:none;font-weight:500">🏠 Kembali ke Beranda</a>
+ </div>
 </div>
-<script src="data-1.js"></script>
-<script src="data-2.js"></script>
-<script src="data-3.js"></script>
-<script src="data-4.js"></script>
-<script src="data-5.js"></script>
-<script src="data-6.js"></script>
-<script src="data-7.js"></script>
-<script src="fungsi.js"></script>
+
 <script>
-if(typeof dataProduk !== 'undefined' && dataProduk.kelompok2){
+// === DATA PRODUK KELOMPOK 2 — BUNGA ELEGAN | HARGA = 20ml ===
+const dataProduk = {
+  kelompok2: {
+    judul: "🌸 BUNGA — Elegan",
+    halaman: [
+      [
+        {kode:"A0301", nama:"Chanel Mademoiselle", aroma:"Mawar, melati, jeruk, elegan", harga:"Rp 225.000"},
+        {kode:"A0302", nama:"Dior J'adore", aroma:"Ylang-ylang, mawar, melati, mewah", harga:"Rp 215.000"},
+        {kode:"A0303", nama:"Gucci Bloom", aroma:"Melati, akar anggrek, bunga putih", harga:"Rp 195.000"},
+        {kode:"A0304", nama:"Lancome La Vie Est Belle", aroma:"Iris, mawar, pir, manis lembut", harga:"Rp 185.000"},
+        {kode:"A0305", nama:"YSL Parisienne", aroma:"Mawar, violet, bunga segar", harga:"Rp 175.000"}
+      ],
+      [
+        {kode:"A0401", nama:"Bvlgari Rose Essentielle", aroma:"Mawar tua, kastanye, lembut", harga:"Rp 145.000"},
+        {kode:"A0402", nama:"Calvin Klein Eternity", aroma:"Mawar, melati, lili, klasik lembut", harga:"Rp 115.000"},
+        {kode:"A0403", nama:"Estée Lauder Beautiful", aroma:"Mawar, melati, lili, romantis", harga:"Rp 135.000"},
+        {kode:"A0404", nama:"Elizabeth Arden Green Tea", aroma:"Bunga segar, teh, menenangkan", harga:"Rp 95.000"},
+        {kode:"A0405", nama:"Versace Bright Crystal", aroma:"Pivoine, melati, buah segar", harga:"Rp 140.000"}
+      ],
+      [
+        {kode:"B0301", nama:"Elie Saab Le Parfum", aroma:"Bunga melati, jeruk, madu, lembut", harga:"Rp 155.000"},
+        {kode:"B0302", nama:"Carolina Herrera Good Girl", aroma:"Bunga putih, kakao, ambar, tegas", harga:"Rp 165.000"},
+        {kode:"B0303", nama:"Valentino Donna", aroma:"Mawar, ambar, kayu, anggun mendalam", harga:"Rp 175.000"},
+        {kode:"B0304", nama:"Roberto Cavalli", aroma:"Bunga campuran, kayu, mewah lembut", harga:"Rp 135.000"},
+        {kode:"B0305", nama:"Salvatore Ferragamo", aroma:"Bunga segar, buah, elegan halus", harga:"Rp 125.000"}
+      ],
+      [
+        {kode:"B0401", nama:"Bottega Veneta Illusione", aroma:"Bunga segar, buah, kayu, lembut", harga:"Rp 145.000"},
+        {kode:"B0402", nama:"Tiziana Terenzi", aroma:"Bunga langka, buah, ambar, mewah", harga:"Rp 195.000"},
+        {kode:"B0403", nama:"Xerjoff Erba Pura", aroma:"Buah segar, bunga putih, musky, cerah", harga:"Rp 245.000"},
+        {kode:"B0404", nama:"Mancera Red Tobacco", aroma:"Bunga, tembakau, manis, memikat", harga:"Rp 165.000"},
+        {kode:"B0405", nama:"Roja Dove", aroma:"Bunga murni, kayu, ambar, mewah murni", harga:"Rp 255.000"}
+      ]
+    ]
+  }
+};
+
+let halamanSekarang = 0;
+let dataHalaman = [];
+
+function muatHalaman(){
   const k = dataProduk.kelompok2;
+  dataHalaman = k.halaman;
   document.getElementById('namaKelompok').textContent = k.judul;
+  tampilHalaman();
+}
+
+function tampilHalaman(){
+  const totalHalaman = dataHalaman.length;
+  const produk = dataHalaman[halamanSekarang];
   let html = '';
-  k.produk.forEach(p => {
+  produk.forEach(p => {
     const hargaAngka = parseInt((p.harga||'0').replace(/[^0-9]/g,''));
     html += `<tr>
       <td>${p.kode||'-'}</td>
@@ -106,61 +161,21 @@ if(typeof dataProduk !== 'undefined' && dataProduk.kelompok2){
     </tr>`;
   });
   document.getElementById('isiTabel').innerHTML = html;
-}else{
-  document.getElementById('isiTabel').innerHTML = `<tr><td colspan="5" style="color:red;text-align:center;padding:20px">❌ Data tidak ditemukan!</td></tr>`;
+  document.getElementById('infoHalaman').textContent = `Halaman ${halamanSekarang+1} dari ${totalHalaman}`;
+  document.getElementById('btnSebelumnya').disabled = halamanSekarang <= 0;
+  document.getElementById('btnSelanjutnya').disabled = halamanSekarang >= totalHalaman.length-1;
 }
+
+function halamanSebelumnya(){
+  if(halamanSekarang > 0){ halamanSekarang--; tampilHalaman(); window.scrollTo({top:0,behavior:'smooth'}); }
+}
+function halamanSelanjutnya(){
+  if(halamanSekarang < dataHalaman.length-1){ halamanSekarang++; tampilHalaman(); window.scrollTo({top:0,behavior:'smooth'}); }
+}
+
+muatHalaman();
 </script>
-<script>
-let keranjang = [];
-function bukaMenu(){document.getElementById('menuKotak').style.right='0';document.getElementById('menuLatar').style.display='block'}
-function tutupMenu(){document.getElementById('menuKotak').style.right='-300px';document.getElementById('menuLatar').style.display='none'}
-function bukaKeranjang(){hitungTotal();document.getElementById('latarKeranjang').style.display='flex'}
-function tutupKeranjang(){document.getElementById('latarKeranjang').style.display='none'}
-function tambahKeKeranjang(nama,harga){
-  keranjang.push({nama,harga});
-  document.getElementById('jumlahItem').textContent=keranjang.length;
-  tampilKeranjang();
-}
-function tampilKeranjang(){
-  let isi='';
-  keranjang.forEach((item,i)=>{isi+=`<div style="padding:6px 0;border-bottom:1px solid #eee">${i+1}. ${item.nama} — Rp ${item.harga.toLocaleString('id-ID')}</div>`});
-  document.getElementById('isiKeranjang').innerHTML=isi;
-  document.getElementById('tombolKeranjang').style.display=keranjang.length>0?'flex':'none';
-}
-function hitungTotal(){
-  let total=keranjang.reduce((sum,i)=>sum+i.harga,0);
-  document.getElementById('totalKeranjang').innerHTML=`<strong>Total: Rp ${total.toLocaleString('id-ID')}</strong>`;
-}
-function kosongkanKeranjang(){
-  if(confirm('Yakin mengosongkan keranjang?')){
-    keranjang=[];
-    document.getElementById('jumlahItem').textContent='0';
-    tampilKeranjang();
-    document.getElementById('totalKeranjang').innerHTML='';
-  }
-}
-function bukaFormPesanan(){
-  tutupKeranjang();
-  document.getElementById('latarForm').style.display='flex';
-  let ringkas='📋 Rincian Pesanan:\n';
-  keranjang.forEach((item,i)=>{ringkas+=`${i+1}. ${item.nama} — Rp ${item.harga.toLocaleString('id-ID')}\n`});
-  ringkas+='\nTotal: Rp '+keranjang.reduce((s,i)=>s+i.harga,0).toLocaleString('id-ID');
-  document.getElementById('ringkasPesanan').textContent=ringkas;
-}
-function tutupForm(){document.getElementById('latarForm').style.display='none'}
-function kirimKeWhatsApp(){
-  let nama=document.getElementById('namaPemesan').value.trim();
-  let alamat=document.getElementById('alamatPemesan').value.trim();
-  let catatan=document.getElementById('catatanPemesan').value.trim();
-  if(!nama||!alamat){alert('Lengkapi Nama dan Alamat!');return}
-  let rincian='📋 PESANAN ATLANTIC PERFUME%0A%0ANama: '+nama+'%0AAlamat: '+alamat+'%0A';
-  if(catatan)rincian+='Catatan: '+catatan+'%0A';
-  rincian+='%0A--- RINCIAN BARANG ---%0A';
-  let total=0;
-  keranjang.forEach((item,i)=>{rincian+=`${i+1}. ${item.nama} — Rp ${item.harga.toLocaleString('id-ID')}%0A`;total+=item.harga});
-  rincian+=`%0A✅ TOTAL: Rp ${total.toLocaleString('id-ID')}`;
-  window.open('https://wa.me/6289676100177?text='+rincian,'_blank');
-}
-</script>
+<script src="fungsi.js"></script>
 </body>
-</html>
+ </html>
+ 
