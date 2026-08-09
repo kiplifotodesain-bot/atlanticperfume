@@ -1,7 +1,9 @@
 // === FUNGSI KERANJANG BELANJA — ATLANTIC PERFUME ===
 
 let keranjang = [];
-const NOMOR_WA = "6289676100177";
+// Nomor tujuan: Keranjang → Admin Kasir | Info → Toko
+const NOMOR_ADMIN_KASIR = "6285141281833";  // Untuk pesanan dari keranjang
+const NOMOR_TOKO        = "6289676100177";  // Untuk halaman Info Toko
 
 // Buka & Tutup Menu
 function bukaMenu(){
@@ -105,7 +107,7 @@ function ringkasPesananTeks(){
   return teks;
 }
 
-// Kirim ke WhatsApp
+// Kirim Pesanan ke ADMIN KASIR — dari Keranjang
 function kirimKeWhatsApp(){
   const nama = document.getElementById('namaPemesan').value.trim();
   const alamat = document.getElementById('alamatPemesan').value.trim();
@@ -124,6 +126,8 @@ function kirimKeWhatsApp(){
   pesan += '═══════════════════════════\n';
   pesan += 'Terima kasih atas pesanan Anda. Kami akan segera memprosesnya! 🙏';
 
-  const url = `https://wa.me/${NOMOR_WA}?text=${encodeURIComponent(pesan)}`;
+  // ⚠️ PESANAN DIKIRIM KE NOMOR ADMIN KASIR
+  const url = `https://wa.me/${NOMOR_ADMIN_KASIR}?text=${encodeURIComponent(pesan)}`;
   window.open(url, '_blank');
 }
+  
