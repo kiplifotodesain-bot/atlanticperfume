@@ -108,7 +108,7 @@
 </div>
 
 <!-- ⚠️ URUTAN: data DULU → lalu fungsi → lalu tampilkan -->
- <script src="data-1.js"></script>
+<script src="data-1.js"></script>
 <script src="data-2.js"></script>
 <script src="data-3.js"></script>
 <script src="data-4.js"></script>
@@ -118,13 +118,13 @@
 <script src="fungsi.js"></script>
  
 <script>
-// ✅ MENYESUAIKAN NAMA DATA: dataProduk + judul + aroma + harga
+// ✅ MENYESUAIKAN NAMA DATA: dataProduk.kelompok1
 if(typeof dataProduk !== 'undefined' && dataProduk.kelompok1){
   const k = dataProduk.kelompok1;
   document.getElementById('namaKelompok').textContent = k.judul;
   let html = '';
   k.produk.forEach(p => {
-    // Ambil angka harga untuk keranjang (contoh: "Rp 39.600" → 39600)
+    // Ambil angka harga untuk keranjang (contoh: "Rp 70.000" → 70000)
     const hargaAngka = parseInt(p.harga.replace(/\D+/g,''));
     html += `<tr>
       <td>${p.nama}</td>
@@ -141,4 +141,4 @@ if(typeof dataProduk !== 'undefined' && dataProduk.kelompok1){
 
 </body>
     </html>
- 
+                                                                                 
