@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="id">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>🪵 KAYU — Woody | ATLANTIC PERFUME</title>
+ <style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Georgia,serif}
+html,body{width:100%;overflow-x:hidden}
+body{background:#0f2040;color:#fff;line-height:1.4;padding-top:80px}
+a{text-decoration:none}
+.menu-latar{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999}
+.menu-kotak{position:fixed;top:0;right:-300px;width:280px;height:100%;background:#fff;z-index:1000;transition:right .3s}
+.menu-tutup{text-align:right;padding:15px 20px;font-size:22px;cursor:pointer;color:#333}
+.menu-judul{padding:10px 20px;font-weight:bold;color:#0f2040;border-bottom:1px solid #eee}
+.menu-item{display:block;padding:12px 20px;color:#333;border-bottom:1px solid #f5f5f5}
+.menu-item:hover{background:#e6edff}
+.menu-item.aktif{background:linear-gradient(90deg, #0a1630, #142850);color:#fff;font-weight:bold;border-left:4px solid #ffd700}
+table{width:100%;border-collapse:separate;border-spacing:0;background:rgba(255,255,255,0.04);border-radius:8px;overflow:hidden}
+th{padding:8px 6px;text-align:left;background:rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.12);font-size:14px;color:#ffd700}
+td{padding:7px 6px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:14px;word-wrap:break-word;white-space:normal}
+.baris-produk{cursor:pointer;transition:all .2s}
+.baris-produk:hover{background:rgba(255,255,255,0.08) !important;border-left:3px solid #ffd700}
+.btn-beli{background:rgba(0,170,85,0.9);color:#fff;border:none;padding:5px 9px;border-radius:4px;cursor:pointer;font-size:15px;font-weight:bold;transition:all .2s}
+.btn-beli:hover{background:rgba(0,204,102,1)}
+.nav-halaman{display:flex;justify-content:space-between;align-items:center;margin-top:18px;padding:10px 0}
+.btn-nav{width:80px;padding:8px 0;background:rgba(255,255,255,0.06);color:#fff;border-radius:6px;border:1px solid rgba(255,255,255,0.12);cursor:pointer;font-size:18px;font-weight:bold;text-align:center;transition:all .2s}
+.btn-nav:disabled{opacity:0.25;cursor:not-allowed}
+.info-halaman{font-size:14px;color:#ffd700;font-weight:bold}
+/* === KOTAK KETERANGAN AROMA — LATAR SAMAR TEMBUS PANDANG === */
+.latar-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:1000;align-items:center;justify-content:center}
+.kotak-modal{background:rgba(255,255,255,0.12);backdrop-filter:blur(8px);color:#fff;padding:18px;border-radius:12px;width:92%;max-width:400px;border:1px solid rgba(255,255,255,0.18);box-shadow:0 8px 32px rgba(0,0,0,0.2)}
+.judul-modal{font-size:17px;font-weight:bold;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.15);color:#ffd700}
+.baris-aroma{padding:8px 0;border-bottom:1px dashed rgba(255,255,255,0.1);font-size:14px}
+.label-aroma{font-weight:bold;display:inline-block;width:85px;color:#ffd700}
+.tutup-modal{margin-top:14px;width:100%;padding:10px;background:rgba(15,32,64,0.7);color:#fff;border:1px solid rgba(255,255,255,0.2);border-radius:8px;cursor:pointer;font-size:15px;font-weight:bold}
+.tutup-modal:hover{background:rgba(15,32,64,0.9)}
+ </style>
+</head>
+<body>
+<div style="position:fixed;top:0;left:0;right:0;background:#0f2040;padding:14px 15px;z-index:998;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.15)">
+ <span onclick="bukaMenu()" style="font-size:24px;cursor:pointer;color:#ffd700">☰</span>
+ <h1 style="font-size:18px">ATLANTIC PERFUME</h1>
+ <span onclick="bukaKeranjang()" style="font-size:26px;cursor:pointer;position:relative;color:#ffd700;text-shadow:0 0 4px #000">🛒<span id="jumlahItem" style="position:absolute;top:-10px;right:-10px;background:linear-gradient(180deg,#ff4444,#cc0000);color:#fff;font-size:12px;font-weight:bold;min-width:20px;height:20px;display:flex;align-items:center;justify-content:center;border-radius:5px;border:1px solid #fff;box-shadow:0 0 3px #000">0</span></span>
+</div>
+<div class="menu-latar" id="menuLatar" onclick="tutupMenu()"></div>
+<div class="menu-kotak" id="menuKotak">
+ <div class="menu-tutup" onclick="tutupMenu()">✕</div>
+ <div class="menu-judul">📋 DAFTAR VARIAN</div>
+ <a href="index.html" class="menu-item">🏠 BERANDA</a>
+ <a href="kelompok1.html" class="menu-item">🌿 SEGAR — Sitrus</a>
+ <a href="kelompok2.html" class="menu-item">🌸 BUNGA — Floral</a>
+ <a href="kelompok3.html" class="menu-item aktif">🪵 KAYU — Woody</a>
+ <a href="kelompok4.html" class="menu-item">🍬 MANIS — Gourmand</a>
+ <a href="kelompok5.html" class="menu-item">🌊 LAUT — Aquatic</a>
+ <a href="kelompok6.html" class="menu-item">🌿 REMPAH — Timur Tengah</a>
+ <a href="kelompok7.html" class="menu-item">✨ LEMBUT — Elegan</a>
+ <a href="info.html" class="menu-item">ℹ️ INFO TOKO</a>
+</div>
+
+<!-- === KOTAK KETERANGAN AROMA === -->
+<div class="latar-modal" id="modalAroma" onclick="if(event.target===this)tutupAroma()">
+ <div class="kotak-modal">
+  <div class="judul-modal" id="namaProdukModal"></div>
+  <div class="baris-aroma"><span class="label-aroma">🌿 Atas:</span><span id="aromaAtas"></span></div>
+  <div class="baris-aroma"><span class="label-aroma">🌡️ Tengah:</span><span id="aromaTengah"></span></div>
+  <div class="baris-aroma"><span class="label-aroma">🪵 Bawah:</span><span id="aromaBawah"></span></div>
+  <button class="tutup-modal" onclick="tutupAroma()">TUTUP</button>
+ </div>
+</div>
+
+<div id="latarKeranjang" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:998;align-items:center;justify-content:center" onclick="if(event.target===this)tutupKeranjang()">
+ <div style="background:#fff;color:#000;padding:20px;border-radius:10px;width:92%;max-width:500px;max-height:90vh;overflow-y:auto">
+  <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ccc;padding-bottom:10px;margin-bottom:15px">
+   <h3>🛒 Keranjang Pesanan</h3><span onclick="tutupKeranjang()" style="cursor:pointer;font-size:20px">✕</span>
+  </div>
+  <div id="isiKeranjang"></div>
+  <div id="totalKeranjang" style="font-weight:bold;font-size:18px;margin:15px 0;color:#0f2040"></div>
+  <div id="tombolKeranjang" style="display:none;gap:10px;flex-wrap:wrap">
+   <button onclick="kosongkanKeranjang()" style="padding:10px 14px;background:#d32f2f;color:#fff;border:none;border-radius:6px;cursor:pointer">🗑️ Kosongkan</button>
+   <button onclick="bukaFormPesanan()" style="padding:10px 14px;background:#0f2040;color:#fff;border:none;border-radius:6px;cursor:pointer">📝 Isi Data Pesanan</button>
+  </div>
+ </div>
+</div>
+<div id="latarForm" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:997;align-items:center;justify-content:center" onclick="if(event.target===this)tutupForm()">
+ <div style="background:#fff;color:#000;padding:20px;border-radius:10px;width:92%;max-width:500px;max-height:90vh;overflow-y:auto">
+  <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ccc;padding-bottom:10px;margin-bottom:15px">
+   <h3>📝 Data Pemesan</h3><span onclick="tutupForm()" style="cursor:pointer;font-size:20px">✕</span>
+  </div>
+  <div id="ringkasPesanan" style="background:#f5f5f5;padding:12px;border-radius:6px;margin-bottom:15px;white-space:pre-wrap"></div>
+  <label style="display:block;margin:10px 0 5px;font-weight:bold">Nama Pemesan *</label>
+  <input type="text" id="namaPemesan" style="width:100%;padding:10px;border:1px solid #ccc;border-radius:6px;margin-bottom:10px" placeholder="Tulis nama lengkap...">
+  <label style="display:block;margin:10px 0 5px;font-weight:bold">Alamat Lengkap *</label>
+  <textarea id="alamatPemesan" rows="3" style="width:100%;padding:10px;border:1px solid #ccc;border-radius:6px;margin-bottom:10px" placeholder="Alamat lengkap pengiriman..."></textarea>
+  <label style="display:block;margin:10px 0 5px;font-weight:bold">Catatan</label>
+  <textarea id="catatanPemesan" rows="2" style="width:100%;padding:10px;border:1px solid #ccc;border-radius:6px;margin-bottom:15px" placeholder="Catatan tambahan..."></textarea>
+  <div style="display:flex;gap:10px;flex-wrap:wrap">
+   <button onclick="tutupForm()" style="padding:10px 16px;background:#e0e0e0;border:none;border-radius:6px;cursor:pointer">← Kembali</button>
+   <button onclick="kirimKeWhatsApp()" style="padding:10px 16px;background:#25c261;color:#fff;border:none;border-radius:6px;cursor:pointer;font-weight:bold">✅ KIRIM KE WHATSAPP</button>
+  </div>
+ </div>
+</div>
+<div style="max-width:720px;margin:0 auto;padding:20px 12px">
+ <h2 id="namaKelompok" style="text-align:center;margin:10px 0 18px;font-size:19px"></h2>
+ <table>
+  <thead><tr><th>Kode</th><th>Nama Produk</th><th>/20 ml</th><th style="width:52px;text-align:center">Beli</th></tr></thead>
+  <tbody id="isiTabel"><tr><td colspan="4" style="text-align:center;padding:15px">⏳ Memuat...</td></tr></tbody>
+ </table>
+ <div class="nav-halaman">
+  <button class="btn-nav" id="btnSebelumnya" onclick="halamanSebelumnya()">←</button>
+  <span class="info-halaman" id="infoHalaman">Halaman 1 dari 2</span>
+  <button class="btn-nav" id="btnSelanjutnya" onclick="halamanSelanjutnya()">→</button>
+ </div>
+ <div style="text-align:center;margin-top:12px;">
+  <a href="index.html" style="display:inline-block;padding:5px 12px;background:rgba(255,255,255,0.06);color:#ffd700;border:1px solid rgba(255,215,0,0.25);border-radius:6px;font-size:14px;text-decoration:none;font-weight:500">🏠 Kembali ke Beranda</a>
+ </div>
+</div>
+
+<script>
+const dataProduk = {
+  halaman: [
+    [
+      {kode:"A 0104", nama:"Oud Wood / Tom Ford", harga:96000, atas:"Kayu Gaharu, Rempah, Jeruk", tengah:"Kayu Cendana, Bunga, Rempah", bawah:"Kayu Gaharu, Ambar, Musk Lembut"},
+      {kode:"A 0105", nama:"Oud Bouquet", harga:90000, atas:"Jeruk, Rempah, Kayu Segar", tengah:"Kayu Gaharu, Bunga, Rempah", bawah:"Kayu, Ambar, Musk Manis"},
+      {kode:"A 0203", nama:"Ck One / Ck Be", harga:60000, atas:"Jeruk, Buah Segar, Herbal", tengah:"Bunga, Kayu Ringan", bawah:"Kayu Putih, Musk, Ambar Segar"},
+      {kode:"A 0301", nama:"Klint", harga:51000, atas:"Jeruk, Daun Segar, Rempah", tengah:"Bunga, Kayu Ringan", bawah:"Kayu, Musk, Ambar Segar"},
+      {kode:"A 0302", nama:"Royal Oud", harga:96000, atas:"Jeruk, Rempah, Kayu", tengah:"Kayu Gaharu, Bunga, Rempah", bawah:"Kayu Hitam, Ambar, Musk Lembut"},
+      {kode:"A 0303", nama:"Silver Mountain Water", harga:78000, atas:"Jeruk, Air Segar, Herbal", tengah:"Bunga, Kayu Ringan", bawah:"Kayu Putih, Musk, Ambar Segar"},
+      {kode:"A 0405", nama:"Versace Pour Homme", harga:72000, atas:"Jeruk, Rempah, Air Segar", tengah:"Bunga, Kayu Ringan", bawah:"Kayu, Ambar, Musk Segar"},
+      {kode:"A 0502", nama:"Acqua Di Parma Colonia", harga:78000, atas:"Jeruk, Herbal, Rempah", tengah:"Bunga, Kayu Ringan", bawah:"Kayu, Ambar, Musk Segar"},
+      {kode:"A 0606", nama:"Terre D'Hermes", harga:84000, atas:"Jeruk, Rempah, Tanah", tengah:"Bunga, Kayu, Rempah", bawah:"Kayu, Ambar, Musk Lembut"},
+      {kode:"A 0704", nama:"Wood Sage & Sea Salt", harga:90000, atas:"Jeruk, Garam Laut, Herbal", tengah:"Daun Sage, Kayu Ringan", bawah:"Kayu Putih, Musk, Ambar Segar"},
+      {kode:"A 0801", nama:"Bvlgari Extreme", harga:78000, atas:"Jeruk, Rempah, Kayu Segar", tengah:"Bunga, Kayu Ringan", bawah:"Kayu, Ambar, Musk Segar"},
+      {kode:"A 0903", nama:"Lacoste Red", harga:60000, atas:"Jeruk, Buah Segar, Rempah", tengah:"Bunga, Kayu Ringan", bawah:"Kayu, Ambar, Musk Lembut"},
+      {kode:"A 1001", nama:"Eternity / Calvin Klein", harga:66000, atas:"Jeruk, Herbal, Bunga", tengah:"Bunga, Kayu Ringan", bawah:"Kayu, Ambar, Musk Segar"},
+      {kode:"A 1002", nama:"Eternity For Men", harga:66000, atas:"Jeruk, Herbal, Rempah", tengah:"Bunga, Kayu Ringan", bawah:"Kayu, Ambar, Musk Segar"},
+      {kode:"A 1102", nama:"Drakkar Noir", harga:60000, atas:"Jeruk, Rempah, Herbal", tengah:"Bunga, Kayu, Rempah", bawah:"Kayu, Ambar, Musk Lembut"},
+      {kode:"A 1201", nama:"Armani Code", harga:84000, atas:"Jeruk, Rempah, Bunga", tengah:"Bunga, Kayu Ringan", bawah:"Kayu, Ambar, Musk Segar"},
+      {kode:"A 1204", nama:"Hugo Boss Bottled", harga:78000, atas:"Jeruk, Apel, Rempah", tengah:"Bunga, Kayu Ringan", bawah:"Kayu, Ambar, Musk Segar"},
+      {kode:"A 1303", nama:"Dunhill Desire Blue", harga:66000, atas:"Jeruk, Air Segar, Buah", tengah:"Bunga, Kayu Ringan", bawah:"Kayu, Ambar, Musk Segar"},
+      {kode:"A 1401", nama:"Paco Rabanne 1 Million", harga:90000, atas:"Jeruk, Rempah, Buah", tengah:"Bunga, Kayu, Rempah", bawah:"Kayu, Ambar, Musk Manis"},
+      {kode:"A 1403", nama:"Paco Rabanne XS", harga:60000, atas:"Jeruk, Buah Segar, Rempah", tengah:"Bunga, Kayu Ringan", bawah:"Kayu, Ambar, Musk Lembut"}
+    ],
+    [
+      {kode:"B 0101", nama:"Bvlgari Black", harga:72000, atas:"Jeruk, Rempah, Kayu", tengah:"Bunga, Kayu, Rempah", bawah:"Kayu Hitam, Ambar, Musk Lembut"},
+      {kode:"B 0201", nama:"Bvlgari Pour Homme", harga:72000, atas:"Jeruk, Air Segar, Herbal", tengah:"Bunga, Kayu Ringan", bawah:"Kayu Putih, Musk, Ambar Segar"},
+      {kode:"B 0303", nama:"Givenchy Gentleman", harga:72000, atas:"Jeruk, Rempah, Bunga", tengah:"Bunga, Kayu Ringan", bawah:"Kayu, Ambar, Musk Segar"},
+      {kode:"B 0401", nama:"Gucci Guilty", harga:78000, atas:"Jeruk, Rempah, Bunga", tengah:"Bunga, Kayu Ringan", bawah:"Kayu, Ambar, Musk Segar"},
+      {kode:"B 0403", nama:"Gucci By Gucci", harga:78000, atas:"Jeruk, Rempah, Bunga", tengah:"Bunga, Kayu Ringan", bawah:"Kayu, Ambar, Musk Segar"},
+      {kode:"B 0502", nama:"Hugo Boss Man", harga:66000, atas:"Jeruk, Rempah, Buah", tengah:"Bunga, Kayu Ringan", bawah:"Kayu, Ambar, Musk Segar"},
+      {kode:"B 0503", nama:"Issey Miyake L'Eau", harga:72000, atas:"Jeruk, Air Segar, Bunga", tengah:"Bunga, Kayu Ringan", bawah:"Kayu, Ambar, Musk Segar"},
+      {kode:"B 0602", nama:"Jean Paul Gaultier", harga:78000, atas:"Jeruk, Rempah, Bunga", tengah:"Bunga, Kayu Ringan", bawah:"Kayu, Ambar, Musk Segar"},
+      {kode:"B 0703", nama:"Lacoste White", harga:60000, atas:"Jeruk, Buah Segar, Rempah", tengah:"Bunga, Kayu Ringan", bawah:"Kayu, Ambar, Musk Lembut"},
+      {kode:"B 0804", nama:"Lacoste Essential", harga:66000, atas:"Jeruk, Herbal, Rempah", tengah:"Bunga, Kayu Ringan", bawah:"Kayu, Ambar, Musk Segar"},
+      {kode:"B 0903", nama:"Montblanc Legend", harga:72000, atas:"Jeruk, Rempah, Bunga", tengah:"Bunga, Kayu Ringan", bawah:"Kayu, Ambar, Musk Segar"},
+      {kode:"B 1001", nama:"Montblanc Presence", harga:66000, atas:"Jeruk, Bunga Segar, Rempah", tengah:"Bunga, Kayu Ringan", bawah:"Kayu, Ambar, Musk Segar"},
+      {kode:"B 1004", nama:"Nautica Voyage", harga:60000, atas:"Jeruk, Air Segar, Herbal", tengah:"Bunga, Kayu Ringan", bawah:"Kayu, Ambar, Musk Segar"},
+      {kode:"B 1105", nama:"Polo Black", harga:72000, atas:"Jeruk, Rempah, Kayu", tengah:"Bunga, Kayu Ringan", bawah:"Kayu Hitam, Ambar, Musk Lembut"},
+      {kode:"B 1205", nama:"Polo Sport", harga:66000, atas:"Jeruk, Daun Segar, Rempah", tengah:"Bunga, Kayu Ringan", bawah:"Kayu, Ambar, Musk Segar"},
+      {kode:"B 1301", nama:"Ralph Lauren Blue", harga:66000, atas:"Jeruk, Air Segar, Bunga", tengah:"Bunga, Kayu Ringan", bawah:"Kayu, Ambar, Musk Segar"},
+      {kode:"B 1403", nama:"Salvatore Ferragamo", harga:72000, atas:"Jeruk, Rempah, Bunga", tengah:"Bunga, Kayu Ringan", bawah:"Kayu, Ambar, Musk Segar"},
+      {kode:"B 1501", nama:"Versace Man", harga:72000, atas:"Jeruk, Air Segar, Rempah", tengah:"Bunga, Kayu Ringan", bawah:"Kayu, Ambar, Musk Segar"},
+      {kode:"B 1601", nama:"Yves Saint Laurent Y", harga:84000, atas:"Jeruk, Apel, Rempah", tengah:"Bunga, Kayu Ringan", bawah:"Kayu, Ambar, Musk Segar"},
+      {kode:"B 1702", nama:"YSL Opium", harga:84000, atas:"Jeruk, Rempah, Bunga", tengah:"Bunga, Kayu, Rempah", bawah:"Kayu, Ambar, Musk Manis"}
+    ]
+  ]
+};
+
+let halamanSekarang = 0;
+let dataHalaman = dataProduk.halaman;
+
+function bukaAroma(p){
+  document.getElementById('namaProdukModal').textContent = p.nama;
+  document.getElementById('aromaAtas').textContent = p.atas;
+  document.getElementById('aromaTengah').textContent = p.tengah;
+  document.getElementById('aromaBawah').textContent = p.bawah;
+  document.getElementById('modalAroma').style.display = 'flex';
+}
+function tutupAroma(){
+  document.getElementById('modalAroma').style.display = 'none';
+}
+
+function muatHalaman(){
+  document.getElementById('namaKelompok').textContent = "🪵 KELOMPOK 3 — KAYU / WOODY";
+  tampilHalaman();
+}
+
+function tampilHalaman(){
+  const totalHalaman = dataHalaman.length;
+  const produk = dataHalaman[halamanSekarang];
+  let html = '';
+  produk.forEach(p => {
+    html += `<tr class="baris-produk" onclick='bukaAroma(${JSON.stringify(p).replace(/'/g,"\\'")})'>
+      <td>${p.kode}</td>
+      <td>${p.nama}</td>
+      <td>${p.harga.toLocaleString('id-ID')}</td>
+      <td style="text-align:center" onclick="event.stopPropagation()">
+        <button class="btn-beli" onclick="tambahKeKeranjang('${p.nama.replace(/'/g,"\\'")}', ${p.harga})">+</button>
+      </td>
+    </tr>`;
+  });
+  document.getElementById('isiTabel').innerHTML = html;
+  document.getElementById('infoHalaman').textContent = `Halaman ${halamanSekarang+1} dari ${totalHalaman}`;
+  document.getElementById('btnSebelumnya').disabled = halamanSekarang <= 0;
+  document.getElementById('btnSelanjutnya').disabled = halamanSekarang >= totalHalaman.length-1;
+}
+
+function halamanSebelumnya(){
+  if(halamanSekarang > 0){ halamanSekarang--; tampilHalaman(); window.scrollTo({top:0,behavior:'smooth'}); }
+}
+function halamanSelanjutnya(){
+  if(halamanSekarang < dataHalaman.length-1){ halamanSekarang++; tampilHalaman(); window.scrollTo({top:0,behavior:'smooth'}); }
+}
+
+muatHalaman();
+</script>
+<script src="fungsi.js"></script>
+</body>
+                                 </html>
+    
