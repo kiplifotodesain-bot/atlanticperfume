@@ -108,8 +108,15 @@
 </div>
 
 <!-- ⚠️ URUTAN: data DULU → lalu fungsi → lalu tampilkan -->
-<script src="data-produk.js"></script>
+ <script src="data-1.js"></script>
+<script src="data-2.js"></script>
+<script src="data-3.js"></script>
+<script src="data-4.js"></script>
+<script src="data-5.js"></script>
+<script src="data-6.js"></script>
+<script src="data-7.js"></script>
 <script src="fungsi.js"></script>
+ 
 <script>
 // ✅ MENYESUAIKAN NAMA DATA: dataProduk + judul + aroma + harga
 if(typeof dataProduk !== 'undefined' && dataProduk.kelompok1){
