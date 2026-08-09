@@ -1,98 +1,126 @@
 // ==========================================
-//   📦 DATA PRODUK — ATLANTIC PERFUME
-//   ✅ CARA PAKAI: HAPUS ISI LAMA → TEMPEL YANG BARU
-//   ❌ JANGAN UBAH BAGIAN DI ATAS KURUNG
+//   📦 PUSAT DATA SEMUA PRODUK — 56 PRODUK
 // ==========================================
 
-const daftarHarga = {
-  // 👇 ISI DATA DI SINI — HAPUS DAN TULIS ULANG SAJA
- 'LV334': 49680,
- 'LV463': 44160,
- 'LV070': 65520,
- 'LV441': 45840,
- 'LV530': 46560,
- 'LV511': 52800,
- 'LV021': 67200,
- 'LV541': 59520,
- 'LV079': 70800,
- 'LV403': 45120,
- 'LV592': 40560,
- 'LV528': 46320,
- 'LV438': 46560,
- 'LV388': 40800,
- 'LV110': 39600,
- 'LV238': 42240,
- 'LV025': 48240,
- 'LV375': 44880,
- 'LV688': 43680,
- 'LV636': 42960,
- 'LV160': 59520,
- 'LV034': 54480,
- 'LV594': 47760,
- 'LV212': 41520,
- 'LV078': 43440,
- 'LV414': 53520,
- 'LV512': 40080,
- 'LV560': 38640,
- 'LV323': 42480,
- 'LV474': 39360,
- 'LV477': 24960,
- 'LV245': 40080,
- 'LV380': 37920,
- 'LV457': 46320,
- 'LV225': 39360,
- 'LV344': 38400,
- 'LV391': 41520,
- 'LV308': 35760,
- 'LV205': 39600,
- 'LV131': 72960,
- 'LV298': 45360,
- 'LV571': 36480,
- 'LV305': 47520,
- 'LV064': 42000,
- 'LV471': 42720,
- 'LV180': 40800,
- 'LV545': 46800,
- 'LV051': 36960,
- 'LV316': 33840,
- 'LV063': 40080,
- 'LV088': 80640,
- 'LV567': 38160,
- 'LV367': 44640,
- 'LV484': 44400,
- 'LV164': 44880,
- 'LV306': 37200,
- 'LV339': 46560,
- 'LV343': 44400,
- 'LV219': 48000,
- 'LV056': 46320,
- 'LV216': 48240,
- 'LV134': 53520,
- 'LV072': 52080,
- 'LV083': 73920,
- 'LV071': 60480,
- 'LV157': 45840,
- 'LV240': 43680,
- 'LV175': 42720,
- 'LV017': 60480,
- 'LV302': 40320,
- 'LV663': 53040,
- 'LV209': 36240,
- 'LV324': 45600,
- 'LV451': 42240,
- 'LV508': 44880,
- 'LV702': 40320,
- 'LV700': 33600,
- 'LV577': 38160,
- 'LV561': 36480,
- 'LV387': 40560,
- 'LV230': 44160,
- 'LV447': 47040,
- 'LV036': 53520,
- 'LV546': 41280,
- 'LV710': 42960,
- 'LV013': 55440,
- 'LV539': 34080,
- 'LV678': 49920,
- 'LV454': 45120
+const data = {
+
+  // ==========================================
+  // KELOMPOK 1 — SEGAR — Sitrus (8 Produk)
+  // ==========================================
+  kelompok1: {
+    nama: "🍊 SEGAR — Sitrus",
+    produk: [
+      {kode:"SS001", nama:"Citrus Fresh", desk:"Jeruk segar, lemon, jeruk nipis", harga:248400},
+      {kode:"SS002", nama:"Sunshine Zest", desk:"Jeruk manis, mandarin, bergamot", harga:220800},
+      {kode:"SS003", nama:"Ocean Citrus", desk:"Jeruk bali, kelapa, segar", harga:264000},
+      {kode:"SS004", nama:"Lemon Breeze", desk:"Lemon segar, bunga melati, lembut", harga:235200},
+      {kode:"SS005", nama:"Sweet Mandarin", desk:"Jeruk keprok manis, gula, lembut", harga:242000},
+      {kode:"SS006", nama:"Bergamot Calm", desk:"Bergamot, teh hijau, menenangkan", harga:254000},
+      {kode:"SS007", nama:"Grapefruit Glow", desk:"Jeruk bali merah, segar, bersemangat", harga:248400},
+      {kode:"SS008", nama:"Lime Sparkle", desk:"Jeruk nipis, mint, segar berkilau", harga:230000}
+    ]
+  },
+
+  // ==========================================
+  // KELOMPOK 2 — BUNGA — Elegan (8 Produk)
+  // ==========================================
+  kelompok2: {
+    nama: "🌸 BUNGA — Elegan",
+    produk: [
+      {kode:"BN001", nama:"Gucci Bloom", desk:"Melati, tuberosa, bunga anggrek", harga:220800},
+      {kode:"BN002", nama:"Rose Elegance", desk:"Mawar murni, mawar damask", harga:248400},
+      {kode:"BN003", nama:"Jasmine Serenity", desk:"Melati putih, melati sambac", harga:235200},
+      {kode:"BN004", nama:"Cherry Blossom", desk:"Bunga sakura, buah persik", harga:258000},
+      {kode:"BN005", nama:"Lily Grace", desk:"Bunga lili putih, lembut, suci", harga:245000},
+      {kode:"BN006", nama:"Orchid Beauty", desk:"Anggrek hitam, vanila, elegan", harga:276000},
+      {kode:"BN007", nama:"Peony Joy", desk:"Bunga peoni, mawar, segar", harga:254000},
+      {kode:"BN008", nama:"Chanel Garden", desk:"Melati, mawar, iris, abadi", harga:288000}
+    ]
+  },
+
+  // ==========================================
+  // KELOMPOK 3 — KAYU — Mewah (8 Produk)
+  // ==========================================
+  kelompok3: {
+    nama: "🪵 KAYU — Mewah",
+    produk: [
+      {kode:"KY001", nama:"Santal Luxury", desk:"Kayu cendana, vanila, lembut", harga:276000},
+      {kode:"KY002", nama:"Agarwood Royal", desk:"Gaharu, rempah, mewah", harga:345000},
+      {kode:"KY003", nama:"Cedarwood Prestige", desk:"Kayu cedar, amber, wangi hutan", harga:264000},
+      {kode:"KY004", nama:"Oud Majestic", desk:"Oud murni, kenanga, mendalam", harga:368000},
+      {kode:"KY005", nama:"Teak Heritage", desk:"Kayu jati, tembakau, klasik", harga:294000},
+      {kode:"KY006", nama:"Ebony Dark", desk:"Kayu hitam, lada, misterius", harga:325000},
+      {kode:"KY007", nama:"Pine Forest", desk:"Pinus, cemara, segar hutan", harga:258000},
+      {kode:"KY008", nama:"Vetiver Pure", desk:"Akar wangi, kayu, bersih murni", harga:270000}
+    ]
+  },
+
+  // ==========================================
+  // KELOMPOK 4 — MANIS — Legenda (8 Produk)
+  // ==========================================
+  kelompok4: {
+    nama: "🍬 MANIS — Legenda",
+    produk: [
+      {kode:"MN001", nama:"La Vie Est Belle", desk:"Mawar, irisan, gula merah", harga:248400},
+      {kode:"MN002", nama:"Sweet Vanilla", desk:"Vanila madagaskar, krim manis", harga:235200},
+      {kode:"MN003", nama:"Amber Honey", desk:"Madu murni, amber, manis hangat", harga:264000},
+      {kode:"MN004", nama:"Caramel Dream", desk:"Karamel, gula tebu, susu", harga:242000},
+      {kode:"MN005", nama:"Coconut Paradise", desk:"Santan, gula aren, tropis", harga:254000},
+      {kode:"MN006", nama:"Almond Blossom", desk:"Bunga almond, susu, lembut", harga:248400},
+      {kode:"MN007", nama:"Choco Musk", desk:"Cokelat, kenari, wangi lembut", harga:276000},
+      {kode:"MN008", nama:"Candy Rose", desk:"Permen mawar, manis, ceria", harga:230000}
+    ]
+  },
+
+  // ==========================================
+  // KELOMPOK 5 — REMPAH — Kuat (8 Produk)
+  // ==========================================
+  kelompok5: {
+    nama: "🌶️ REMPAH — Kuat",
+    produk: [
+      {kode:"RP001", nama:"Spice Orient", desk:"Kayu manis, cengkeh, pala", harga:258000},
+      {kode:"RP002", nama:"Cardamom Gold", desk:"Kapulaga, jahe, jeruk", harga:270000},
+      {kode:"RP003", nama:"Black Pepper Bold", desk:"Lada hitam, jeruk nipis, kuat", harga:248400},
+      {kode:"RP004", nama:"Saffron Mystique", desk:"Kunyit, rempah timur, eksotis", harga:320000},
+      {kode:"RP005", nama:"Ginger Warmth", desk:"Jahe segar, madu, hangat", harga:254000},
+      {kode:"RP006", nama:"Cinnamon Warm", desk:"Kayu manis, vanila, nyaman", harga:262000},
+      {kode:"RP007", nama:"Clove Spirit", desk:"Cengkeh, tembakau, tegas", harga:276000},
+      {kode:"RP008", nama:"Nutmeg Rich", desk:"Pala, rempah, kaya rasa", harga:285000}
+    ]
+  },
+
+  // ==========================================
+  // KELOMPOK 6 — SEGAR — Laut (8 Produk)
+  // ==========================================
+  kelompok6: {
+    nama: "🌊 SEGAR — Laut",
+    produk: [
+      {kode:"SL001", nama:"Atlantic Breeze", desk:"Air laut, garam, segar dingin", harga:248400},
+      {kode:"SL002", nama:"Sea Salt Wave", desk:"Garam laut, melati, bersih", harga:235200},
+      {kode:"SL003", nama:"Coastal Fresh", desk:"Laut, jeruk nipis, angin segar", harga:254000},
+      {kode:"SL004", nama:"Deep Ocean", desk:"Air laut, kayu putih, mendalam", harga:268000},
+      {kode:"SL005", nama:"Coral Reef", desk:"Alga laut, melati, segar lembut", harga:245000},
+      {kode:"SL006", nama:"Blue Lagoon", desk:"Air jernih, bunga teratai, tenang", harga:260000},
+      {kode:"SL007", nama:"Morning Tide", desk:"Sembah laut, segar pagi hari", harga:242000},
+      {kode:"SL008", nama:"Whale Bay", desk:"Garam, kayu cendana, luas", harga:276000}
+    ]
+  },
+
+  // ==========================================
+  // KELOMPOK 7 — TERLARIS (8 Produk)
+  // ==========================================
+  kelompok7: {
+    nama: "🔥 TERLARIS",
+    produk: [
+      {kode:"LV334", nama:"La Vie Est Belle", desk:"Mawar, irisan, gula merah", harga:248400},
+      {kode:"LV463", nama:"Gucci Bloom", desk:"Melati, tuberosa, anggrek", harga:220800},
+      {kode:"LV070", nama:"Chance Fresh", desk:"Sitrus, melati, segar dinamis", harga:235200},
+      {kode:"LV112", nama:"Coco Elegance", desk:"Bunga melati, nilam, elegan", harga:264000},
+      {kode:"LV555", nama:"No.5 Classic", desk:"Mawar, melati, aldehida, abadi", harga:294000},
+      {kode:"LV777", nama:"Alien Gold", desk:"Ambar, vanila, cendana, bercahaya", harga:285000},
+      {kode:"LV888", nama:"J'adore Dior", desk:"Anggur, melati, mawar, emas", harga:312000},
+      {kode:"LV999", nama:"Samsara Pure", desk:"Sandalwood, iris, mawar, abadi", harga:276000}
+    ]
+  }
 };
+      
