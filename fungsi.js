@@ -46,5 +46,6 @@ function kirimKeWhatsApp(){
   let total=0;
   keranjang.forEach((item,i)=>{rincian+=`${i+1}. ${item.nama} — Rp ${item.harga.toLocaleString('id-ID')}%0A`;total+=item.harga});
   rincian+=`%0A✅ TOTAL: Rp ${total.toLocaleString('id-ID')}`;
-  window.open('https://wa.me/6289676100177?text='+rincian,'_blank');
+  // === NOMOR KASIR — TIDAK DITAMPILKAN DI HALAMAN MANAPUN ===
+  window.open('https://wa.me/6285141281833?text='+rincian,'_blank');
 }
