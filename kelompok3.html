@@ -98,8 +98,12 @@ let halamanSekarang = 0;
 let dataHalaman = [];
 
 function muatHalaman(){
-  if(typeof dataProduk === 'undefined' || !dataProduk.kelompok3 || !dataProduk.kelompok3.halaman){
-    document.getElementById('isiTabel').innerHTML = `<tr><td colspan="5" style="color:red;text-align:center;padding:20px">❌ Data tidak ditemukan!</td></tr>`;
+  if(typeof dataProduk === 'undefined'){
+    document.getElementById('isiTabel').innerHTML = `<tr><td colspan="5" style="color:red;text-align:center;padding:20px">❌ File data belum terbaca!</td></tr>`;
+    return;
+  }
+  if(!dataProduk.kelompok3 || !dataProduk.kelompok3.halaman){
+    document.getElementById('isiTabel').innerHTML = `<tr><td colspan="5" style="color:red;text-align:center;padding:20px">❌ Data kelompok3 tidak ditemukan!</td></tr>`;
     return;
   }
   const k = dataProduk.kelompok3;
@@ -125,7 +129,7 @@ function tampilHalaman(){
   document.getElementById('isiTabel').innerHTML = html;
   document.getElementById('infoHalaman').textContent = `Halaman ${halamanSekarang+1} dari ${totalHalaman}`;
   document.getElementById('btnSebelumnya').disabled = halamanSekarang <= 0;
-  document.getElementById('btnSelanjutnya').disabled = halamanSekarang >= totalHalaman.length-1;
+  document.getElementById('btnSelanjutnya').disabled = halamanSekarang >= totalHalaman-1;
 }
 
 function halamanSebelumnya(){
@@ -138,4 +142,5 @@ function halamanSelanjutnya(){
 muatHalaman();
 </script>
 </body>
-</html>
+                           </html>
+ 
