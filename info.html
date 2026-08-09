@@ -5,24 +5,39 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>INFO TOKO | ATLANTIC PERFUME</title>
  <style>
- *{margin:0;padding:0;box-sizing:border-box;font-family:Georgia,serif}
- body{background:#0f2040;color:#fff;line-height:1.8}
- a{text-decoration:none}
-
- /* === MENU SAMPING === */
- .menu-latar{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999}
- .menu-kotak{position:fixed;top:0;right:-300px;width:280px;height:100%;background:#fff;z-index:1000;transition:right 0.3s ease;overflow-y:auto}
- .menu-tutup{text-align:right;padding:15px 20px;font-size:22px;cursor:pointer;color:#333}
- .menu-judul{padding:10px 20px;font-weight:bold;font-size:16px;color:#0f2040;border-bottom:1px solid #eee}
- .menu-item{display:block;padding:12px 20px;color:#333;border-bottom:1px solid #f5f5f5}
- .menu-item:hover{background:#f0f4ff}
- .menu-item.aktif{background:#e6f0ff;color:#0f2040;font-weight:bold}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Georgia,serif}
+html,body{width:100%;overflow-x:hidden}
+body{background:#0f2040;color:#fff;line-height:1.5;padding-top:80px}
+a{text-decoration:none;color:inherit}
+.menu-latar{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999}
+.menu-kotak{position:fixed;top:0;right:-300px;width:280px;height:100%;background:#fff;z-index:1000;transition:right .3s}
+.menu-tutup{text-align:right;padding:15px 20px;font-size:22px;cursor:pointer;color:#333}
+.menu-judul{padding:10px 20px;font-weight:bold;color:#0f2040;border-bottom:1px solid #eee}
+.menu-item{display:block;padding:12px 20px;color:#333;border-bottom:1px solid #f5f5f5}
+.menu-item:hover{background:#e6edff}
+.menu-item.aktif{background:linear-gradient(90deg, #0a1630, #142850);color:#fff;font-weight:bold;border-left:4px solid #ffd700}
+.isi{max-width:720px;margin:0 auto;padding:20px 12px}
+.kotak-info{background:#ffffff08;border-radius:10px;border:1px solid #ffffff22;padding:25px;margin-bottom:20px}
+.kotak-info h2{text-align:center;color:#ffd700;margin-bottom:20px;font-size:20px}
+.baris-info{padding:10px 0;border-bottom:1px solid #ffffff15;font-size:16px;line-height:1.7}
+.baris-info:last-child{border-bottom:none}
+.wa-link{display:inline-block;background:#25c261;color:#fff;padding:8px 16px;border-radius:6px;margin-top:8px;font-weight:bold}
+.wa-link:hover{background:#1da854}
+.peta-link{display:inline-block;background:#4285f4;color:#fff;padding:8px 16px;border-radius:6px;margin-top:8px;font-weight:bold}
+.peta-link:hover{background:#3367d6}
+.catatan{background:#fff8dc15;padding:12px;border-radius:6px;margin-top:12px;border-left:3px solid #ffd700}
+.kembali{text-align:center;margin-top:30px}
+.tombol-kembali{display:inline-block;padding:10px 22px;background:#ffffff15;color:#fff;border-radius:6px;border:1px solid #ffffff33}
  </style>
 </head>
 <body>
+<div style="position:fixed;top:0;left:0;right:0;background:#0f2040;padding:14px 15px;z-index:998;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ffffff22">
+ <span onclick="bukaMenu()" style="font-size:24px;cursor:pointer;color:#ffd700">☰</span>
+ <h1 style="font-size:18px">ATLANTIC PERFUME</h1>
+ <span style="width:26px"></span>
+</div>
 
 <div class="menu-latar" id="menuLatar" onclick="tutupMenu()"></div>
-
 <div class="menu-kotak" id="menuKotak">
  <div class="menu-tutup" onclick="tutupMenu()">✕</div>
  <div class="menu-judul">📋 DAFTAR VARIAN</div>
@@ -37,63 +52,51 @@
  <a href="info.html" class="menu-item aktif">ℹ️ INFO TOKO</a>
 </div>
 
-<div style="position:fixed;top:0;left:0;right:0;background:#0f2040;color:#fff;padding:14px 15px;z-index:998;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ffffff22">
- <span onclick="bukaMenu()" style="font-size:22px;cursor:pointer">☰</span>
- <h1 style="font-size:18px;margin:0">ATLANTIC PERFUME</h1>
- <span style="width:40px"></span>
-</div>
-
-<div style="margin-top:90px"></div>
-
-<div style="max-width:720px;margin:0 auto;padding:20px 16px">
- <h2 style="text-align:center;margin:10px 0 30px;font-size:22px">ℹ️ INFORMASI TOKO</h2>
-
- <div style="background:#ffffff0a;padding:25px;border-radius:10px;border:1px solid #ffffff15">
-
-  <p style="margin:12px 0"><strong>🏪 Nama Toko:</strong><br>ATLANTIC PERFUME</p>
-  <hr style="border:none;border-top:1px solid #ffffff20;margin:15px 0">
-
-  <p style="margin:12px 0"><strong>📍 Alamat Toko:</strong><br>
-  Jl. Batur Sari<br>
-  Denpasar Selatan, Denpasar, Bali — 80228<br>
-  <a href="https://maps.app.goo.gl/kvJayiASrCyBQCES6?g_st=awb" target="_blank" style="color:#00ffaa;text-decoration:none;margin-top:5px;display:inline-block">🗺️ Buka di Google Maps</a></p>
-  <hr style="border:none;border-top:1px solid #ffffff20;margin:15px 0">
-
-  <p style="margin:12px 0"><strong>📞 WhatsApp:</strong><br>
-  <a href="https://wa.me/6289676100177" target="_blank" style="color:#00ffaa;text-decoration:none;font-size:17px">+62 89 676 100 177</a>
-  <br><small style="color:#bbbbbb">← Klik nomor untuk langsung hubungi</small></p>
-  <hr style="border:none;border-top:1px solid #ffffff20;margin:15px 0">
-
-  <p style="margin:12px 0"><strong>📦 Cara Pemesanan:</strong><br>
-  1. Pilih produk di halaman katalog<br>
-  2. Klik ikon 🛒 untuk masuk keranjang<br>
-  3. Klik tombol "Isi Data Pesanan"<br>
-  4. Lengkapi Nama & Alamat<br>
-  5. Klik "Kirim ke WhatsApp"</p>
-  <hr style="border:none;border-top:1px solid #ffffff20;margin:15px 0">
-
-  <p style="margin:12px 0"><strong>📏 Ukuran Botol:</strong><br>
-  • 7,5 ml — Contoh sampel<br>
-  • 50 ml — Botol Standar</p>
-
+<div class="isi">
+ <div class="kotak-info">
+  <h2>ℹ️ INFORMASI TOKO</h2>
+  
+  <div class="baris-info">
+   <strong>Nama Toko:</strong><br>
+   ATLANTIC PERFUME
+  </div>
+  
+  <div class="baris-info">
+   <strong>Alamat:</strong><br>
+   Jl. Batur Sari (Area Kuliner), Sanur, Denpasar Selatan<br>
+   Denpasar, Bali — Kode Pos 80228<br>
+   <a href="https://maps.app.goo.gl/cYPRizg7R5qQFu5EA" target="_blank" class="peta-link">📍 Buka di Google Maps</a>
+  </div>
+  
+  <div class="baris-info">
+   <strong>Jam Buka:</strong><br>
+   Setiap Hari: Pukul 09.00 — 21.00 WITA
+  </div>
+  
+  <div class="baris-info">
+   <strong>Hubungi Kami:</strong><br>
+   WhatsApp: +62 896-7610-0177<br>
+   <a href="https://wa.me/6289676100177" target="_blank" class="wa-link">💬 Klik untuk Chat WhatsApp</a>
+  </div>
+  
+  <div class="baris-info">
+   <div class="catatan">
+    <strong>📝 Catatan:</strong><br>
+    Nomor WhatsApp di atas melayani informasi seputar parfum, varian aroma, karakter wangi, dan pertanyaan umum lainnya.
+   </div>
+  </div>
  </div>
 
- <div style="margin-top:25px;text-align:center">
-  <a href="index.html" style="display:inline-block;padding:10px 22px;background:#ffffff0a;color:#fff;border-radius:6px;border:1px solid #ffffff15">🏠 Kembali ke Beranda</a>
+ <div class="kembali">
+  <a href="index.html" class="tombol-kembali">🏠 Kembali ke Beranda</a>
  </div>
 </div>
 
+<script src="fungsi.js"></script>
 <script>
-function bukaMenu() {
-  document.getElementById('menuKotak').style.right = '0';
-  document.getElementById('menuLatar').style.display = 'block';
-}
-function tutupMenu() {
-  document.getElementById('menuKotak').style.right = '-300px';
-  document.getElementById('menuLatar').style.display = 'none';
-}
+function bukaMenu(){document.getElementById('menuKotak').style.right='0';document.getElementById('menuLatar').style.display='block'}
+function tutupMenu(){document.getElementById('menuKotak').style.right='-300px';document.getElementById('menuLatar').style.display='none'}
 </script>
-
 </body>
  </html>
  
