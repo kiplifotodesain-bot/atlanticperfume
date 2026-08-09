@@ -5,22 +5,22 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>🍊 SEGAR — Sitrus | ATLANTIC PERFUME</title>
  <style>
- *{margin:0;padding:0;box-sizing:border-box;font-family:Georgia,serif}
- body{background:#0f2040;color:#fff;line-height:1.6;padding-top:80px}
- a{text-decoration:none}
- .menu-latar{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999}
- .menu-kotak{position:fixed;top:0;right:-300px;width:280px;height:100%;background:#fff;z-index:1000;transition:right .3s}
- .menu-tutup{text-align:right;padding:15px 20px;font-size:22px;cursor:pointer;color:#333}
- .menu-judul{padding:10px 20px;font-weight:bold;color:#0f2040;border-bottom:1px solid #eee}
- .menu-item{display:block;padding:12px 20px;color:#333;border-bottom:1px solid #f5f5f5}
- .menu-item:hover{background:#e6edff}
- /* ✅ BIRU TUA + GARIS EMAS — SANGAT JELAS */
- .menu-item.aktif{background:linear-gradient(90deg, #0a1630, #142850);color:#fff;font-weight:bold;border-left:4px solid #ffd700}
- table{width:100%;border-collapse:collapse;background:#ffffff08;border-radius:8px;overflow:hidden}
- th{padding:12px 8px;text-align:left;background:#ffffff15;border-bottom:2px solid #ffffff33}
- td{padding:12px 8px;border-bottom:1px solid #ffffff15}
- tr:hover{background:#ffffff10}
- .btn-beli{background:#00aa55;color:#fff;border:none;padding:6px 10px;border-radius:4px;cursor:pointer}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Georgia,serif}
+html,body{width:100%;overflow-x:hidden}
+body{background:#0f2040;color:#fff;line-height:1.5;padding-top:80px}
+a{text-decoration:none}
+.menu-latar{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999}
+.menu-kotak{position:fixed;top:0;right:-300px;width:280px;height:100%;background:#fff;z-index:1000;transition:right .3s}
+.menu-tutup{text-align:right;padding:15px 20px;font-size:22px;cursor:pointer;color:#333}
+.menu-judul{padding:10px 20px;font-weight:bold;color:#0f2040;border-bottom:1px solid #eee}
+.menu-item{display:block;padding:12px 20px;color:#333;border-bottom:1px solid #f5f5f5}
+.menu-item:hover{background:#e6edff}
+.menu-item.aktif{background:linear-gradient(90deg, #0a1630, #142850);color:#fff;font-weight:bold;border-left:4px solid #ffd700}
+table{width:100%;border-collapse:collapse;background:#ffffff08;border-radius:8px;overflow:hidden;table-layout:auto}
+th{padding:10px 6px;text-align:left;background:#ffffff15;border-bottom:2px solid #ffffff33;font-size:15px}
+td{padding:10px 6px;border-bottom:1px solid #ffffff15;font-size:15px;word-wrap:break-word;white-space:normal}
+tr:hover{background:#ffffff10}
+.btn-beli{background:#00aa55;color:#fff;border:none;padding:6px 8px;border-radius:4px;cursor:pointer;font-size:15px}
  </style>
 </head>
 <body>
@@ -74,7 +74,7 @@
   </div>
  </div>
 </div>
-<div style="max-width:720px;margin:0 auto;padding:20px 16px">
+<div style="max-width:720px;margin:0 auto;padding:20px 12px">
  <h2 id="namaKelompok" style="text-align:center;margin:10px 0 20px;font-size:20px"></h2>
  <table>
   <thead><tr><th>Kode</th><th>Nama Parfum</th><th>Aroma</th><th>Harga</th><th></th></tr></thead>
@@ -110,6 +110,57 @@ if(typeof dataProduk !== 'undefined' && dataProduk.kelompok1){
   document.getElementById('isiTabel').innerHTML = `<tr><td colspan="5" style="color:red;text-align:center;padding:20px">❌ Data tidak ditemukan!</td></tr>`;
 }
 </script>
+<script>
+let keranjang = [];
+function bukaMenu(){document.getElementById('menuKotak').style.right='0';document.getElementById('menuLatar').style.display='block'}
+function tutupMenu(){document.getElementById('menuKotak').style.right='-300px';document.getElementById('menuLatar').style.display='none'}
+function bukaKeranjang(){hitungTotal();document.getElementById('latarKeranjang').style.display='flex'}
+function tutupKeranjang(){document.getElementById('latarKeranjang').style.display='none'}
+function tambahKeKeranjang(nama,harga){
+  keranjang.push({nama,harga});
+  document.getElementById('jumlahItem').textContent=keranjang.length;
+  tampilKeranjang();
+}
+function tampilKeranjang(){
+  let isi='';
+  keranjang.forEach((item,i)=>{isi+=`<div style="padding:6px 0;border-bottom:1px solid #eee">${i+1}. ${item.nama} — Rp ${item.harga.toLocaleString('id-ID')}</div>`});
+  document.getElementById('isiKeranjang').innerHTML=isi;
+  document.getElementById('tombolKeranjang').style.display=keranjang.length>0?'flex':'none';
+}
+function hitungTotal(){
+  let total=keranjang.reduce((sum,i)=>sum+i.harga,0);
+  document.getElementById('totalKeranjang').innerHTML=`<strong>Total: Rp ${total.toLocaleString('id-ID')}</strong>`;
+}
+function kosongkanKeranjang(){
+  if(confirm('Yakin mengosongkan keranjang?')){
+    keranjang=[];
+    document.getElementById('jumlahItem').textContent='0';
+    tampilKeranjang();
+    document.getElementById('totalKeranjang').innerHTML='';
+  }
+}
+function bukaFormPesanan(){
+  tutupKeranjang();
+  document.getElementById('latarForm').style.display='flex';
+  let ringkas='📋 Rincian Pesanan:\n';
+  keranjang.forEach((item,i)=>{ringkas+=`${i+1}. ${item.nama} — Rp ${item.harga.toLocaleString('id-ID')}\n`});
+  ringkas+='\nTotal: Rp '+keranjang.reduce((s,i)=>s+i.harga,0).toLocaleString('id-ID');
+  document.getElementById('ringkasPesanan').textContent=ringkas;
+}
+function tutupForm(){document.getElementById('latarForm').style.display='none'}
+function kirimKeWhatsApp(){
+  let nama=document.getElementById('namaPemesan').value.trim();
+  let alamat=document.getElementById('alamatPemesan').value.trim();
+  let catatan=document.getElementById('catatanPemesan').value.trim();
+  if(!nama||!alamat){alert('Lengkapi Nama dan Alamat!');return}
+  let rincian='📋 PESANAN ATLANTIC PERFUME%0A%0ANama: '+nama+'%0AAlamat: '+alamat+'%0A';
+  if(catatan)rincian+='Catatan: '+catatan+'%0A';
+  rincian+='%0A--- RINCIAN BARANG ---%0A';
+  let total=0;
+  keranjang.forEach((item,i)=>{rincian+=`${i+1}. ${item.nama} — Rp ${item.harga.toLocaleString('id-ID')}%0A`;total+=item.harga});
+  rincian+=`%0A✅ TOTAL: Rp ${total.toLocaleString('id-ID')}`;
+  window.open('https://wa.me/6289676100177?text='+rincian,'_blank');
+}
+</script>
 </body>
-  </html>
-                           
+</html>
