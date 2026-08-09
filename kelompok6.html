@@ -148,4 +148,34 @@ function muatHalaman(){
 
 function tampilHalaman(){
   const totalHalaman = dataHalaman.length;
-  
+  const produk = dataHalaman[halamanSekarang];
+  let html = '';
+  produk.forEach(p => {
+    const hargaAngka = parseInt((p.harga||'0').replace(/[^0-9]/g,''));
+    html += `<tr>
+      <td>${p.kode||'-'}</td>
+      <td>${p.nama}</td>
+      <td>${p.aroma}</td>
+      <td>${p.harga}</td>
+      <td><button class="btn-beli" onclick="tambahKeKeranjang('${(p.nama||'').replace(/'/g,"\\'")}', ${hargaAngka})">+</button></td>
+    </tr>`;
+  });
+  document.getElementById('isiTabel').innerHTML = html;
+  document.getElementById('infoHalaman').textContent = `Halaman ${halamanSekarang+1} dari ${totalHalaman}`;
+  document.getElementById('btnSebelumnya').disabled = halamanSekarang <= 0;
+  document.getElementById('btnSelanjutnya').disabled = halamanSekarang >= totalHalaman.length-1;
+}
+
+function halamanSebelumnya(){
+  if(halamanSekarang > 0){ halamanSekarang--; tampilHalaman(); window.scrollTo({top:0,behavior:'smooth'}); }
+}
+function halamanSelanjutnya(){
+  if(halamanSekarang < dataHalaman.length-1){ halamanSekarang++; tampilHalaman(); window.scrollTo({top:0,behavior:'smooth'}); }
+}
+
+muatHalaman();
+</script>
+<script src="fungsi.js"></script>
+</body>
+ </html>
+ 
