@@ -9,7 +9,7 @@
 <body>
 
 <div class="menu-latar" id="menuLatar" onclick="tutupMenu()"></div>
-<div class="menu-kotak" id="menuKotak">
+<div class="menu-kotak" id="menuKotak" style="right:-300px">
  <div class="menu-tutup" onclick="tutupMenu()">✕</div>
  <div class="menu-judul">DAFTAR VARIAN</div>
  <a href="index.html" class="menu-item">🏠 BERANDA</a>
@@ -23,92 +23,75 @@
  <a href="info.html" class="menu-item">ℹ️ INFO TOKO</a>
 </div>
 
-<div class="latar-keranjang" id="latarKeranjang" onclick="if(event.target===this) tutupKeranjang()">
- <div class="kotak-keranjang">
-  <div class="keranjang-judul"><span>🛒 Keranjang Pesanan</span><span class="keranjang-tutup" onclick="tutupKeranjang()">✕</span></div>
-  <div id="isiKeranjang" class="keranjang-daftar"><div class="keranjang-kosong">Keranjang masih kosong</div></div>
-  <div id="totalKeranjang" style="display:none" class="keranjang-total">Total: Rp 0</div>
-  <div class="keranjang-aksi" id="tombolKeranjang" style="display:none">
-   <button class="tombol-kosongkan" onclick="kosongkanKeranjang()">Kosongkan</button>
-   <button class="tombol-kirim" onclick="bukaFormPesanan()">📝 ISI DATA PESANAN</button>
+<div class="latar-keranjang" id="latarKeranjang" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:999;align-items:center;justify-content:center" onclick="if(event.target===this){tutupKeranjang()}">
+ <div style="background:#fff;color:#000;padding:20px;border-radius:10px;width:92%;max-width:500px;max-height:90vh;overflow-y:auto">
+  <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ccc;padding-bottom:10px;margin-bottom:15px">
+   <h3 style="margin:0">🛒 Keranjang Pesanan</h3>
+   <span onclick="tutupKeranjang()" style="cursor:pointer;font-size:20px">✕</span>
+  </div>
+  <div id="isiKeranjang"></div>
+  <div id="totalKeranjang" style="font-weight:bold;font-size:18px;margin:15px 0;color:#0f2040"></div>
+  <div id="tombolKeranjang" style="display:none;gap:10px;flex-wrap:wrap;margin-top:10px">
+   <button onclick="kosongkanKeranjang()" style="padding:10px 14px;background:#d32f2f;color:#fff;border:none;border-radius:6px;cursor:pointer">🗑️ Kosongkan</button>
+   <button onclick="bukaFormPesanan()" style="padding:10px 14px;background:#0f2040;color:#fff;border:none;border-radius:6px;cursor:pointer">📝 Isi Data Pesanan</button>
   </div>
  </div>
 </div>
 
-<div class="latar-form" id="latarForm" onclick="if(event.target===this) tutupForm()">
- <div class="kotak-form">
-  <div class="form-judul"><span>📝 DATA PEMESANAN</span><span class="form-tutup" onclick="tutupForm()">✕</span></div>
-  <div class="form-ringkas" id="ringkasPesanan"></div>
-  <label class="form-label">Nama Pemesan *</label>
-  <input type="text" id="namaPemesan" class="form-input" placeholder="Tulis nama lengkap...">
-  <label class="form-label">Alamat Lengkap *</label>
-  <textarea id="alamatPemesan" class="form-input" rows="3" placeholder="Jalan, RT/RW, Desa/Kec, Kota..."></textarea>
-  <label class="form-label">Keterangan Tambahan</label>
-  <textarea id="keteranganPemesan" class="form-input" rows="2" placeholder="Catatan tambahan..."></textarea>
-  <div class="form-tombol-bawah">
-   <button class="tombol-kembali" onclick="tutupForm(); bukaKeranjang()">← Kembali</button>
-   <button class="tombol-kirim-wa" onclick="kirimPesananWA()">✅ KIRIM KE WHATSAPP</button>
+<div class="latar-form" id="latarForm" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:999;align-items:center;justify-content:center" onclick="if(event.target===this){tutupForm()}">
+ <div style="background:#fff;color:#000;padding:20px;border-radius:10px;width:92%;max-width:500px;max-height:90vh;overflow-y:auto">
+  <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ccc;padding-bottom:10px;margin-bottom:15px">
+   <h3 style="margin:0">📝 Data Pemesan</h3>
+   <span onclick="tutupForm()" style="cursor:pointer;font-size:20px">✕</span>
+  </div>
+  <div id="ringkasPesanan" style="background:#f5f5f5;padding:12px;border-radius:6px;margin-bottom:15px;white-space:pre-wrap;font-size:14px"></div>
+  <label style="display:block;margin:10px 0 5px;font-weight:bold">Nama Pemesan *</label>
+  <input type="text" id="namaPemesan" style="width:100%;padding:10px;border:1px solid #ccc;border-radius:6px;margin-bottom:10px;font-size:15px" placeholder="Tulis nama lengkap...">
+  <label style="display:block;margin:10px 0 5px;font-weight:bold">Alamat Lengkap *</label>
+  <textarea id="alamatPemesan" rows="3" style="width:100%;padding:10px;border:1px solid #ccc;border-radius:6px;margin-bottom:10px;font-size:15px" placeholder="Alamat lengkap pengiriman..."></textarea>
+  <label style="display:block;margin:10px 0 5px;font-weight:bold">Keterangan / Catatan</label>
+  <textarea id="catatanPemesan" rows="2" style="width:100%;padding:10px;border:1px solid #ccc;border-radius:6px;margin-bottom:15px;font-size:15px" placeholder="Waktu pengiriman, pesan khusus, dll"></textarea>
+  <div style="display:flex;gap:10px;flex-wrap:wrap">
+   <button onclick="tutupForm()" style="padding:10px 16px;background:#e0e0e0;color:#333;border:none;border-radius:6px;cursor:pointer">← Kembali</button>
+   <button onclick="kirimKeWhatsApp()" style="padding:10px 16px;background:#25c261;color:#fff;border:none;border-radius:6px;cursor:pointer;font-weight:bold">✅ KIRIM KE WHATSAPP</button>
   </div>
  </div>
 </div>
 
-<div class="kepala">
- <div class="isi-kepala">
-  <span class="tombol-menu" onclick="bukaMenu()">☰</span>
-  <div class="logo"><h1>ATLANTIC PERFUME</h1></div>
-  <span class="tombol-keranjang" onclick="bukaKeranjang()">🛒<span id="jumlahKeranjang">0</span></span>
-  <p class="tagline">Wewangian adalah bagian dari jiwa yang terbang melayang, menyapa dunia sebelum raga itu tiba.</p>
-  <div class="garis-bawah"></div>
- </div>
+<div class="kepala" style="position:fixed;top:0;left:0;right:0;background:#0f2040;color:#fff;padding:14px 15px;z-index:998;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ffffff22">
+ <span onclick="bukaMenu()" style="font-size:22px;cursor:pointer">☰</span>
+ <h1 style="font-size:18px;margin:0;text-align:center">ATLANTIC PERFUME</h1>
+ <span onclick="bukaKeranjang()" style="font-size:20px;cursor:pointer;position:relative">🛒<span id="jumlahItem" style="position:absolute;top:-8px;right:-8px;background:#ff3333;color:#fff;font-size:11px;font-weight:bold;min-width:18px;height:18px;display:flex;align-items:center;justify-content:center;border-radius:5px;padding:0 2px">0</span></span>
 </div>
 
-<div class="container">
- <h2 class="judul-halaman">🍊 SEGAR — SITRUS</h2>
- <table>
-  <thead><tr><th>Nama Parfum</th><th>Karakter Aroma</th><th>Tambah</th></tr></thead>
-  <tbody>
-   <tr>
-    <td><div class="nama-produk">AQUA DI GIO</div><div class="kode-produk">LV110</div></td>
-    <td>Segar, bersih, aroma laut</td>
-    <td><button class="tombol-tambah" onclick="tambahKeranjang('LV110','AQUA DI GIO')">🛒</button></td>
+<div style="margin-top:80px"></div>
+<div style="text-align:center;padding:18px 20px;max-width:720px;margin:0 auto">
+ <p style="font-style:italic;margin:0;line-height:1.6">Wewangian adalah bagian dari jiwa yang terbang melayang, menyapa dunia sebelum raga itu tiba.</p>
+</div>
+
+<div class="container" style="max-width:720px;margin:0 auto;padding:0 16px 30px">
+ <h2 class="judul-halaman" style="text-align:center;margin:15px 0 20px;font-size:20px"></h2>
+
+ <table style="width:100%;border-collapse:collapse;background:#ffffff08;border-radius:8px;overflow:hidden">
+  <thead>
+   <tr style="background:#ffffff15;border-bottom:2px solid #ffffff33">
+    <th style="padding:12px 10px;text-align:left;width:38%">Nama Parfum</th>
+    <th style="padding:12px 10px;text-align:left;width:32%">Aroma</th>
+    <th style="padding:12px 10px;text-align:center;width:20%">Harga</th>
+    <th style="padding:12px 10px;text-align:center;width:10px">+</th>
    </tr>
-   <tr>
-    <td><div class="nama-produk">VULCANO LITE BLUE</div><div class="kode-produk">LV387</div></td>
-    <td>Segar jeruk, ringan, menyegarkan</td>
-    <td><button class="tombol-tambah" onclick="tambahKeranjang('LV387','VULCANO LITE BLUE')">🛒</button></td>
-   </tr>
-   <tr>
-    <td><div class="nama-produk">WHITE CRYSTAL</div><div class="kode-produk">LV064</div></td>
-    <td>Segar jeruk nipis, bersih berkilau</td>
-    <td><button class="tombol-tambah" onclick="tambahKeranjang('LV064','WHITE CRYSTAL')">🛒</button></td>
-   </tr>
-   <tr>
-    <td><div class="nama-produk">CELCIOUS APPLES & ORANGE</div><div class="kode-produk">LV308</div></td>
-    <td>Apel & jeruk, manis segar cerah</td>
-    <td><button class="tombol-tambah" onclick="tambahKeranjang('LV308','CELCIOUS APPLES & ORANGE')">🛒</button></td>
-   </tr>
-   <tr>
-    <td><div class="nama-produk">CELCIOUS APPLE BLOSS</div><div class="kode-produk">LV391</div></td>
-    <td>Bunga apel segar, lembut manis</td>
-    <td><button class="tombol-tambah" onclick="tambahKeranjang('LV391','CELCIOUS APPLE BLOSS')">🛒</button></td>
-   </tr>
-   <tr>
-    <td><div class="nama-produk">WONDERSWIFT CHANCE</div><div class="kode-produk">LV323</div></td>
-    <td>Jeruk segar, melon, mawar muda</td>
-    <td><button class="tombol-tambah" onclick="tambahKeranjang('LV323','WONDERSWIFT CHANCE')">🛒</button></td>
-   </tr>
-   <tr>
-    <td><div class="nama-produk">SENSE Chance</div><div class="kode-produk">LV070</div></td>
-    <td>Jeruk segar, melon, mawar, musky</td>
-    <td><button class="tombol-tambah" onclick="tambahKeranjang('LV070','SENSE Chance')">🛒</button></td>
-   </tr>
-  </tbody>
+  </thead>
+  <tbody id="daftarProduk"></tbody>
  </table>
- <a href="index.html" class="tombol-beranda">🏠 Kembali ke Beranda</a>
+
+ <div style="margin-top:25px;text-align:center">
+  <a href="index.html" style="display:inline-block;padding:10px 22px;background:#ffffff15;color:#fff;text-decoration:none;border-radius:6px;border:1px solid #ffffff33">🏠 Kembali ke Beranda</a>
+ </div>
 </div>
 
 <script src="data-produk.js"></script>
 <script src="fungsi.js"></script>
+<script>isiHalaman("kelompok1");</script>
 </body>
-                                                                                           </html>
- 
+    </html>
+     
