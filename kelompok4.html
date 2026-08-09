@@ -3,48 +3,8 @@
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>MANIS | ATLANTIC PERFUME</title>
- <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Georgia',serif}
-html,body{height:100%}
-body{background:#0f2040;color:#fff;line-height:1.6;padding-top:100px}
-.container{max-width:720px;margin:0 auto;padding:0 16px}
-
-/* === BAGIAN ATAS — MENEMPEL DIAM === */
-.kepala{position:fixed;top:0;left:0;right:0;z-index:9999;background:#0f2040;padding:12px 15px 12px}
-.kepala .isi-kepala{max-width:720px;margin:0 auto;position:relative}
-
-/* === TOMBOL MENU === */
-.tombol-menu{position:absolute;left:0;top:4px;font-size:1.5em;color:#f8d77c;cursor:pointer;padding:2px 8px;line-height:1;border:1px solid #f8d77c50;border-radius:6px}
-
-/* === LOGO === */
-.logo{text-align:center;padding-left:15px}
-.logo h1{font-size:1.1em;color:#f8d77c;letter-spacing:1px;text-transform:uppercase;font-weight:normal;white-space:nowrap}
-
-/* === TULISAN TAGLINE === */
-.tagline{text-align:center;font-size:0.9em;color:#e0e0e0;margin:10px 0 8px;padding-left:0}
-
-/* === GARIS PUTIH === */
-.garis-bawah{width:65%;height:1px;background:#ffffff;margin:0 auto}
-
-/* === JUDUL & TABEL === */
-.judul-halaman{text-align:center;font-size:1.25em;color:#f8d77c;margin:15px 0;padding-bottom:8px;border-bottom:1px solid #ffffff30}
-table{width:100%;border-collapse:collapse;margin:15px 0 40px;background:#ffffff08;border-radius:8px;overflow:hidden}
-th{background:#f8d77c20;color:#f8d77c;padding:9px 7px;text-align:left;font-size:0.9em}
-td{padding:8px 7px;border-bottom:1px solid #ffffff0a;font-size:0.92em;line-height:1.4}
-td:first-child{color:#f8d77c;font-weight:bold;white-space:nowrap;width:110px}
-
-/* === MENU SAMPING === */
-.menu-latar{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);z-index:99999;display:none}
-.menu-latar.buka{display:block}
-.menu-kotak{position:fixed;top:0;left:0;width:260px;height:100%;background:#152238;z-index:100000;padding:20px;border-right:1px solid #f8d77c40;transform:translateX(-100%);transition:transform 0.3s ease}
-.menu-kotak.buka{transform:translateX(0)}
-.menu-tutup{text-align:right;color:#f8d77c;font-size:1.5em;cursor:pointer;margin-bottom:20px}
-.menu-judul{color:#f8d77c;font-size:1.1em;margin-bottom:15px;padding-bottom:10px;border-bottom:1px solid #f8d77c30}
-.menu-item{display:block;color:#fff;text-decoration:none;padding:10px 12px;margin-bottom:5px;border-radius:6px;transition:all 0.2s}
-.menu-item:hover{background:#f8d77c15;color:#f8d77c}
-.menu-item.aktif{background:#f8d77c25;color:#f8d77c;font-weight:bold}
- </style>
+ <title>ATLANTIC PERFUME | MANIS — Legenda</title>
+ <link rel="stylesheet" href="gaya.css">
 </head>
 <body>
 
@@ -63,58 +23,62 @@ td:first-child{color:#f8d77c;font-weight:bold;white-space:nowrap;width:110px}
  <a href="info.html" class="menu-item">ℹ️ INFO TOKO</a>
 </div>
 
-<!-- BAGIAN ATAS -->
+<div class="latar-keranjang" id="latarKeranjang" onclick="if(event.target===this) tutupKeranjang()">
+ <div class="kotak-keranjang">
+  <div class="keranjang-judul"><span>🛒 Keranjang Pesanan</span><span class="keranjang-tutup" onclick="tutupKeranjang()">✕</span></div>
+  <div id="isiKeranjang" class="keranjang-daftar"><div class="keranjang-kosong">Keranjang masih kosong</div></div>
+  <div id="totalKeranjang" style="display:none" class="keranjang-total">Total: Rp 0</div>
+  <div class="keranjang-aksi" id="tombolKeranjang" style="display:none">
+   <button class="tombol-kosongkan" onclick="kosongkanKeranjang()">Kosongkan</button>
+   <button class="tombol-kirim" onclick="bukaFormPesanan()">📝 ISI DATA PESANAN</button>
+  </div>
+ </div>
+</div>
+
+<div class="latar-form" id="latarForm" onclick="if(event.target===this) tutupForm()">
+ <div class="kotak-form">
+  <div class="form-judul"><span>📝 DATA PEMESANAN</span><span class="form-tutup" onclick="tutupForm()">✕</span></div>
+  <div class="form-ringkas" id="ringkasPesanan"></div>
+  <label class="form-label">Nama Pemesan *</label>
+  <input type="text" id="namaPemesan" class="form-input" placeholder="Tulis nama lengkap...">
+  <label class="form-label">Alamat Lengkap *</label>
+  <textarea id="alamatPemesan" class="form-input" rows="3" placeholder="Jalan, RT/RW, Desa/Kec, Kota..."></textarea>
+  <label class="form-label">Keterangan Tambahan</label>
+  <textarea id="keteranganPemesan" class="form-input" rows="2" placeholder="Catatan tambahan..."></textarea>
+  <div class="form-tombol-bawah">
+   <button class="tombol-kembali" onclick="tutupForm(); bukaKeranjang()">← Kembali</button>
+   <button class="tombol-kirim-wa" onclick="kirimPesananWA()">✅ KIRIM KE WHATSAPP</button>
+  </div>
+ </div>
+</div>
+
 <div class="kepala">
  <div class="isi-kepala">
   <span class="tombol-menu" onclick="bukaMenu()">☰</span>
-  <div class="logo">
-   <h1>ATLANTIC PERFUME</h1>
-  </div>
+  <div class="logo"><h1>ATLANTIC PERFUME</h1></div>
+  <span class="tombol-keranjang" onclick="bukaKeranjang()">🛒<span id="jumlahKeranjang">0</span></span>
   <p class="tagline">Temukan Wangi yang Mencerminkan Dirimu</p>
   <div class="garis-bawah"></div>
  </div>
 </div>
 
-<!-- ISI HALAMAN -->
 <div class="container">
  <h2 class="judul-halaman">🍬 MANIS — LEGENDA</h2>
  <table>
-  <tr><th>Kode</th><th>Nama Parfum</th><th>Karakter Aroma</th></tr>
-  <tr><td>A 0701</td><td>Lancôme La Vie Est Belle</td><td>Vanila, mawar, buah, bahagia manis abadi</td></tr>
-  <tr><td>A 0702</td><td>YSL Black Opium</td><td>Kopi, vanila, bunga, pekat memukau</td></tr>
-  <tr><td>A 0703</td><td>Prada Candy</td><td>Karamel, vanila, bubuk, manis ceria</td></tr>
-  <tr><td>A 0704</td><td>Thierry Mugler Angel</td><td>Cokelat, karamel, vanila, bintang manis</td></tr>
-  <tr><td>A 0705</td><td>Gucci Rush</td><td>Vanila, bunga, kayu, manis memikat</td></tr>
-  <tr><td>A 0801</td><td>Chanel Coco Vanille</td><td>Vanila, kayu, jeruk, hangat mewah</td></tr>
-  <tr><td>A 0802</td><td>Dior Tendre Poison</td><td>Vanila, madu, bunga, lembut manis</td></tr>
-  <tr><td>A 0803</td><td>Guerlain Mon Guerlain</td><td>Vanila, melati, mawar, anggun manis</td></tr>
-  <tr><td>A 0804</td><td>Armani My Way</td><td>Vanila, mawar, jeruk, manis berkelana</td></tr>
-  <tr><td>A 0805</td><td>Versace Vanitas</td><td>Vanila, jeruk, bunga, manis elegan</td></tr>
-  <tr><td>B 0701</td><td>Givenchy Ange ou Démon</td><td>Vanila, melati, kayu, manis lembut</td></tr>
-  <tr><td>B 0702</td><td>Burberry Vanilla</td><td>Vanila, kayu, jeruk, hangat klasik</td></tr>
-  <tr><td>B 0703</td><td>Elie Saab Vanilla</td><td>Vanila, madu, melati, manis mewah</td></tr>
-  <tr><td>B 0704</td><td>Carolina Herrera Vanilla</td><td>Vanila, mawar, kayu, manis berkelas</td></tr>
-  <tr><td>B 0705</td><td>Valentino Vanille</td><td>Vanila, mawar, jeruk, manis anggun</td></tr>
-  <tr><td>B 0801</td><td>Tom Ford Vanille Fatale</td><td>Vanila, rempah, buah, pekat memikat</td></tr>
-  <tr><td>B 0802</td><td>Byredo Vanilla</td><td>Vanila, kayu, murni elegan lembut</td></tr>
-  <tr><td>B 0803</td><td>Maison Margiela Vanilla</td><td>Vanila, susu, manis hangat kenangan</td></tr>
-  <tr><td>B 0804</td><td>Montale Vanilla</td><td>Vanila, karamel, pekat manis mewah</td></tr>
-  <tr><td>B 0805</td><td>Paco Rabanne Vanilla</td><td>Vanila, emas, manis berkilau mewah</td></tr>
+  <thead><tr><th>Nama Parfum</th><th>Karakter Aroma</th><th>Tambah</th></tr></thead>
+  <tbody>
+   <!-- === ISI PRODUK DISINI SAJA === -->
+   <tr>
+    <td><div class="nama-produk">Nama Parfum Disini</div><div class="kode-produk">KODE</div></td>
+    <td>Deskripsi aroma</td>
+    <td><button class="tombol-tambah" onclick="tambahKeranjang('KODE','Nama Parfum Disini')">🛒</button></td>
+   </tr>
+  </tbody>
  </table>
+ <a href="index.html" class="tombol-beranda">🏠 Kembali ke Beranda</a>
 </div>
 
-<script>
-function bukaMenu(){
- document.getElementById('menuKotak').classList.add('buka')
- document.getElementById('menuLatar').classList.add('buka')
- document.body.style.overflow='hidden'
-}
-function tutupMenu(){
- document.getElementById('menuKotak').classList.remove('buka')
- document.getElementById('menuLatar').classList.remove('buka')
- document.body.style.overflow=''
-}
-</script>
-
+<script src="fungsi.js"></script>
 </body>
-</html>
+ </html>
+ 
