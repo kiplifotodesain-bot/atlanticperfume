@@ -1,18 +1,19 @@
-if(typeof dataProduk === 'undefined') var dataProduk = {};
+const dataProduk = dataProduk || {};
 dataProduk.kelompok3 = {
   judul: "🪵 KAYU — Mewah",
-  produk: [
-    {kode:"A 0301", nama:"Dior Sauvage", aroma:"Kayu cedar, jeruk, rempah, tegas", harga:"Rp 70.000"},
-    {kode:"A 0302", nama:"Paco Rabanne 1 Million", aroma:"Kayu manis, emas, kulit, mewah", harga:"Rp 70.000"},
-    {kode:"A 0303", nama:"Chanel Bleu", aroma:"Kayu cendana, jeruk, rempah, berkelas", harga:"Rp 70.000"},
-    {kode:"A 0304", nama:"Armani Code", aroma:"Kulit, tembakau, kayu, misterius", harga:"Rp 70.000"},
-    {kode:"A 0305", nama:"Hugo Boss Bottled", aroma:"Apel, kayu manis, cendana, hangat", harga:"Rp 70.000"},
-    {kode:"A 0306", nama:"YSL Kouros", aroma:"Kembang bumbu, kayu, wangi bangsawan", harga:"Rp 70.000"},
-    {kode:"A 0307", nama:"Bvlgari Man", aroma:"Kayu agar, akar, rempah, kuat", harga:"Rp 70.000"},
-    {kode:"A 0308", nama:"Versace Eros", aroma:"Mint, apel, kayu, penuh gairah", harga:"Rp 70.000"},
-    {kode:"A 0309", nama:"Tom Ford Oud Wood", aroma:"Oud, kayu cendana, kemenyan, mendalam", harga:"Rp 70.000"},
-    {kode:"A 0310", nama:"Dunhill Icon", aroma:"Jeruk, kayu, tembakau, elegan", harga:"Rp 70.000"},
-    {kode:"A 0311", nama:"Montblanc Legend", aroma:"Jeruk, kayu, kulit, berwibawa", harga:"Rp 70.000"},
-    {kode:"A 0312", nama:"Cartier Declaration", aroma:"Kayu, rempah, tembakau, unik", harga:"Rp 70.000"}
+  halaman: [
+    // === HALAMAN 1 ===
+    [
+      {kode:"KY001", nama:"Oud Royal", aroma:"Kayu Gaharu Mewah & Lembut", harga:"Rp 280.000"},
+      {kode:"KY002", nama:"Sandalwood", aroma:"Cendana Putih Hangat", harga:"Rp 245.000"},
+      {kode:"KY003", nama:"Cedar Wood", aroma:"Kayu Cemara Segar", harga:"Rp 230.000"},
+      {kode:"KY004", nama:"Amber Wood", aroma:"Kayu dengan Nuansa Emas", harga:"Rp 265.000"}
+    ],
+    // === HALAMAN 2 ===
+    [
+      {kode:"KY005", nama:"Vetiver", aroma:"Akar Wangi Khas & Tenang", harga:"Rp 255.000"},
+      {kode:"KY006", nama:"Patchouli", aroma:"Kayu Kuno Yang Hangat", harga:"Rp 260.000"},
+      {kode:"KY007", nama:"Ebony Wood", aroma:"Kayu Hitam Elegan", harga:"Rp 290.000"}
+    ]
   ]
 };
