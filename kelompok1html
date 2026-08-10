@@ -12,10 +12,8 @@
  <script src="fungsi.js"></script>
 
  <!-- ==========================================
-      const dataProduk = [
-  {kode:"BACARAT", nama:"BACARAT ROUGE 540", atas:"Jeruk, kunyit", tengah:"Bunga melati", bawah:"Kayu, ambar", harga:84000}
-];
-
+      👇 DI BAWAH INI TEMPAT LATIHAN KITA
+      TINGGAL TULIS NAMA FILE PRODUK DI SINI
      ========================================== -->
 
 </body>
