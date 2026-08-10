@@ -5,43 +5,88 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>✨ LEMBUT — Elegan | ATLANTIC PERFUME</title>
  <style>
+/* === PENYAMAAAN TAMPILAN UNTUK SEMUA BROWSER === */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img, picture, video {
+  max-width: 100%;
+  display: block;
+}
+input, button, textarea {
+  font: inherit;
+}
+h1, h2, h3, h4, h5, h6, p {
+  overflow-wrap: break-word;
+}
+/* === AKHIR PENYAMAAN BROWSER === */
+
 *{margin:0;padding:0;box-sizing:border-box;font-family:Georgia,serif}
 html,body{width:100%;overflow-x:hidden}
-body{background:#0f2040;color:#fff;line-height:1.4;padding-top:80px}
+body{background:#0f2040;color:#fff;line-height:1.5;padding-top:80px}
 a{text-decoration:none}
+
 .menu-latar{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999}
-.menu-kotak{position:fixed;top:0;right:-300px;width:280px;height:100%;background:#fff;z-index:1000;transition:right .3s}
+.menu-kotak{position:fixed;top:0;right:-300px;width:280px;height:100%;background:#fff;z-index:1000;transition:right .3s ease}
 .menu-tutup{text-align:right;padding:15px 20px;font-size:22px;cursor:pointer;color:#333}
-.menu-judul{padding:10px 20px;font-weight:bold;color:#0f2040;border-bottom:1px solid #eee}
-.menu-item{display:block;padding:12px 20px;color:#333;border-bottom:1px solid #f5f5f5}
+.menu-judul{padding:12px 20px;font-weight:bold;color:#0f2040;border-bottom:1px solid #eee;font-size:16px}
+.menu-item{display:block;padding:12px 20px;color:#333;border-bottom:1px solid #f5f5f5;transition:background .2s}
 .menu-item:hover{background:#e6edff}
 .menu-item.aktif{background:linear-gradient(90deg, #0a1630, #142850);color:#fff;font-weight:bold;border-left:4px solid #ffd700}
+
 table{width:100%;border-collapse:separate;border-spacing:0;background:rgba(255,255,255,0.04);border-radius:8px;overflow:hidden}
-th{padding:8px 6px;text-align:left;background:rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.12);font-size:14px;color:#ffd700}
-td{padding:7px 6px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:14px;word-wrap:break-word;white-space:normal}
-.baris-produk{cursor:pointer;transition:all .2s}
-.baris-produk:hover{background:rgba(255,255,255,0.08) !important;border-left:3px solid #ffd700}
-.btn-beli{background:rgba(0,170,85,0.9);color:#fff;border:none;padding:5px 9px;border-radius:4px;cursor:pointer;font-size:15px;font-weight:bold;transition:all .2s}
+th{padding:10px 8px;text-align:left;background:rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.12);font-size:14px;color:#ffd700}
+td{padding:10px 8px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:14px;word-wrap:break-word}
+tr:last-child td{border-bottom:none}
+
+.baris-produk{cursor:pointer;transition:background .2s}
+.baris-produk:hover{background:rgba(255,255,255,0.08);border-left:3px solid #ffd700}
+
+.btn-beli{background:rgba(0,170,85,0.9);color:#fff;border:none;padding:6px 10px;border-radius:4px;cursor:pointer;font-size:16px;font-weight:bold;transition:background .2s}
 .btn-beli:hover{background:rgba(0,204,102,1)}
-.nav-halaman{display:flex;justify-content:space-between;align-items:center;margin-top:18px;padding:10px 0}
+
+.nav-halaman{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding:10px 0}
 .btn-nav{width:80px;padding:8px 0;background:rgba(255,255,255,0.06);color:#fff;border-radius:6px;border:1px solid rgba(255,255,255,0.12);cursor:pointer;font-size:18px;font-weight:bold;text-align:center;transition:all .2s}
 .btn-nav:disabled{opacity:0.25;cursor:not-allowed}
+.btn-nav:hover:not(:disabled){background:rgba(255,255,255,0.12)}
+
 .info-halaman{font-size:14px;color:#ffd700;font-weight:bold}
-.latar-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:1000;align-items:center;justify-content:center}
-.kotak-modal{background:rgba(255,255,255,0.12);backdrop-filter:blur(8px);color:#fff;padding:18px;border-radius:12px;width:92%;max-width:400px;border:1px solid rgba(255,255,255,0.18);box-shadow:0 8px 32px rgba(0,0,0,0.2)}
-.judul-modal{font-size:17px;font-weight:bold;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.15);color:#ffd700}
-.baris-aroma{padding:8px 0;border-bottom:1px dashed rgba(255,255,255,0.1);font-size:14px}
+
+.latar-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:1000;align-items:center;justify-content:center;padding:15px}
+.kotak-modal{background:rgba(15,32,64,0.95);backdrop-filter:blur(8px);color:#fff;padding:20px;border-radius:12px;width:100%;max-width:400px;border:1px solid rgba(255,255,255,0.18);box-shadow:0 8px 32px rgba(0,0,0,0.3)}
+.judul-modal{font-size:17px;font-weight:bold;margin-bottom:15px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.15);color:#ffd700}
+.baris-aroma{padding:8px 0;border-bottom:1px dashed rgba(255,255,255,0.1);font-size:14px;line-height:1.6}
 .label-aroma{font-weight:bold;display:inline-block;width:85px;color:#ffd700}
-.tutup-modal{margin-top:14px;width:100%;padding:10px;background:rgba(15,32,64,0.7);color:#fff;border:1px solid rgba(255,255,255,0.2);border-radius:8px;cursor:pointer;font-size:15px;font-weight:bold}
-.tutup-modal:hover{background:rgba(15,32,64,0.9)}
+.tutup-modal{margin-top:15px;width:100%;padding:10px;background:rgba(255,215,0,0.15);color:#ffd700;border:1px solid rgba(255,215,0,0.3);border-radius:8px;cursor:pointer;font-size:15px;font-weight:bold;transition:all .2s}
+.tutup-modal:hover{background:rgba(255,215,0,0.25)}
+
+.tombol-kembali{display:inline-block;padding:8px 16px;background:rgba(255,255,255,0.06);color:#ffd700;border:1px solid rgba(255,215,0,0.25);border-radius:6px;font-size:14px;text-decoration:none;font-weight:500;transition:all .2s}
+.tombol-kembali:hover{background:rgba(255,215,0,0.1);color:#fff}
  </style>
 </head>
 <body>
-<div style="position:fixed;top:0;left:0;right:0;background:#0f2040;padding:14px 15px;z-index:998;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.15)">
- <span onclick="bukaMenu()" style="font-size:24px;cursor:pointer;color:#ffd700">☰</span>
- <h1 style="font-size:18px">ATLANTIC PERFUME</h1>
- <span onclick="bukaKeranjang()" style="font-size:26px;cursor:pointer;position:relative;color:#ffd700;text-shadow:0 0 4px #000">🛒<span id="jumlahItem" style="position:absolute;top:-10px;right:-10px;background:linear-gradient(180deg,#ff4444,#cc0000);color:#fff;font-size:12px;font-weight:bold;min-width:20px;height:20px;display:flex;align-items:center;justify-content:center;border-radius:5px;border:1px solid #fff;box-shadow:0 0 3px #000">0</span></span>
+
+<!-- HEADER TETAP DI ATAS -->
+<div style="position:fixed;top:0;left:0;right:0;background:#0f2040;padding:12px 15px;z-index:998;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.15)">
+ <span onclick="bukaMenu()" style="font-size:24px;cursor:pointer;color:#ffd700;line-height:1">☰</span>
+ <h1 style="font-size:17px">ATLANTIC PERFUME</h1>
+ <span onclick="bukaKeranjang()" style="font-size:26px;cursor:pointer;position:relative;color:#ffd700;line-height:1">🛒
+  <span id="jumlahItem" style="position:absolute;top:-8px;right:-8px;background:linear-gradient(180deg,#ff4444,#cc0000);color:#fff;font-size:11px;font-weight:bold;min-width:20px;height:20px;display:flex;align-items:center;justify-content:center;border-radius:10px;border:1px solid #fff">0</span>
+ </span>
 </div>
+
+<!-- MENU SAMPING -->
 <div class="menu-latar" id="menuLatar" onclick="tutupMenu()"></div>
 <div class="menu-kotak" id="menuKotak">
  <div class="menu-tutup" onclick="tutupMenu()">✕</div>
@@ -57,6 +102,7 @@ td{padding:7px 6px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:14px
  <a href="info.html" class="menu-item">ℹ️ INFO TOKO</a>
 </div>
 
+<!-- MODAL INFORMASI AROMA -->
 <div class="latar-modal" id="modalAroma" onclick="if(event.target===this)tutupAroma()">
  <div class="kotak-modal">
   <div class="judul-modal" id="namaProdukModal"></div>
@@ -67,10 +113,12 @@ td{padding:7px 6px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:14px
  </div>
 </div>
 
-<div id="latarKeranjang" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:998;align-items:center;justify-content:center" onclick="if(event.target===this)tutupKeranjang()">
- <div style="background:#fff;color:#000;padding:20px;border-radius:10px;width:92%;max-width:500px;max-height:90vh;overflow-y:auto">
+<!-- KERANJANG -->
+<div id="latarKeranjang" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:998;align-items:center;justify-content:center;padding:15px" onclick="if(event.target===this)tutupKeranjang()">
+ <div style="background:#fff;color:#000;padding:20px;border-radius:10px;width:100%;max-width:500px;max-height:90vh;overflow-y:auto">
   <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ccc;padding-bottom:10px;margin-bottom:15px">
-   <h3>🛒 Keranjang Pesanan</h3><span onclick="tutupKeranjang()" style="cursor:pointer;font-size:20px">✕</span>
+   <h3>🛒 Keranjang Pesanan</h3>
+   <span onclick="tutupKeranjang()" style="cursor:pointer;font-size:20px">✕</span>
   </div>
   <div id="isiKeranjang"></div>
   <div id="totalKeranjang" style="font-weight:bold;font-size:18px;margin:15px 0;color:#0f2040"></div>
@@ -80,10 +128,13 @@ td{padding:7px 6px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:14px
   </div>
  </div>
 </div>
-<div id="latarForm" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:997;align-items:center;justify-content:center" onclick="if(event.target===this)tutupForm()">
- <div style="background:#fff;color:#000;padding:20px;border-radius:10px;width:92%;max-width:500px;max-height:90vh;overflow-y:auto">
+
+<!-- FORM PESANAN -->
+<div id="latarForm" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:997;align-items:center;justify-content:center;padding:15px" onclick="if(event.target===this)tutupForm()">
+ <div style="background:#fff;color:#000;padding:20px;border-radius:10px;width:100%;max-width:500px;max-height:90vh;overflow-y:auto">
   <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ccc;padding-bottom:10px;margin-bottom:15px">
-   <h3>📝 Data Pemesan</h3><span onclick="tutupForm()" style="cursor:pointer;font-size:20px">✕</span>
+   <h3>📝 Data Pemesan</h3>
+   <span onclick="tutupForm()" style="cursor:pointer;font-size:20px">✕</span>
   </div>
   <div id="ringkasPesanan" style="background:#f5f5f5;padding:12px;border-radius:6px;margin-bottom:15px;white-space:pre-wrap"></div>
   <label style="display:block;margin:10px 0 5px;font-weight:bold">Nama Pemesan *</label>
@@ -98,19 +149,32 @@ td{padding:7px 6px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:14px
   </div>
  </div>
 </div>
+
+<!-- ISI KONTEN -->
 <div style="max-width:720px;margin:0 auto;padding:20px 12px">
- <h2 id="namaKelompok" style="text-align:center;margin:10px 0 18px;font-size:19px"></h2>
+ <h2 id="namaKelompok" style="text-align:center;margin:10px 0 20px;font-size:19px;color:#ffd700"></h2>
  <table>
-  <thead><tr><th>Kode</th><th>Nama Produk</th><th>/20 ml</th><th style="width:52px;text-align:center">Beli</th></tr></thead>
-  <tbody id="isiTabel"><tr><td colspan="4" style="text-align:center;padding:15px">⏳ Memuat...</td></tr></tbody>
+  <thead>
+   <tr>
+    <th style="width:22%">Kode</th>
+    <th>Nama Produk</th>
+    <th style="width:18%">/20 ml</th>
+    <th style="width:60px;text-align:center">Beli</th>
+   </tr>
+  </thead>
+  <tbody id="isiTabel">
+   <tr><td colspan="4" style="text-align:center;padding:20px;color:#ffd700">⏳ Memuat...</td></tr>
+  </tbody>
  </table>
+
  <div class="nav-halaman">
   <button class="btn-nav" id="btnSebelumnya" onclick="halamanSebelumnya()">←</button>
   <span class="info-halaman" id="infoHalaman">Halaman 1 dari 2</span>
   <button class="btn-nav" id="btnSelanjutnya" onclick="halamanSelanjutnya()">→</button>
  </div>
- <div style="text-align:center;margin-top:12px;">
-  <a href="index.html" style="display:inline-block;padding:5px 12px;background:rgba(255,255,255,0.06);color:#ffd700;border:1px solid rgba(255,215,0,0.25);border-radius:6px;font-size:14px;text-decoration:none;font-weight:500">🏠 Kembali ke Beranda</a>
+
+ <div style="text-align:center;margin-top:20px;">
+  <a href="index.html" class="tombol-kembali">🏠 Kembali ke Beranda</a>
  </div>
 </div>
 
@@ -193,18 +257,27 @@ function tampilHalaman(){
   document.getElementById('isiTabel').innerHTML = html;
   document.getElementById('infoHalaman').textContent = `Halaman ${halamanSekarang+1} dari ${totalHalaman}`;
   document.getElementById('btnSebelumnya').disabled = halamanSekarang <= 0;
-  document.getElementById('btnSelanjutnya').disabled = halamanSekarang >= totalHalaman.length-1;
+  document.getElementById('btnSelanjutnya').disabled = halamanSekarang >= totalHalaman - 1;
 }
 
 function halamanSebelumnya(){
-  if(halamanSekarang > 0){ halamanSekarang--; tampilHalaman(); window.scrollTo({top:0,behavior:'smooth'}); }
+  if(halamanSekarang > 0){ 
+    halamanSekarang--; 
+    tampilHalaman(); 
+    window.scrollTo({top:0,behavior:'smooth'}); 
+  }
 }
 function halamanSelanjutnya(){
-  if(halamanSekarang < dataHalaman.length-1){ halamanSekarang++; tampilHalaman(); window.scrollTo({top:0,behavior:'smooth'}); }
+  if(halamanSekarang < dataHalaman.length - 1){ 
+    halamanSekarang++; 
+    tampilHalaman(); 
+    window.scrollTo({top:0,behavior:'smooth'}); 
+  }
 }
 
 muatHalaman();
 </script>
 <script src="fungsi.js"></script>
 </body>
-</html>
+                          </html>
+ 
