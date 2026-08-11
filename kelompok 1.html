@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="id">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>🍊 SEGAR — Sitrus | ATLANTIC PERFUME</title>
+ <style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Georgia,serif}
+html,body{width:100%;overflow-x:hidden}
+body{background:#0f2040;color:#fff;line-height:1.4;padding-top:80px}
+a{text-decoration:none}
+.menu-latar{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999}
+.menu-kotak{position:fixed;top:0;right:-300px;width:280px;height:100%;background:#fff;z-index:1000;transition:right .3s}
+.menu-tutup{text-align:right;padding:15px 20px;font-size:22px;cursor:pointer;color:#333}
+.menu-judul{padding:10px 20px;font-weight:bold;color:#0f2040;border-bottom:1px solid #eee}
+.menu-item{display:block;padding:12px 20px;color:#333;border-bottom:1px solid #f5f5f5}
+.menu-item:hover{background:#e6edff}
+.menu-item.aktif{background:linear-gradient(90deg, #0a1630, #142850);color:#fff;font-weight:bold;border-left:4px solid #ffd700}
+table{width:100%;border-collapse:separate;border-spacing:0;background:rgba(255,255,255,0.04);border-radius:8px;overflow:hidden;margin-top:15px}
+th{padding:10px 8px;text-align:left;background:rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.12);font-size:16px;color:#ffd700}
+td{padding:10px 8px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:15px}
+.baris-produk{cursor:pointer;transition:all .2s}
+.baris-produk:hover{background:rgba(255,255,255,0.08)!important;border-left:3px solid #ffd700}
+.btn-beli{background:rgba(0,170,85,0.9);color:#fff;border:none;padding:6px 12px;border-radius:4px;cursor:pointer;font-size:15px;font-weight:bold}
+.nav-halaman{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding:10px 0}
+.btn-nav{width:80px;padding:10px 0;background:rgba(255,255,255,0.06);color:#fff;border-radius:6px;border:1px solid rgba(255,215,0,0.12);cursor:pointer;font-size:20px;font-weight:bold;text-align:center}
+.btn-nav:disabled{opacity:0.25;cursor:not-allowed}
+.info-halaman{font-size:16px;color:#ffd700;font-weight:bold}
+.latar-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:1000;align-items:center;justify-content:center}
+.kotak-modal{background:rgba(15,32,64,0.95);color:#fff;padding:25px;border-radius:16px;width:92%;max-width:420px;border:2px solid rgba(255,215,0,0.4)}
+.judul-modal{font-size:22px;font-weight:bold;margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.15);color:#ffd700;text-align:center}
+.baris-aroma{padding:10px 0;font-size:16px;border-bottom:1px dashed rgba(255,255,255,0.1)}
+.label-atas{color:#90EE90;font-weight:bold;display:inline-block;width:90px}
+.label-tengah{color:#FFD700;font-weight:bold;display:inline-block;width:90px}
+.label-bawah{color:#DEB887;font-weight:bold;display:inline-block;width:90px}
+.tutup-modal{margin-top:20px;width:100%;padding:14px;background:linear-gradient(90deg,#1a3366,#0f2040);color:#fff;border:1px solid #ffd700;border-radius:10px;cursor:pointer;font-size:17px;font-weight:bold}
+.kotak-diskon{background:rgba(255,215,0,0.12);border:1px solid rgba(255,215,0,0.35);border-radius:8px;padding:12px 15px;margin:15px 0;text-align:center}
+.teks-diskon{color:#ffd700;font-size:15px;line-height:1.6}
+.judul-halaman{text-align:center;margin:15px 0 8px;font-size:22px;color:#ffd700}
+.deskripsi-kelompok{text-align:center;margin-bottom:15px;font-size:15px;color:#ccc;line-height:1.5}
+.tombol-kembali{text-align:center;margin-top:15px}
+.tombol-kembali a{display:inline-block;padding:8px 16px;background:rgba(255,255,255,0.06);color:#ffd700;border:1px solid rgba(255,215,0,0.25);border-radius:6px;font-size:15px;text-decoration:none}
+.item-keranjang{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #eee}
+.hapus-item{color:red;cursor:pointer;padding:0 6px;font-weight:bold}
+ </style>
+</head>
+<body>
+<div style="position:fixed;top:0;left:0;right:0;background:#0f2040;padding:14px 15px;z-index:998;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.15)">
+ <span onclick="bukaMenu()" style="font-size:24px;cursor:pointer;color:#ffd700">☰</span>
+ <h1 style="font-size:18px">ATLANTIC PERFUME</h1>
+ <div style="display:flex;gap:6px;align-items:center">
+  <button onclick="ubahBahasa('id')" id="btn-id" style="background:#ffd70040;color:#fff;border:none;padding:3px 6px;border-radius:4px;cursor:pointer;font-size:13px">🇮🇩</button>
+  <button onclick="ubahBahasa('en')" id="btn-en" style="background:transparent;color:#ccc;border:none;padding:3px 6px;border-radius:4px;cursor:pointer;font-size:13px">🇬🇧</button>
+  <span onclick="bukaKeranjang()" style="font-size:26px;cursor:pointer;position:relative;color:#ffd700">🛒<span id="angkaKeranjang" style="position:absolute;top:-10px;right:-10px;background:linear-gradient(180deg,#ff4444,#cc0000);color:#fff;font-size:12px;font-weight:bold;min-width:20px;height:20px;display:flex;align-items:center;justify-content:center;border-radius:5px">0</span></span>
+ </div>
+</div>
+
+<div class="menu-latar" id="menuLatar" onclick="tutupMenu()"></div>
+<div class="menu-kotak" id="menuKotak">
+ <div class="menu-tutup" onclick="tutupMenu()">✕</div>
+ <div class="menu-judul" id="menuJudul">📋 DAFTAR VARIAN</div>
+ <a href="index.html" class="menu-item" id="menuBeranda">🏠 BERANDA</a>
+ <a href="kelompok1.html" class="menu-item aktif" id="menuKel1">🍊 SEGAR — Sitrus</a>
+ <a href="kelompok2.html" class="menu-item" id="menuKel2">🌸 BUNGA — Elegan</a>
+ <a href="kelompok3.html" class="menu-item" id="menuKel3">🪵 KAYU — Mewah</a>
+ <a href="kelompok4.html" class="menu-item" id="menuKel4">🍬 MANIS — Legenda</a>
+ <a href="kelompok5.html" class="menu-item" id="menuKel5">🌶️ REMPAH — Kuat</a>
+ <a href="kelompok6.html" class="menu-item" id="menuKel6">🌊 SEGAR — Laut</a>
+ <a href="kelompok7.html" class="menu-item" id="menuKel7">🔥 TERLARIS</a>
+ <a href="info.html" class="menu-item" id="menuInfo">ℹ️ INFO TOKO</a>
+</div>
+
+<div class="latar-modal" id="modalAroma" onclick="if(event.target===this)tutupAroma()">
+ <div class="kotak-modal">
+  <div class="judul-modal" id="namaProdukModal"></div>
+  <div class="baris-aroma"><span class="label-atas" id="labelAtas">🌿 Atas:</span><span id="aromaAtas"></span></div>
+  <div class="baris-aroma"><span class="label-tengah" id="labelTengah">🔥 Tengah:</span><span id="aromaTengah"></span></div>
+  <div class="baris-aroma"><span class="label-bawah" id="labelBawah">🪵 Bawah:</span><span id="aromaBawah"></span></div>
+  <button class="tutup-modal" id="tombolTutup" onclick="tutupAroma()">TUTUP</button>
+ </div>
+</div>
+
+<div id="latarKeranjang" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:998;align-items:center;justify-content:center" onclick="if(event.target===this)tutupKeranjang()">
+ <div style="background:#fff;color:#000;padding:20px;border-radius:10px;width:92%;max-width:500px;max-height:90vh;overflow-y:auto">
+  <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ccc;padding-bottom:10px;margin-bottom:15px">
+   <h3 id="judulKeranjang">🛒 Keranjang Pesanan</h3>
+   <span onclick="tutupKeranjang()" style="cursor:pointer;font-size:24px;font-weight:bold;color:#333">✕</span>
+  </div>
+  <div id="isiKeranjang"></div>
+  <div style="margin-top:15px;padding-top:10px;border-top:1px solid #ccc">
+   <strong id="labelTotal">Total:</strong> Rp <span id="totalHarga">0</span>
+  </div>
+  <div id="tombolKeranjang" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:15px">
+   <button onclick="kosongkanKeranjang()" id="btnKosongkan" style="padding:10px 14px;background:#d32f2f;color:#fff;border:none;border-radius:6px;cursor:pointer">🗑️ Kosongkan</button>
+   <button onclick="bukaFormPesanan()" id="btnIsiData" style="padding:10px 14px;background:#0f2040;color:#fff;border:none;border-radius:6px;cursor:pointer">📝 Isi Data Pesanan</button>
+  </div>
+ </div>
+</div>
+
+<div id="latarForm" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:1001;align-items:center;justify-content:center" onclick="if(event.target===this)tutupFormPesanan()">
+ <div style="background:#fff;color:#000;padding:20px;border-radius:10px;width:92%;max-width:500px;max-height:90vh;overflow-y:auto">
+  <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ccc;padding-bottom:10px;margin-bottom:15px">
+   <h3 id="judulForm">📝 Data Pemesan</h3>
+   <span onclick="tutupFormPesanan()" style="cursor:pointer;font-size:24px;font-weight:bold;color:#333">✕</span>
+  </div>
+  <label style="display:block;margin:10px 0 5px;font-weight:bold" id="labelNama">Nama Pemesan *</label>
+  <input type="text" id="namaPemesan" style="width:100%;padding:10px;border:1px solid #ccc;border-radius:6px;margin-bottom:10px" placeholder="" id="placeholderNama">
+  <label style="display:block;margin:10px 0 5px;font-weight:bold" id="labelAlamat">Alamat / Catatan</label>
+  <textarea id="alamatPemesan" rows="3" style="width:100%;padding:10px;border:1px solid #ccc;border-radius:6px;margin-bottom:10px" placeholder="" id="placeholderAlamat"></textarea>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:15px">
+   <button onclick="tutupFormPesanan()" id="btnKembali" style="padding:10px 16px;background:#e0e0e0;border:none;border-radius:6px;cursor:pointer;font-size:15px">← Kembali</button>
+   <button onclick="kirimPesanan()" id="btnKirimWA" style="padding:10px 16px;background:#25c261;color:#fff;border:none;border-radius:6px;cursor:pointer;font-weight:bold">✅ KIRIM KE WHATSAPP</button>
+  </div>
+ </div>
+</div>
+
+<div style="max-width:720px;margin:0 auto;padding:20px 12px">
+ <h2 class="judul-halaman" id="judulKelompok">🍊 SEGAR — Sitrus</h2>
+ <p class="deskripsi-kelompok" id="deskripsiKelompok">Wangi jeruk, lemon, buah segar → cerah, bersih, menyegarkan</p>
+ <div class="kotak-diskon">
+  <p class="teks-diskon" id="teksDiskon">🏷️ <strong>INFO DISKON:</strong> Beli 2 botol sama → Diskon 5% &nbsp;|&nbsp; Beli 5 botol sama → Diskon 10%</p>
+ </div>
+ <table>
+  <thead><tr><th id="tblKode">Kode</th><th id="tblNama">Nama Varian</th><th id="tblHarga">/10 ml</th><th style="width:70px;text-align:center" id="tblBeli">Beli</th></tr></thead>
+  <tbody id="isiTabel"></tbody>
+ </table>
+ <div class="nav-halaman">
+  <button class="btn-nav" id="btnSebelumnya">←</button>
+  <span class="info-halaman" id="infoHalaman">Halaman 1 dari 1</span>
+  <button class="btn-nav" id="btnSelanjutnya">→</button>
+ </div>
+ <div class="tombol-kembali">
+  <a href="index.html" id="linkKembali">🏠 Kembali ke Beranda</a>
+ </div>
+</div>
+
+<script>
+const dataProduk = [
+  {kode:"A 0302", nama:"Vic Shel", harga:38000, atas_id:"Jeruk manis, segar", tengah_id:"Nanas, melati", bawah_id:"Teratai, lembut", atas_en:"Sweet orange, fresh", tengah_en:"Pineapple, jasmine", bawah_en:"Lotus, soft"},
+  {kode:"A 0601", nama:"Narita", harga:30000, atas_id:"Jeruk nipis, segar", tengah_id:"Teh hijau, melati", bawah_id:"Bunga, bersih", atas_en:"Lime, fresh", tengah_en:"Green tea, jasmine", bawah_en:"Flower, clean"},
+  {kode:"A 0602", nama:"Rainbow", harga:30000, atas_id:"Jeruk, buah segar", tengah_id:"Buah campur, manis", bawah_id:"Bunga, musky", atas_en:"Orange, fresh fruit", tengah_en:"Mixed fruit, sweet", bawah_en:"Flower, musky"},
+  {kode:"A 1003", nama:"Kenzo Bali", harga:34000, atas_id:"Jeruk, kelapa muda", tengah_id:"Bunga tropis", bawah_id:"Vanila, hangat", atas_en:"Orange, young coconut", tengah_en:"Tropical flower", bawah_en:"Vanilla, warm"},
+  {kode:"A 1402", nama:"CK Everyone", harga:34000, atas_id:"Jeruk lemon, segar", tengah_id:"Teh putih, bunga", bawah_id:"Kayu, bersih", atas_en:"Lemon, fresh", tengah_en:"White tea, flower", bawah_en:"Wood, clean"},
+  {kode:"A 0605", nama:"L'Imperatrice", harga:45000, atas_id:"Jeruk nipis, segar", tengah_id:"Melon, kiwi", bawah_id:"Keserasian, lembut", atas_en:"Lime, fresh", tengah_en:"Melon, kiwi", bawah_en:"Harmony, soft"},
+  {kode:"B 0702", nama:"Clinic Happy", harga:34000, atas_id:"Jeruk segar, manis", tengah_id:"Bunga putih, melati", bawah_id:"Kapas, bersih", atas_en:"Fresh orange, sweet", tengah_en:"White flower, jasmine", bawah_en:"Cotton, clean"},
+  {kode:"B 0904", nama:"Blue Chance", harga:42000, atas_id:"Jeruk, lemon", tengah_id:"Melati, sedap malam", bawah_id:"Kayu, lembut", atas_en:"Orange, lemon", tengah_en:"Jasmine, tuberose", bawah_en:"Wood, soft"},
+  {kode:"B 1601", nama:"Fiesta Bille", harga:42000, atas_id:"Jeruk, buah cerah", tengah_id:"Bunga, manisan", bawah_id:"Gula, lembut", atas_en:"Orange, bright fruit", tengah_en:"Flower, candied", bawah_en:"Sugar, soft"},
+  {kode:"A 0104", nama:"Aqua Fresh", harga:30000, atas_id:"Jeruk laut, segar", tengah_id:"Melati, air", bawah_id:"Bersih, ringan", atas_en:"Sea orange, fresh", tengah_en:"Jasmine, water", bawah_en:"Clean, light"},
+  {kode:"A 0201", nama:"Citrus Bloom", harga:30000, atas_id:"Jeruk, bunga segar", tengah_id:"Bunga putih", bawah_id:"Musky, lembut", atas_en:"Orange, fresh flower", tengah_en:"White flower", bawah_en:"Musky, soft"}
+];
+
+const teks = {
+  id:{
+    judulKelompok:"🍊 SEGAR — Sitrus",deskripsiKelompok:"Wangi jeruk, lemon, buah segar → cerah, bersih, menyegarkan",
+    infoDiskon:"🏷️ <strong>INFO DISKON:</strong> Beli 2 botol sama → Diskon 5% &nbsp;|&nbsp; Beli 5 botol sama → Diskon 10%",
+    tblKode:"Kode",tblNama:"Nama Varian",tblHarga:"/10 ml",tblBeli:"Beli",
+    labelAtas:"🌿 Atas:",labelTengah:"🔥 Tengah:",labelBawah:"🪵 Bawah:",tutup:"TUTUP",
+    judulKeranjang:"🛒 Keranjang Pesanan",labelTotal:"Total:",
+    btnKosongkan:"🗑️ Kosongkan",btnIsiData:"📝 Isi Data Pesanan",
+    judulForm:"📝 Data Pemesan",labelNama:"Nama Pemesan *",labelAlamat:"Alamat / Catatan",
+    placeholderNama:"Tulis nama lengkap...",placeholderAlamat:"Alamat atau catatan tambahan...",
+    btnKembali:"← Kembali",btnKirimWA:"✅ KIRIM KE WHATSAPP",
+    linkKembali:"🏠 Kembali ke Beranda",menuJudul:"📋 DAFTAR VARIAN",menuBeranda:"🏠 BERANDA",
+    pesanDitambah:"✅ Ditambahkan: ",keranjangKosong:"🛒 Keranjang masih kosong",
+    isiNama:"⚠️ Silakan isi Nama Pemesan",yakinKosong:"Yakin mengosongkan keranjang?",
+    halaman:"Halaman",dari:"dari",
+    pesanWA:"PESANAN ATLANTIC PERFUME%0A====================%0ANama: ",
+    alamatWA:"%0AAlamat/Catatan: ",totalWA:"%0A====================%0ATOTAL: Rp "
+  },
+  en:{
+    judulKelompok:"🍊 FRESH — Citrus",deskripsiKelompok:"Orange, lemon, fresh fruit → bright, clean, refreshing",
+    infoDiskon:"🏷️ <strong>DISCOUNT:</strong> Buy 2 same → 5% Off &nbsp;|&nbsp; Buy 5 same → 10% Off",
+    tblKode:"Code",tblNama:"Product Name",tblHarga:"/10 ml",tblBeli:"Buy",
+    labelAtas:"🌿 Top:",labelTengah:"🔥 Heart:",labelBawah:"🪵 Base:",tutup:"CLOSE",
+    judulKeranjang:"🛒 Order Cart",labelTotal:"Total:",
+    btnKosongkan:"🗑️ Empty Cart",btnIsiData:"📝 Fill Order Info",
+    judulForm:"📝 Buyer Information",labelNama:"Full Name *",labelAlamat:"Address / Note",
+    placeholderNama:"Enter your full name...",placeholderAlamat:"Address or additional note...",
+    btnKembali:"← Back",btnKirimWA:"✅ SEND TO WHATSAPP",
+    linkKembali:"🏠 Back to Home",menuJudul:"📋 PRODUCT LIST",menuBeranda:"🏠 HOME",
+    pesanDitambah:"✅ Added: ",keranjangKosong:"🛒 Cart is empty",
+    isiNama:"⚠️ Please enter your Full Name",yakinKosong:"Are you sure to empty cart?",
+    halaman:"Page",dari:"of",
+    pesanWA:"ATLANTIC PERFUME ORDER%0A====================%0AName: ",
+    alamatWA:"%0AAddress/Note: ",totalWA:"%0A====================%0ATOTAL: Rp "
+  }
+};
+
+let bahasaSekarang='id',keranjang=[],produkTerpilih=null;
+const NOMOR_WA_KASIR="6285141281833";
+
+function perbaruiSemuaTeks(){
+  const t=teks[bahasaSekarang];
+  document.getElementById('judulKelompok').textContent=t.judulKelompok;
+  document.getElementById('deskripsiKelompok').textContent=t.deskripsiKelompok;
+  document.getElementById('teksDiskon').innerHTML=t.infoDiskon;
+  document.getElementById('tblKode').textContent=t.tblKode;
+  document.getElementById('tblNama').textContent=t.tblNama;
+  document.getElementById('tblHarga').textContent=t.tblHarga;
+  document.getElementById('tblBeli').textContent=t.tblBeli;
+  document.getElementById('labelAtas').textContent=t.labelAtas;
+  document.getElementById('labelTengah').textContent=t.labelTengah;
+  document.getElementById('labelBawah').textContent=t.labelBawah;
+  document.getElementById('tombolTutup').textContent=t.tutup;
+  document.getElementById('judulKeranjang').textContent=t.judulKeranjang;
+  document.getElementById('labelTotal').textContent=t.labelTotal;
+  document.getElementById('btnKosongkan').textContent=t.btnKosongkan;
+  document.getElementById('btnIsiData').textContent=t.btnIsiData;
+  document.getElementById('judulForm').textContent=t.judulForm;
+  document.getElementById('labelNama').textContent=t.labelNama;
+  document.getElementById('labelAlamat').textContent=t.labelAlamat;
+  document.getElementById('placeholderNama').placeholder=t.placeholderNama;
+  document.getElementById('placeholderAlamat').placeholder=t.placeholderAlamat;
+  document.getElementById('btnKembali').textContent=t.btnKembali;
+  document.getElementById('btnKirimWA').textContent=t.btnKirimWA;
+  document.getElementById('linkKembali').textContent=t.linkKembali;
+  document.getElementById('menuJudul').textContent=t.menuJudul;
+  document.getElementById('menuBeranda').textContent=t.menuBeranda;
+  document.getElementById('infoHalaman').textContent=t.halaman+" 1 "+t.dari+" 1";
+}
+
+function tampilkanTabel(){
+  let html='';
+  dataProduk.forEach((p,i)=>{
+    html+='<tr class="baris-produk" onclick="bukaDetailProduk('+i+')">'+
+      '<td>'+p.kode+'</td>'+
+      '<td>'+p.nama+'</td>'+
+      '<td>'+p.harga.toLocaleString('id-ID')+'</td>'+
+      '<td style="text-align:center" onclick="event.stopPropagation()"><button class="btn-beli" onclick="tambahKeKeranjang('+i+')">+</button></td>'+
+    '</tr>';
+  });
+  document.getElementById('isiTabel').innerHTML=html;
+}
+
+function tambahKeKeranjang(i){
+  const p=dataProduk[i];
+  keranjang.push({kode:p.kode,nama:p.nama,harga:p.harga});
+  simpanKeranjang();tampilkanAngkaKeranjang();
+  alert(teks[bahasaSekarang].pesanDitambah+p.nama);
+}
+function tampilkanAngkaKeranjang(){document.getElementById('angkaKeranjang').textContent=keranjang.length;}
+function bukaKeranjang(){
+  if(keranjang.length===0){alert(teks[bahasaSekarang].keranjangKosong);return;}
+  let html='',total=0;
+  keranjang.forEach((item,i)=>{
+    html+='<div class="item-keranjang"><div><strong>'+item.kode+'</strong><br>'+item.nama+'<br>Rp '+item.harga.toLocaleString('id-ID')+'</div><span class="hapus-item" onclick="hapusDariKeranjang('+i+')">✕</span></div>';
+    total+=item.harga;
+  });
+  document.getElementById('isiKeranjang').innerHTML=html;
+  document.getElementById('totalHarga').textContent=total.toLocaleString('id-ID');
+  document.getElementById('latarKeranjang').style.display='flex';
+}
+function tutupKeranjang(){document.getElementById('latarKeranjang').style.display='none';}
+function hapusDariKeranjang(i){keranjang.splice(i,1);simpanKeranjang();tampilkanAngkaKeranjang();bukaKeranjang();}
+function kosongkanKeranjang(){
+  if(confirm(teks[bahasaSekarang].yakinKosong)){keranjang=[];simpanKeranjang();tampilkanAngkaKeranjang();tutupKeranjang();}
+}
+function bukaFormPesanan(){tutupKeranjang();document.getElementById('latarForm').style.display='flex';}
+function tutupFormPesanan(){document.getElementById('latarForm').style.display='none';}
+function kirimPesanan(){
+  const t=teks[bahasaSekarang];
+  const nama=document.getElementById('namaPemesan').value.trim();
+  const alamat=document.getElementById('alamatPemesan').value.trim();
+  if(!nama){alert(t.isiNama);return;}
+  let teksWA=t.pesanWA+encodeURIComponent(nama);
+  if(alamat)teksWA+=t.alamatWA+encodeURIComponent(alamat);
+  let total=0;
+  keranjang.forEach(item=>{
+    teksWA+="%0A• "+item.kode+" - "+encodeURIComponent(item.nama)+" : Rp "+item.harga.toLocaleString('id-ID');
+    total+=item.harga;
+  });
+  teksWA+=t.totalWA+total.toLocaleString('id-ID');
+  window.open("https://wa.me/"+NOMOR_WA_KASIR+"?text="+teksWA,"_blank");
+  keranjang=[];simpanKeranjang();tampilkanAngkaKeranjang();tutupFormPesanan();
+}
+function simpanKeranjang(){localStorage.setItem('keranjang',JSON.stringify(keranjang));}
+function muatKeranjang(){const s=localStorage.getItem('keranjang');if(s)keranjang=JSON.parse(s);tampilkanAngkaKeranjang();}
+function bukaDetailProduk(i){
+  produkTerpilih=dataProduk[i];
+  document.getElementById('namaProdukModal').textContent=produkTerpilih.nama;
+  perbaruiAroma();document.getElementById('modalAroma').style.display='flex';
+}
+function perbaruiAroma(){
+  if(!produkTerpilih)return;
+  document.getElementById('aromaAtas').textContent=bahasaSekarang==='id'?produkTerpilih.atas_id:produkTerpilih.atas_en;
+  document.getElementById('aromaTengah').textContent=bahasaSekarang==='id'?produkTerpilih.tengah_id:produkTerpilih.tengah_en;
+  document.getElementById('aromaBawah').textContent=bahasaSekarang==='id'?produkTerpilih.bawah_id:produkTerpilih.bawah_en;
+}
+function tutupAroma(){document.getElementById('modalAroma').style.display='none';}
+function ubahBahasa(kode){
+  bahasaSekarang=kode;
+  document.getElementById('btn-id').style.background=kode==='id'?'#ffd70040':'transparent';
+  document.getElementById('btn-id').style.color=kode==='id'?'#fff':'#ccc';
+  document.getElementById('btn-en').style.background=kode==='en'?'#ffd70040':'transparent';
+  document.getElementById('btn-en').style.color=kode==='en'?'#fff':'#ccc';
+  perbaruiSemuaTeks();if(produkTerpilih)perbaruiAroma();
+  localStorage.setItem('bahasa',kode);
+}
+function bukaMenu(){document.getElementById('menuLatar').style.display='block';document.getElementById('menuKotak').style.right='0';}
+function tutupMenu(){document.getElementById('menuLatar').style.display='none';document.getElementById('menuKotak').style.right='-300px';}
+
+muatKeranjang();tampilkanTabel();
+const bahasaTersimpan=localStorage.getItem('bahasa');
+if(bahasaTersimpan)ubahBahasa(bahasaTersimpan);else perbaruiSemuaTeks();
+</script>
+</body>
+</html>
