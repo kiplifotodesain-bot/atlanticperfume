@@ -133,6 +133,7 @@ td{padding:7px 6px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:14px
  </div>
 </div>
 
+<script src="fungsi.js"></script>
 <script>
 // Terjemahan khusus halaman ini
 const teksHalamanIni = {
@@ -140,20 +141,30 @@ const teksHalamanIni = {
   en: { judul: "🍊 FRESH — Citrus", deskripsi: "Orange, lemon, fresh fruit → bright, clean, refreshing" }
 };
 
-// Simpan fungsi asli dari fungsi.js
-const fungsiAsliUbahBahasa = window.ubahBahasa;
+// TUNGGU SAMPAI SEMUA DIMUAT → BARU HUBUNGKAN FUNGSINYA
+window.onload = function() {
+  // Simpan fungsi asli
+  const fungsiAsli = window.ubahBahasa;
 
-// Ganti fungsi ubahBahasa supaya ikut mengubah judul halaman ini
-window.ubahBahasa = function(kode) {
-  // Ubah judul & deskripsi halaman ini
-  if (teksHalamanIni[kode]) {
-    document.getElementById('judulKelompok').textContent = teksHalamanIni[kode].judul;
-    document.getElementById('deskripsiKelompok').textContent = teksHalamanIni[kode].deskripsi;
+  // Ganti fungsi ubahBahasa
+  window.ubahBahasa = function(kode) {
+    // Ubah judul & deskripsi halaman ini
+    if (teksHalamanIni[kode]) {
+      document.getElementById('judulKelompok').textContent = teksHalamanIni[kode].judul;
+      document.getElementById('deskripsiKelompok').textContent = teksHalamanIni[kode].deskripsi;
+    }
+    // Jalankan fungsi asli dari fungsi.js
+    if (fungsiAsli) fungsiAsli(kode);
+  };
+
+  // Gunakan bahasa yang tersimpan saat halaman dibuka
+  const tersimpan = localStorage.getItem('bahasa');
+  if (tersimpan) {
+    window.ubahBahasa(tersimpan);
   }
-  // Jalankan fungsi asli untuk ubah menu & bagian lain
-  if (fungsiAsliUbahBahasa) fungsiAsliUbahBahasa(kode);
 };
 
+// === DATA PRODUK ===
 const dataHalaman = [
  [
   {kode:"A 0302", nama:"Vic Shel", atas:"Jeruk manis, segar", tengah:"Nanas, melati", bawah:"Teratai, lembut", harga:38000},
@@ -225,15 +236,8 @@ function halamanSelanjutnya(){
   if(halamanSekarang < dataHalaman.length-1){ halamanSekarang++; tampilHalaman(); window.scrollTo({top:0,behavior:'smooth'}); }
 }
 
-// Saat halaman dimuat → gunakan bahasa yang tersimpan
-window.addEventListener('load', function(){
-  const tersimpan = localStorage.getItem('bahasa');
-  if(tersimpan) ubahBahasa(tersimpan);
-});
-
 tampilHalaman();
 </script>
-<script src="fungsi.js"></script>
 </body>
-   </html>
-    
+ </html>
+   
